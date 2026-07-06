@@ -13,7 +13,7 @@ img{max-width:100%;display:block}
 /* Nav */
 nav{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:100}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px;position:relative}
-.brand{display:flex;align-items:center;text-decoration:none}
+.brand{display:flex;align-items:center;text-decoration:none;min-height:44px}
 .brand img{height:36px;width:auto;display:block}
 .foot-logo{height:28px;width:auto;display:block;filter:brightness(0) invert(1)}
 .nav-links{display:flex;align-items:center}
@@ -28,7 +28,7 @@ nav{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(
 .nav-dd-menu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 30px rgba(17,20,23,.1);padding:8px;min-width:220px}
 .nav-dd-menu a{display:block;margin:0;padding:10px 12px;border-radius:6px;font-size:.9rem;color:var(--ink)}
 .nav-dd-menu a:hover{background:var(--bg-soft);color:var(--green)}
-.nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:8px;margin-left:12px}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:11px;margin-left:12px;width:44px;height:44px;align-items:center;justify-content:center}
 .nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;transition:transform .2s,opacity .2s}
 
 /* Hero */
@@ -140,10 +140,11 @@ h2{font-size:2rem;margin-bottom:14px;letter-spacing:-.4px}
 .visit-panel p{color:#aab4bd;font-size:.92rem;max-width:440px}
 
 footer{background:var(--dark);color:#aab4bd;padding:30px 0;font-size:.85rem}
-.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center}
 .foot b{color:#fff}
 .foot b em{color:var(--green);font-style:normal}
-.foot-links a{color:#aab4bd;text-decoration:none;margin-left:16px}
+.foot-links{display:flex;flex-wrap:wrap}
+.foot-links a{color:#aab4bd;text-decoration:none;margin-left:16px;display:inline-flex;align-items:center;min-height:44px}
 .foot-links a:hover{color:#fff}
 
 @media(max-width:760px){
@@ -164,4 +165,13 @@ footer{background:var(--dark);color:#aab4bd;padding:30px 0;font-size:.85rem}
   .nav-dd-menu a{border-bottom:none;padding:12px 4px}
 
   .visit-panel{padding:28px;flex-direction:column;align-items:stretch;text-align:center}
+
+  /* Touch targets: widen tappable area for inline/footer/contact links without changing desktop's compact look */
+  .foot-links a{min-height:44px;padding:4px 0}
+  .foot{flex-direction:column;align-items:flex-start;gap:16px}
+  .foot-links{flex-direction:column;align-items:flex-start;gap:2px}
+  .foot-links a{margin-left:0}
+  .c-item a,.sec-sub a{display:inline-flex;align-items:center;min-height:44px;padding:2px 0}
+  .card a.btn.ghost{min-height:44px;display:flex;align-items:center;justify-content:center}
+  .card p a{display:inline-block;padding:12px 0;margin:-12px 0}
 }

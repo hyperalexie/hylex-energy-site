@@ -59,13 +59,17 @@
   .sp-cta-band h2{font-size:2rem;max-width:none}
   .sp-foot{background:var(--sp-dark);color:#9a9890;padding:28px 0;font-size:.85rem}
   .sp-foot .sp-wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
-  .sp-foot a{color:#9a9890;text-decoration:none;margin-left:16px}
+  .sp-foot a{color:#9a9890;text-decoration:none;margin-left:16px;display:inline-flex;align-items:center;min-height:44px}
   .sp-foot a:hover{color:#fff}
+  .sp-brand{min-height:44px}
   @media(max-width:760px){
     .sp-nav-links{gap:14px;font-size:.82rem}
     .sp-nav-links a:not(.sp-btn){display:none}
     .sp-hero{padding:56px 0 40px}
     .sp-mock-row{flex-direction:column;align-items:flex-start;gap:6px}
+    .sp-foot .sp-wrap{flex-direction:column;align-items:flex-start;gap:4px}
+    .sp-foot > .sp-wrap > div:last-child{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+    .sp-foot a{margin-left:0}
   }
 </style>
 </head>
