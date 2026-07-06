@@ -3,174 +3,172 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hylex Energy Consulting — Fabrication, Flow Control & Oilfield Solutions</title>
-<meta name="description" content="Hylex Energy Consulting represents leading manufacturers in fabrication, valves, pumps and flow control, supplies oilfield completion equipment, and builds software for the energy sector.">
-<style>
-  :root{
-    --green:#00A651; --green-dark:#008a44; --ink:#111417; --gray:#5a6470;
-    --bg:#ffffff; --bg-soft:#f5f8f6; --line:#e3e8e5;
-    --orange:#F0A24B; --orange-soft:#fbe3c8;
-    --dark:#15181c;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
-  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
-  /* Nav */
-  nav{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
-  .brand{display:flex;flex-direction:column;line-height:1.05;text-decoration:none}
-  .brand .top{font-size:1.3rem;font-weight:800;color:var(--ink);letter-spacing:-.3px}
-  .brand .top em{color:var(--green);font-style:normal}
-  .brand .sub{font-size:.72rem;font-weight:700;color:var(--ink);letter-spacing:1.2px;text-transform:none;align-self:flex-end}
-  .nav-links a{color:var(--gray);text-decoration:none;margin-left:28px;font-size:.95rem;font-weight:500;transition:color .2s}
-  .nav-links a:hover{color:var(--green)}
-  .nav-links a.cta{color:#fff;background:var(--green);padding:9px 18px;border-radius:6px}
-  .nav-links a.cta:hover{background:var(--green-dark);color:#fff}
-  /* Hero */
-  header{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--bg-soft) 100%);border-bottom:1px solid var(--line);padding:104px 0 92px}
-  .swash{position:absolute;top:-40px;right:6%;width:120px;height:420px;transform:skewX(-28deg);background:linear-gradient(180deg,var(--orange-soft),rgba(240,162,75,.55));border-radius:8px}
-  .swash.g{right:calc(6% - 90px);top:60px;height:380px;background:linear-gradient(180deg,rgba(0,166,81,.28),rgba(0,166,81,.08))}
-  .kicker{color:var(--green);font-weight:700;letter-spacing:2.5px;text-transform:uppercase;font-size:.8rem;margin-bottom:18px}
-  h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.12;font-weight:800;max-width:780px;letter-spacing:-.5px}
-  .sub-line{color:var(--gray);font-size:1.15rem;max-width:620px;margin:22px 0 36px}
-  .btn{display:inline-block;background:var(--green);color:#fff;font-weight:600;padding:14px 30px;border-radius:6px;text-decoration:none;transition:background .2s}
-  .btn:hover{background:var(--green-dark)}
-  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);margin-left:14px}
-  .btn.ghost:hover{border-color:var(--green);color:var(--green);background:transparent}
-  /* Sections */
-  section{padding:88px 0}
-  .sec-kicker{color:var(--green);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.75rem;margin-bottom:10px}
-  h2{font-size:2rem;margin-bottom:14px;letter-spacing:-.4px}
-  .sec-sub{color:var(--gray);max-width:640px;margin-bottom:48px}
-  /* Division cards */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px;transition:transform .2s,box-shadow .2s,border-color .2s;display:flex;flex-direction:column}
-  .card:hover{transform:translateY(-4px);border-color:var(--green);box-shadow:0 10px 30px rgba(17,20,23,.07)}
-  .logo-chip{height:74px;display:flex;align-items:center;margin-bottom:18px}
-  .logo-chip img{max-height:70px;max-width:170px;border-radius:8px}
-  .logo-chip .icon{width:54px;height:54px;border-radius:10px;background:rgba(0,166,81,.1);display:flex;align-items:center;justify-content:center;font-size:1.6rem}
-  .scopeplex{background:var(--dark);border-radius:8px;padding:10px 16px;display:inline-flex;align-items:center;gap:10px}
-  .scopeplex .bracket{color:var(--orange);font-weight:800;font-size:1.35rem;font-family:monospace}
-  .scopeplex .word{font-weight:800;font-size:1.15rem;color:#fff;font-family:'Segoe UI',sans-serif}
-  .scopeplex .word span{color:var(--orange)}
-  .card h3{font-size:1.15rem;margin-bottom:10px}
-  .card p{color:var(--gray);font-size:.95rem;flex:1}
-  .card .tag{display:inline-block;margin-top:16px;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green)}
-  /* About */
-  .about{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-  .point{display:flex;gap:14px;margin-bottom:22px}
-  .point .dot{color:var(--green);font-weight:700;margin-top:2px}
-  .point h4{font-size:1rem;margin-bottom:4px}
-  .point p{color:var(--gray);font-size:.92rem}
-  /* Contact */
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-  .c-box{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:36px}
-  .c-item{margin-bottom:24px}
-  .c-item:last-child{margin-bottom:0}
-  .c-item .label{font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:4px}
-  .c-item a{color:var(--ink);text-decoration:none;font-size:1.15rem;font-weight:600}
-  .c-item a:hover{color:var(--green)}
-  footer{background:var(--dark);color:#aab4bd;padding:30px 0;font-size:.85rem}
-  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-  .foot b{color:#fff}
-  .foot b em{color:var(--green);font-style:normal}
-  @media(max-width:760px){
-    .about-grid,.contact-grid{grid-template-columns:1fr}
-    .nav-links a:not(.cta){display:none}
-    header{padding:70px 0 60px}
-    .swash{right:-30px}.swash.g{right:40px}
-  }
-</style>
+<title>Hylex Energy Consulting — Integrated Industrial Project Solutions</title>
+<meta name="description" content="Hylex Energy Consulting is an integrated industrial project solution provider — engineering, procurement, fabrication, oilfield solutions, and project intelligence software, delivered as one accountable partner.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2315181c'/%3E%3Ctext x='50' y='68' font-size='58' font-family='Arial,sans-serif' font-weight='800' fill='%2300A651' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Hylex Energy Consulting — Integrated Industrial Project Solutions">
+<meta property="og:description" content="Engineering, procurement, fabrication, oilfield solutions, and project intelligence — one accountable partner across the full project lifecycle.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.hylexenergy.com">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hylex Energy Consulting">
+<meta name="twitter:description" content="Integrated industrial project solutions — engineering, procurement, fabrication, oilfield solutions, project intelligence.">
+<link rel="stylesheet" href="assets/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Hylex Energy Consulting",
+  "url": "https://www.hylexenergy.com",
+  "email": "amac@hylexenergy.com",
+  "sameAs": [
+    "https://fabflowcontrol.com",
+    "https://scopeplex.app"
+  ]
+}
+</script>
 </head>
 <body>
 
 <nav>
   <div class="wrap nav-inner">
-    <a class="brand" href="#">
+    <a class="brand" href="/">
       <span class="top"><em>Hy</em>lex Energy</span>
       <span class="sub">Consulting</span>
     </a>
     <div class="nav-links">
-      <a href="#divisions">What We Do</a>
-      <a href="#about">Why Hylex</a>
-      <a class="cta" href="#contact">Contact</a>
+      <div class="nav-dd">
+        <span>Capabilities ▾</span>
+        <div class="nav-dd-menu">
+          <a href="/engineering">Engineering</a>
+          <a href="/procurement">Procurement</a>
+          <a href="/fabrication">Fabrication</a>
+          <a href="/oilfield">Oilfield Solutions</a>
+          <a href="/project-intelligence">Project Intelligence</a>
+        </div>
+      </div>
+      <a href="/about">About</a>
+      <a class="cta" href="/contact">Contact</a>
     </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<header>
+<header class="hero">
   <div class="swash"></div>
   <div class="swash g"></div>
   <div class="wrap" style="position:relative">
     <div class="kicker">Hylex Energy Consulting</div>
-    <h1>One partner for fabrication, flow control &amp; oilfield solutions.</h1>
-    <p class="sub-line">Hylex Energy Consulting represents leading manufacturers and delivers equipment, parts, and software to the energy industry — so you deal with one accountable partner, not five vendors.</p>
-    <a class="btn" href="#contact">Get in Touch</a>
-    <a class="btn ghost" href="#divisions">Explore Our Divisions</a>
+    <h1>Global Fabrication · Procurement · Engineering · Project Delivery.</h1>
+    <p class="sub-line">Hylex Energy Consulting is an integrated industrial project solution provider — one accountable partner across the full project lifecycle, from early engineering through fabrication, procurement, oilfield-specific technology, and the software that tracks it all.</p>
+    <div class="btn-row">
+      <a class="btn" href="/contact">Get in Touch</a>
+      <a class="btn ghost" href="#capabilities">Explore Our Capabilities</a>
+    </div>
   </div>
 </header>
 
-<section id="divisions">
+<section id="capabilities">
   <div class="wrap">
     <div class="sec-kicker">What We Do</div>
-    <h2>Four divisions, one standard.</h2>
-    <p class="sec-sub">From fabrication yards to downhole completions to field software, every Hylex division is built on the same principle: dependable supply and straight answers.</p>
-    <div class="grid">
+    <h2>Five capabilities, one standard.</h2>
+    <p class="sec-sub">From early engineering to fabrication yards to downhole completions to field software — every Hylex capability is built on the same principle: dependable delivery and straight answers.</p>
+    <div class="grid cols-5">
       <div class="card">
-        <div class="logo-chip"><img src="usp-logo.png" alt="USP — Tianjin Wanlite Construction Steel Products"></div>
-        <h3>Fabrication Services</h3>
-        <p>Authorized representative for <strong>USP</strong> (Tianjin Wanlite Construction Steel Products), delivering custom steel fabrication for energy and industrial projects.</p>
-        <span class="tag">Representing USP</span>
+        <div class="logo-chip"><div class="icon">⚙️</div></div>
+        <h3>Engineering</h3>
+        <p>FEED, 3D modeling and digital twin integration, detailed design and shop drawings — engineering that bridges vision and execution.</p>
+        <span class="tag">Design &amp; Methodology</span>
+        <a class="btn ghost" style="margin:16px 0 0;text-align:center" href="/engineering">Learn more →</a>
       </div>
       <div class="card">
-        <div class="logo-chip"><img src="fabflow-logo.png" alt="Fabflow Control"></div>
-        <h3>Flow Control</h3>
-        <p>Representing <strong>Fabflow Control</strong> for valves, pumps, and flow control products — specified, sourced, and supported for demanding process applications.</p>
-        <span class="tag">Representing Fabflow</span>
+        <div class="logo-chip"><div class="icon">🔧</div></div>
+        <h3>Procurement</h3>
+        <p>Global sourcing and vendor qualification — today led by <strong>Fabflow Control</strong>, our flow-control line for valves and pumps.</p>
+        <span class="tag">Flow Control &amp; Beyond</span>
+        <a class="btn ghost" style="margin:16px 0 0;text-align:center" href="/procurement">Learn more →</a>
+      </div>
+      <div class="card">
+        <div class="logo-chip"><div class="icon">🏭</div></div>
+        <h3>Fabrication</h3>
+        <p>Global fabrication capacity across three hubs — structural steel, pipe spooling, pressure vessels, and turnkey skid systems.</p>
+        <span class="tag">China · Vietnam · Mexico</span>
+        <a class="btn ghost" style="margin:16px 0 0;text-align:center" href="/fabrication">Learn more →</a>
       </div>
       <div class="card">
         <div class="logo-chip"><div class="icon">🛢️</div></div>
-        <h3>Oilfield Equipment &amp; Parts</h3>
-        <p>Completion and downhole equipment, including <strong>dissolvable bridge plugs</strong> and related oilfield parts — sourced through proven manufacturing partners.</p>
-        <span class="tag">Completions &amp; Downhole</span>
+        <h3>Oilfield Solutions</h3>
+        <p>Water-treatment and separation technology, plus dissolvable downhole tools — completions technology built for demanding wells.</p>
+        <span class="tag">Downhole &amp; Water Management</span>
+        <a class="btn ghost" style="margin:16px 0 0;text-align:center" href="/oilfield">Learn more →</a>
       </div>
       <div class="card">
         <div class="logo-chip"><div class="scopeplex"><span class="bracket">[·]</span><span class="word">Scope<span>Plex</span></span></div></div>
-        <h3>ScopePlex Software</h3>
-        <p>Our software division. <strong>ScopePlex</strong> brings modern digital tooling to industrial operations — built and operated under the Hylex umbrella.</p>
+        <h3>Project Intelligence</h3>
+        <p>Our software capability. <strong>ScopePlex</strong> monitors public records to surface early-stage industrial and energy projects for BD teams.</p>
         <span class="tag">Software &amp; Technology</span>
+        <a class="btn ghost" style="margin:16px 0 0;text-align:center" href="/project-intelligence">Learn more →</a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="about" class="about">
+<section class="soft" id="presence">
+  <div class="wrap">
+    <div class="sec-kicker">Global Presence</div>
+    <h2>Fabrication and engineering hubs, worldwide.</h2>
+    <p class="sec-sub">Strategic hubs across North America and Asia mean Hylex delivers seamless project execution — anywhere your project demands. <a href="/about" style="color:var(--green);font-weight:600;text-decoration:none">See the full picture on our About page →</a></p>
+    <div class="grid cols-2">
+      <div class="hub-card">
+        <div class="hub-loc">Houston, TX</div>
+        <h4>Global Support Hub</h4>
+        <ul><li>Engineering excellence &amp; procurement intelligence</li><li>Project governance &amp; client interface</li><li>QA, inspection &amp; audit support</li></ul>
+      </div>
+      <div class="hub-card">
+        <div class="hub-loc">China</div>
+        <h4>Fabrication Hub</h4>
+        <ul><li>Full fabrication capability</li><li>Procurement support</li><li>Engineering support</li></ul>
+      </div>
+      <div class="hub-card">
+        <div class="hub-loc">Vietnam</div>
+        <h4>Fabrication Hub</h4>
+        <ul><li>Full fabrication capability</li><li>Tariff-resilient alternative supply</li><li>Deep-water load-out access</li></ul>
+      </div>
+      <div class="hub-card">
+        <div class="hub-loc">Monterrey, Mexico</div>
+        <h4>Fabrication Hub</h4>
+        <ul><li>Pipe spooling fabrication</li><li>Nearshore USMCA advantage</li><li>1.5 hrs from Texas border</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about-teaser">
   <div class="wrap about-grid">
     <div>
       <div class="sec-kicker">Why Hylex</div>
       <h2>A single point of accountability.</h2>
-      <p class="sec-sub" style="margin-bottom:0">Energy projects fail on coordination, not intent. Hylex Energy Consulting exists so operators, EPCs, and service companies can source fabrication, flow control, and oilfield equipment through one relationship they trust.</p>
+      <p class="sec-sub" style="margin-bottom:0">Energy and industrial projects fail on coordination, not intent. Hylex Energy Consulting exists so operators, EPCs, and service companies can source engineering, procurement, fabrication, and oilfield technology through one relationship they trust. <a href="/about" style="color:var(--green);font-weight:600;text-decoration:none">Read our full story →</a></p>
     </div>
     <div>
-      <div class="point"><span class="dot">■</span><div><h4>Manufacturer-direct relationships</h4><p>We represent our partners directly — factory pricing, factory support, no middle layers.</p></div></div>
-      <div class="point"><span class="dot">■</span><div><h4>Cross-division capability</h4><p>Fabrication, valves and pumps, downhole equipment, and software under one roof.</p></div></div>
+      <div class="point"><span class="dot">■</span><div><h4>Manufacturer-direct relationships</h4><p>We work directly with our fabrication and technology partners — factory pricing, factory support, no middle layers.</p></div></div>
+      <div class="point"><span class="dot">■</span><div><h4>Cross-capability delivery</h4><p>Engineering, procurement, fabrication, oilfield technology, and software under one roof.</p></div></div>
       <div class="point"><span class="dot">■</span><div><h4>Responsive by design</h4><p>You work with a principal, not a ticket queue. Questions get answered the same day.</p></div></div>
     </div>
   </div>
 </section>
 
-<section id="contact">
+<section class="soft" id="contact-teaser">
   <div class="wrap contact-grid">
     <div>
       <div class="sec-kicker">Contact</div>
       <h2>Let's talk about your project.</h2>
-      <p class="sec-sub" style="margin-bottom:0">Whether you need a fabrication quote, flow control specification, or completion equipment pricing — reach out directly.</p>
+      <p class="sec-sub" style="margin-bottom:0">Whether you need an engineering study, a procurement quote, a fabrication scope, or an oilfield technology consult — reach out directly.</p>
     </div>
     <div class="c-box">
       <div class="c-item"><div class="label">Email</div><a href="mailto:amac@hylexenergy.com">amac@hylexenergy.com</a></div>
-      <div class="c-item"><div class="label">Web</div><a href="https://hylexenergy.com">hylexenergy.com</a></div>
+      <div class="c-item"><div class="label">Phone (US)</div><a href="tel:+16099170633">+1 (609) 917-0633</a></div>
+      <div class="c-item"><a href="/contact" class="btn" style="margin-top:6px">Full Contact Details →</a></div>
     </div>
   </div>
 </section>
@@ -178,9 +176,15 @@
 <footer>
   <div class="wrap foot">
     <div><b><em>Hy</em>lex Energy Consulting</b> · © 2026 · All rights reserved.</div>
-    <div>Fabrication · Flow Control · Oilfield Equipment · ScopePlex</div>
+    <div class="foot-links">
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/fabrication">Fabrication</a>
+      <a href="/oilfield">Oilfield</a>
+    </div>
   </div>
 </footer>
 
+<script src="assets/nav.js"></script>
 </body>
 </html>

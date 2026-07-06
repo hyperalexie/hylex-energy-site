@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Hylex Energy Consulting</title>
+<meta name="description" content="Contact Hylex Energy Consulting for engineering, procurement, fabrication, or oilfield technology enquiries.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2315181c'/%3E%3Ctext x='50' y='68' font-size='58' font-family='Arial,sans-serif' font-weight='800' fill='%2300A651' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="/">
+      <span class="top"><em>Hy</em>lex Energy</span>
+      <span class="sub">Consulting</span>
+    </a>
+    <div class="nav-links">
+      <div class="nav-dd">
+        <span>Capabilities ▾</span>
+        <div class="nav-dd-menu">
+          <a href="/engineering">Engineering</a>
+          <a href="/procurement">Procurement</a>
+          <a href="/fabrication">Fabrication</a>
+          <a href="/oilfield">Oilfield Solutions</a>
+          <a href="/project-intelligence">Project Intelligence</a>
+        </div>
+      </div>
+      <a href="/about">About</a>
+      <a class="cta active" href="/contact">Contact</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="swash"></div>
+  <div class="swash g"></div>
+  <div class="wrap" style="position:relative">
+    <div class="kicker">Contact</div>
+    <h1>Let's talk about your project.</h1>
+    <p class="sub-line">Whether you need an engineering study, a procurement quote, a fabrication scope, or an oilfield technology consult — reach out directly. We respond the same day.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap contact-grid">
+    <div class="form-box">
+      <!--
+        FORM BACKEND: placeholder Formspree endpoint below.
+        Sign up free at https://formspree.io, create a form, and replace
+        YOUR_FORM_ID in the action URL with your real form ID before going live.
+      -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row-2">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company">
+          </div>
+        </div>
+        <div class="form-row-2">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </div>
+        <label for="capability">What do you need?</label>
+        <select id="capability" name="capability">
+          <option value="Engineering">Engineering</option>
+          <option value="Procurement">Procurement / Flow Control</option>
+          <option value="Fabrication">Fabrication</option>
+          <option value="Oilfield Solutions">Oilfield Solutions</option>
+          <option value="Project Intelligence">Project Intelligence / ScopePlex</option>
+          <option value="Other">Other / Not Sure</option>
+        </select>
+        <label for="message">Project Details</label>
+        <textarea id="message" name="message" required placeholder="Tell us about your project, timeline, and scope..."></textarea>
+        <button type="submit" class="btn" style="width:100%">Send Enquiry</button>
+      </form>
+    </div>
+
+    <div>
+      <div class="sec-kicker">Direct Contact</div>
+      <h2>Reach us directly.</h2>
+      <div class="c-box" style="margin-top:24px">
+        <div class="c-item"><div class="label">Email</div><a href="mailto:amac@hylexenergy.com">amac@hylexenergy.com</a></div>
+        <div class="c-item"><div class="label">Phone (US)</div><a href="tel:+16099170633">+1 (609) 917-0633</a></div>
+        <div class="c-item"><div class="label">Phone (China)</div><a href="tel:+8618322780729">+86 18322780729</a></div>
+        <div class="c-item"><div class="label">Address</div><span style="font-size:1.05rem;font-weight:600">Energy Corridor, Houston, TX<br>Tianjin, China</span></div>
+        <div class="c-item"><div class="label">Web</div><a href="https://hylexenergy.com">hylexenergy.com</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div><b><em>Hy</em>lex Energy Consulting</b> · © 2026 · All rights reserved.</div>
+    <div class="foot-links">
+      <a href="/about">About</a>
+      <a href="/">Home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+.gstack/
+.DS_Store
+
+# Internal reference decks - not for public repo (contain staff names/emails)
+*.pdf
+*.pptx
