@@ -29,5 +29,7 @@ git add -A && git commit -m "update site" && git push
 Vercel deploys automatically in ~30 seconds.
 
 ## TODO
-- Contact form (`contact.html`) currently posts to a placeholder Formspree endpoint (`YOUR_FORM_ID`) — sign up free at formspree.io, create a form, and replace the placeholder in the form's `action` attribute before relying on it.
 - Analytics not yet wired up on the marketing site itself (separate from ScopePlex's in-app analytics) — decide on PostHog/GA4/Plausible if desired.
+- LinkedIn footer link currently points to `#` — swap in the real company page URL once available (search for `aria-label="Hylex Energy Consulting on LinkedIn"` across all pages).
+- No privacy policy / terms of service page yet — worth adding now that the contact form is live and collecting name/email/phone/company.
+- WhatsApp click-to-chat deferred — add once it's confirmed which number is actively monitored on WhatsApp.

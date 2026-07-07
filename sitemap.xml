@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.hylexenergy.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.hylexenergy.com/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.hylexenergy.com/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.hylexenergy.com/engineering</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.hylexenergy.com/procurement</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.hylexenergy.com/fabrication</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.hylexenergy.com/oilfield</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.hylexenergy.com/oilfield-equipment</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.hylexenergy.com/oilfield-parts</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.hylexenergy.com/project-intelligence</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.hylexenergy.com/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.hylexenergy.com/blog/nearshore-vs-offshore-fabrication</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.hylexenergy.com/blog/how-to-scope-a-fabrication-project</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.hylexenergy.com/blog/finding-projects-before-the-rfp-drops</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+</urlset>
