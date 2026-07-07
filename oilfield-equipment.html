@@ -19,6 +19,8 @@
         <div class="nav-dd-menu">
           <a href="/engineering">Engineering</a>
           <a href="/procurement">Procurement</a>
+          <a href="/procurement-valves" style="padding-left:24px;font-size:.85rem">&nbsp;&nbsp;Valves</a>
+          <a href="/procurement-pumps" style="padding-left:24px;font-size:.85rem">&nbsp;&nbsp;Pumps</a>
           <a href="/fabrication">Fabrication</a>
           <a href="/oilfield">Oilfield Solutions</a>
           <a href="/oilfield-equipment" class="active" style="padding-left:24px;font-size:.85rem">&nbsp;&nbsp;Equipment</a>
@@ -45,9 +47,11 @@
 
 <section id="water-treatment">
   <div class="wrap">
-    <div class="sec-kicker">Proprietary Separation &amp; Process Technologies</div>
-    <h2>Four systems, one integrated treatment train.</h2>
-    <div class="grid cols-2">
+    <div data-reveal>
+      <div class="sec-kicker">Proprietary Separation &amp; Process Technologies</div>
+      <h2>Four systems, one integrated treatment train.</h2>
+    </div>
+    <div class="grid cols-2" data-reveal-group>
       <div class="card">
         <h3>High-Efficiency Dehydration System</h3>
         <p>Removes 85%+ water from production streams with &lt;50% water cut. Reduces oil-in-water (OIW) concentration to &lt;30 mg/L. Compact footprint, zero moving parts, ultra-low operating costs.</p>
@@ -65,7 +69,7 @@
         <p>Up to 99% media fill rate, eliminating clogging issues. Significantly reduces footprint and energy consumption. Ideal for high-COD, high-turbidity wastewater in offshore and petrochemical applications.</p>
       </div>
     </div>
-    <div class="stats">
+    <div class="stats" data-reveal-group>
       <div class="stat"><div class="num">85<em>%+</em></div><div class="label">Production water removal rate</div></div>
       <div class="stat"><div class="num">&lt;15 ppm</div><div class="label">Oil-in-water discharge</div></div>
       <div class="stat"><div class="num">10<em>+</em></div><div class="label">Offshore &amp; onshore deployments</div></div>
@@ -75,10 +79,12 @@
 
 <section class="soft">
   <div class="wrap">
-    <div class="sec-kicker">Equipment in the Field</div>
-    <h2>Real systems, real deployments.</h2>
-    <p class="sec-sub">Skid-mounted process equipment engineered for transport, installation, and long-term offshore/onshore service.</p>
-    <div class="grid cols-4">
+    <div data-reveal>
+      <div class="sec-kicker">Equipment in the Field</div>
+      <h2>Real systems, real deployments.</h2>
+      <p class="sec-sub">Skid-mounted process equipment engineered for transport, installation, and long-term offshore/onshore service.</p>
+    </div>
+    <div class="grid cols-4" data-reveal-group>
       <img src="assets/img/oilfield-equip-skid-transport.jpg" alt="Process skid ready for transport" style="border-radius:8px;aspect-ratio:3/4;object-fit:cover">
       <img src="assets/img/oilfield-equip-facility-install.jpg" alt="Process equipment installed at facility" style="border-radius:8px;aspect-ratio:3/4;object-fit:cover">
       <img src="assets/img/oilfield-equip-process-skid.jpg" alt="Compact process skid with piping" style="border-radius:8px;aspect-ratio:3/4;object-fit:cover">
@@ -89,9 +95,11 @@
 
 <section>
   <div class="wrap">
-    <div class="sec-kicker">Proven Field Performance</div>
-    <h2>Extensive track record.</h2>
-    <div class="grid cols-2">
+    <div data-reveal>
+      <div class="sec-kicker">Proven Field Performance</div>
+      <h2>Extensive track record.</h2>
+    </div>
+    <div class="grid cols-2" data-reveal-group>
       <div class="card">
         <h3>30+ Successful Deployments</h3>
         <p>Across offshore platforms, FPSOs, and onshore facilities — not lab-only technology.</p>
@@ -122,6 +130,9 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 <script src="assets/nav.js"></script>
+<script src="assets/animate.js"></script>
 </body>
 </html>

@@ -19,6 +19,8 @@
         <div class="nav-dd-menu">
           <a href="/engineering">Engineering</a>
           <a href="/procurement">Procurement</a>
+          <a href="/procurement-valves" style="padding-left:24px;font-size:.85rem">&nbsp;&nbsp;Valves</a>
+          <a href="/procurement-pumps" style="padding-left:24px;font-size:.85rem">&nbsp;&nbsp;Pumps</a>
           <a href="/fabrication" class="active">Fabrication</a>
           <a href="/oilfield">Oilfield Solutions</a>
           <a href="/oilfield-equipment" style="padding-left:24px;font-size:.85rem">&nbsp;&nbsp;Equipment</a>
@@ -45,9 +47,11 @@
 
 <section id="hubs">
   <div class="wrap">
-    <div class="sec-kicker">Global Presence</div>
-    <h2>Strategic hubs, anywhere your project demands.</h2>
-    <p class="sec-sub">With strategic fabrication and engineering hubs across North America and Asia, Hylex delivers seamless project execution — anywhere your project demands.</p>
+    <div data-reveal>
+      <div class="sec-kicker">Global Presence</div>
+      <h2>Strategic hubs, anywhere your project demands.</h2>
+      <p class="sec-sub">With strategic fabrication and engineering hubs across North America and Asia, Hylex delivers seamless project execution — anywhere your project demands.</p>
+    </div>
     <div class="world-map-wrap">
       <svg class="world-map" viewBox="0 0 1200 580" role="img" aria-label="Map of Hylex fabrication and engineering hubs">
         <g class="map-dots" fill="#c7d0cb">
@@ -2053,9 +2057,11 @@
 
 <section class="soft" id="hub-detail">
   <div class="wrap">
-    <div class="sec-kicker">Hub Capability &amp; Capacity</div>
-    <h2>Three fabrication hubs, one standard.</h2>
-    <div class="grid cols-2">
+    <div data-reveal>
+      <div class="sec-kicker">Hub Capability &amp; Capacity</div>
+      <h2>Three fabrication hubs, one standard.</h2>
+    </div>
+    <div class="grid cols-2" data-reveal-group>
       <div class="hub-card">
         <div class="hub-loc">China Hub</div>
         <h4>Full fabrication &amp; engineering capability</h4>
@@ -2114,9 +2120,11 @@
 
 <section id="capability">
   <div class="wrap">
-    <div class="sec-kicker">Core Business</div>
-    <h2>Full-scope fabrication capability.</h2>
-    <div class="grid cols-5">
+    <div data-reveal>
+      <div class="sec-kicker">Core Business</div>
+      <h2>Full-scope fabrication capability.</h2>
+    </div>
+    <div class="grid cols-5" data-reveal-group>
       <div class="card"><img src="assets/img/fabrication-steel-module.jpg" alt="Structural steel module fabrication" class="card-photo"><h3>Steel Fabrication &amp; Modularization</h3><p>Structures, trusses, chutes/bins, and ducting — specialized in conveyor modules, pipe rack modules, and more.</p></div>
       <div class="card"><img src="assets/img/fabrication-pipe-spooling.jpg" alt="Pipe spool fabrication in progress" class="card-photo"><h3>Pipe Spools Fabrication</h3><p>Carbon steel, low-temp steel, stainless, duplex, and super duplex — material-segregated workshops.</p></div>
       <div class="card"><img src="assets/img/fabrication-workshop-floor.jpg" alt="Pressure vessel and skid assembly floor" class="card-photo"><h3>Pressure Vessel &amp; Fully-Assembled Skid</h3><p>One-stop-shop solution with complete mechanical and electrical assembly in clean-room environments.</p></div>
@@ -2146,9 +2154,11 @@
 
 <section>
   <div class="wrap">
-    <div class="sec-kicker">Project Highlights</div>
-    <h2>Delivered at scale.</h2>
-    <div class="grid cols-2">
+    <div data-reveal>
+      <div class="sec-kicker">Project Highlights</div>
+      <h2>Delivered at scale.</h2>
+    </div>
+    <div class="grid cols-2" data-reveal-group>
       <div class="card">
         <h3>Piperack Module Program, Texas</h3>
         <p>27 fully-assembled piperack modules, 7.5m (w) × 7.1m (h) × 35.5m (l) per module — delivered for a major chemical-sector client.</p>
@@ -2179,7 +2189,10 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 <script src="assets/nav.js"></script>
 <script src="assets/world-map.js"></script>
+<script src="assets/animate.js"></script>
 </body>
 </html>

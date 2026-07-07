@@ -19,6 +19,8 @@
         <div class="nav-dd-menu">
           <a href="/engineering" class="active">Engineering</a>
           <a href="/procurement">Procurement</a>
+          <a href="/procurement-valves" style="padding-left:24px;font-size:.85rem">&nbsp;&nbsp;Valves</a>
+          <a href="/procurement-pumps" style="padding-left:24px;font-size:.85rem">&nbsp;&nbsp;Pumps</a>
           <a href="/fabrication">Fabrication</a>
           <a href="/oilfield">Oilfield Solutions</a>
           <a href="/oilfield-equipment" style="padding-left:24px;font-size:.85rem">&nbsp;&nbsp;Equipment</a>
@@ -45,10 +47,12 @@
 
 <section>
   <div class="wrap">
-    <div class="sec-kicker">Core Capabilities</div>
-    <h2>Full-spectrum engineering, one team.</h2>
-    <p class="sec-sub">Our multidisciplinary approach ensures seamless integration from front-end studies to detailed design, supporting every phase of the asset lifecycle.</p>
-    <div class="grid cols-2">
+    <div data-reveal>
+      <div class="sec-kicker">Core Capabilities</div>
+      <h2>Full-spectrum engineering, one team.</h2>
+      <p class="sec-sub">Our multidisciplinary approach ensures seamless integration from front-end studies to detailed design, supporting every phase of the asset lifecycle.</p>
+    </div>
+    <div class="grid cols-2" data-reveal-group>
       <div class="card">
         <h3>Front-End Engineering &amp; Design (FEED)</h3>
         <p>Feasibility studies, conceptual layouts, and early cost modelling to de-risk project decisions. Process flow diagrams (PFD), P&amp;IDs, and basis of design documents aligned with client objectives.</p>
@@ -75,9 +79,11 @@
 
 <section class="soft">
   <div class="wrap">
-    <div class="sec-kicker">Engineering Capacity</div>
-    <h2>The scale to support demanding projects.</h2>
-    <div class="stats">
+    <div data-reveal>
+      <div class="sec-kicker">Engineering Capacity</div>
+      <h2>The scale to support demanding projects.</h2>
+    </div>
+    <div class="stats" data-reveal-group>
       <div class="stat"><div class="num">20<em>+</em></div><div class="label">Years of experience</div></div>
       <div class="stat"><div class="num">40<em>+</em></div><div class="label">Dedicated engineers</div></div>
       <div class="stat"><div class="num">280<em>+</em></div><div class="label">Combined personnel</div></div>
@@ -100,7 +106,7 @@
 
 <section>
   <div class="wrap">
-    <div class="grid cols-2">
+    <div class="grid cols-2" data-reveal-group>
       <div><img src="assets/img/engineering-3d-renders.jpg" alt="3D process skid and equipment renders" class="card-photo" style="aspect-ratio:3/1"></div>
       <div style="display:flex;flex-direction:column;justify-content:center">
         <h3 style="margin-bottom:14px">Discipline Coverage</h3>
@@ -128,6 +134,9 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 <script src="assets/nav.js"></script>
+<script src="assets/animate.js"></script>
 </body>
 </html>

@@ -39,6 +39,8 @@
         <div class="nav-dd-menu">
           <a href="/engineering">Engineering</a>
           <a href="/procurement">Procurement</a>
+          <a href="/procurement-valves" style="padding-left:24px;font-size:.85rem">&nbsp;&nbsp;Valves</a>
+          <a href="/procurement-pumps" style="padding-left:24px;font-size:.85rem">&nbsp;&nbsp;Pumps</a>
           <a href="/fabrication">Fabrication</a>
           <a href="/oilfield">Oilfield Solutions</a>
           <a href="/oilfield-equipment" style="padding-left:24px;font-size:.85rem">&nbsp;&nbsp;Equipment</a>
@@ -70,10 +72,12 @@
 
 <section id="capabilities">
   <div class="wrap">
-    <div class="sec-kicker">What We Do</div>
-    <h2>Five capabilities, one standard.</h2>
-    <p class="sec-sub">From early engineering to fabrication yards to downhole completions to field software — every Hylex capability is built on the same principle: dependable delivery and straight answers.</p>
-    <div class="grid cols-5">
+    <div data-reveal>
+      <div class="sec-kicker">What We Do</div>
+      <h2>Five capabilities, one standard.</h2>
+      <p class="sec-sub">From early engineering to fabrication yards to downhole completions to field software — every Hylex capability is built on the same principle: dependable delivery and straight answers.</p>
+    </div>
+    <div class="grid cols-5" data-reveal-group>
       <div class="card">
         <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 19V5a1 1 0 0 1 1-1h11l4 4v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z"/><path d="M16 4v4h4"/><path d="M8 12h8M8 15.5h8M8 8.5h4"/></svg></div>
         <h3>Engineering</h3>
@@ -115,9 +119,11 @@
 
 <section class="soft" id="presence">
   <div class="wrap">
-    <div class="sec-kicker">Global Presence</div>
-    <h2>Fabrication and engineering hubs, worldwide.</h2>
-    <p class="sec-sub">Strategic hubs across North America and Asia mean Hylex delivers seamless project execution — anywhere your project demands. <a href="/about" style="color:var(--green);font-weight:600;text-decoration:none">See the full picture on our About page →</a></p>
+    <div data-reveal>
+      <div class="sec-kicker">Global Presence</div>
+      <h2>Fabrication and engineering hubs, worldwide.</h2>
+      <p class="sec-sub">Strategic hubs across North America and Asia mean Hylex delivers seamless project execution — anywhere your project demands. <a href="/about" style="color:var(--green);font-weight:600;text-decoration:none">See the full picture on our About page →</a></p>
+    </div>
     <div class="world-map-wrap">
       <svg class="world-map" viewBox="0 0 1200 580" role="img" aria-label="Map of Hylex fabrication and engineering hubs">
         <g class="map-dots" fill="#c7d0cb">
@@ -2122,7 +2128,7 @@
 </section>
 
 <section id="about-teaser">
-  <div class="wrap about-grid">
+  <div class="wrap about-grid" data-reveal-group>
     <div>
       <div class="sec-kicker">Why Hylex</div>
       <h2>A single point of accountability.</h2>
@@ -2137,7 +2143,7 @@
 </section>
 
 <section class="soft" id="contact-teaser">
-  <div class="wrap contact-grid">
+  <div class="wrap contact-grid" data-reveal-group>
     <div>
       <div class="sec-kicker">Contact</div>
       <h2>Let's talk about your project.</h2>
@@ -2169,7 +2175,10 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 <script src="assets/nav.js"></script>
 <script src="assets/world-map.js"></script>
+<script src="assets/animate.js"></script>
 </body>
 </html>
