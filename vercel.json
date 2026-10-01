@@ -1,3 +1,6 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/((?!index|hylex-logo|robots|sitemap).+)", "destination": "/", "permanent": false }
+  ]
 }
