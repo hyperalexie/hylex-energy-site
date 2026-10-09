@@ -1,6 +1,10 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/((?!index|hylex-logo|robots|sitemap).+)", "destination": "/", "permanent": false }
+    {
+      "source": "/((?!index|hylex-logo|robots|sitemap|insights|insight-|api/|[0-9a-f]{32}\\.txt).+)",
+      "destination": "/",
+      "permanent": false
+    }
   ]
 }
