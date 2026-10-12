@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/((?!about|capability|contact|digital|engineering|hub-china|hub-mexico|hub-vietnam|insight-landed-price-from-asia|insight-reading-a-bid-package|insights|network|procurement|services|index|404|hylex-logo|favicon|img-|og-card|robots|sitemap|api/|[0-9a-f]{32}\\.txt).+)",
+      "source": "/((?!about|capability|contact|digital|engineering|hub-china|hub-mexico|hub-vietnam|industrial-ai|insight-landed-price-from-asia|insight-reading-a-bid-package|insights|network|procurement|services|index|404|hylex-logo|favicon|img-|og-card|robots|sitemap|api/|[0-9a-f]{32}\\.txt).+)",
       "destination": "/",
       "permanent": false
     }

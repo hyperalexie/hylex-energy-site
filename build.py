@@ -146,6 +146,7 @@ NAV = [
         ("Mexico hub", "hub-mexico.html"),
         ("Houston", "network.html#houston"),
     ]),
+    ("Industrial AI", "industrial-ai.html", []),
     ("About", "about.html", []),
     ("Insights", "insights.html", []),
     ("Contact", "contact.html", []),
@@ -172,7 +173,7 @@ def header(active):
 FOOTER = f"""<footer><div class="wrap"><div class="fg">
 <div><b>What we do</b><a href="services.html">Fabrication programs</a><a href="engineering.html">Engineering</a><a href="procurement.html">Procurement</a><a href="digital.html">Project controls</a></div>
 <div><b>Capability</b><a href="capability.html">Fabrication scope</a><a href="capability.html#qa">Quality and inspection</a><a href="capability.html#sectors">Sectors</a></div>
-<div><b>Global network</b><a href="hub-china.html">China hub</a><a href="hub-vietnam.html">Vietnam hub</a><a href="hub-mexico.html">Mexico hub</a><a href="network.html#houston">Houston</a></div>
+<div><b>Global network</b><a href="hub-china.html">China hub</a><a href="hub-vietnam.html">Vietnam hub</a><a href="hub-mexico.html">Mexico hub</a><a href="network.html#houston">Houston</a><a href="industrial-ai.html">Industrial AI</a></div>
 <div><b>Contact</b><a href="mailto:{EMAIL}">{EMAIL}</a><a href="tel:+16099170633">{TEL_US}</a><a href="tel:+8618322780729">{TEL_CN}</a><span>Energy Corridor, Houston TX</span><span>Tianjin, China</span></div>
 </div><div class="fb"><span>© 2026 Hylex Energy Consulting</span><span>Driving projects from concept to commissioning</span></div></div></footer>"""
 
@@ -584,6 +585,54 @@ def digital():
                 body, "digital.html")
 
 
+def industrial_ai():
+    body = f"""{banner(['<a href="index.html">Home</a>', 'Industrial AI'], "The systems an industrial desk runs on",
+        "A separate line of work. We build and run the estimating, sales and shop floor systems behind our own fabrication programs, and we set the same systems up for fabricators, suppliers and distributors on their own servers.", "Industrial AI")}
+
+<section class="s"><div class="wrap"><div class="eb">What we build</div><h2>Five things that take the manual work out of a desk</h2>
+<table><tbody>
+<tr><td>RFQ intake</td><td>Inbound enquiries read, drawings sorted, scope summarised and filed to the job before anyone opens the mail</td></tr>
+<tr><td>Take off and estimating</td><td>Every sheet of a bid package read, spools and components counted and weighed, priced against your own past quotes and costs</td></tr>
+<tr><td>Pipeline and follow up</td><td>Every enquiry on one board, tied to its mail thread, with open offers and quiet accounts chased on schedule</td></tr>
+<tr><td>Shop floor</td><td>Fit up, welding and final check recorded by piece and by weight, from the shop's own workbooks</td></tr>
+<tr><td>Reporting</td><td>Pipeline, deadlines and progress in one daily brief instead of four spreadsheets</td></tr>
+</tbody></table></div></section>
+
+<section class="s" style="background:var(--soft)"><div class="wrap"><div class="eb">In use</div><h2>Running systems, not screenshots of a demo</h2>
+<p class="aip" style="max-width:720px;margin:0 0 26px">Three views from a working installation. Customer names and commercial figures are masked.</p>
+<div class="shots">
+<figure class="wide"><img src="img-sys-takeoff.jpg" alt="Bid package take off with spools counted, weighed and typed against the piping class" loading="lazy">
+<figcaption><b>Take off from a bid package</b>A 69 page drawing set read sheet by sheet. Every spool typed, counted and weighed against the piping class, with the conflicts raised before pricing.</figcaption></figure>
+<figure><img src="img-sys-pipeline.jpg" alt="Sales pipeline board tied to the mail threads" loading="lazy">
+<figcaption><b>Pipeline</b>Every enquiry on one board, updated from the mailbox rather than by hand, with first reply time on each card.</figcaption></figure>
+<figure><img src="img-sys-shopfloor.jpg" alt="Shop floor progress tracker by piece and by weight" loading="lazy">
+<figcaption><b>Shop floor</b>Progress by piece and by kilogram, fit up through final check, read from the shop's own workbooks.</figcaption></figure>
+</div></div></section>
+
+<section class="s" id="agent"><div class="wrap"><div class="eb">AI agent</div><h2>Your own operations agent: server, model, messaging</h2>
+<p class="aip" style="max-width:760px">A private agent that lives on your server, reads your systems, and works with your team in the chat app they already use.</p>
+<div class="steps" style="margin-top:28px">
+<div><span>01</span><b>Private server</b><p>Your cloud account and your data. Read only links to the mailbox, file server, ERP or MES. Scheduled jobs, backups and a watchdog.</p></div>
+<div><span>02</span><b>Model with tools</b><p>Reads drawings, enquiries and spreadsheets. Takes off bills of material, drafts proposals, remembers your rules and decisions.</p></div>
+<div><span>03</span><b>In your chat app</b><p>Telegram, WhatsApp or Teams. It answers what came in overnight and drafts the clarification list for you to send.</p></div>
+<div><span>04</span><b>Human approval</b><p>Nothing goes to a client without a person releasing it. Separate brains per company, no data mixing.</p></div>
+</div></div></section>
+
+<section class="s" id="setup" style="background:var(--soft)"><div class="wrap"><div class="eb">How a setup runs</div><h2>From one bid package to a working desk</h2>
+<div class="nlist">
+<div><b>01 · Trial</b><p>Send one bid package. We return the take off and the clarification list, so you can judge the work before committing to anything.</p></div>
+<div><b>02 · Your data</b><p>Past quotes, cost history and the mailbox connected, read only, on your own server.</p></div>
+<div><b>03 · One desk first</b><p>Estimating or sales, whichever is costing you most. Running in weeks, not a programme.</p></div>
+<div><b>04 · Then the rest</b><p>Shop floor, reporting and the agent added once the first desk is relied on.</p></div>
+</div></div></section>
+
+{end_band("Send us one bid package", "We return the take off and a clarification list, so you can judge the work. No system access needed to start.",
+          ("Send a package", "contact.html"), ("Ask about a setup", f"mailto:{EMAIL}?subject=Industrial%20AI%20setup"))}"""
+    return page("industrial-ai.html", "Industrial AI | Hylex Energy Consulting",
+                "Estimating and take off, sales pipeline, shop floor tracking and a private AI agent on your own server, set up for fabricators, suppliers and distributors.",
+                body, "industrial-ai.html")
+
+
 def about():
     body = f"""{banner(['<a href="index.html">Home</a>', 'About'], "Fabrication as a managed program, not a purchase order",
         "Hylex Energy Consulting provides end to end project execution support for complex industrial developments, through a global fabrication network, strategic procurement and engineering run out of Houston.", "About")}
@@ -667,7 +716,7 @@ def notfound():
 # ---------------------------------------------------------------- run
 def main():
     urls = [home(), services(), engineering(), procurement(), capability(), network(),
-            hub("china"), hub("vietnam"), hub("mexico"), digital(), about(), contact()]
+            hub("china"), hub("vietnam"), hub("mexico"), digital(), industrial_ai(), about(), contact()]
     urls += insights()
     notfound()
 
