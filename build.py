@@ -147,7 +147,10 @@ NAV = [
         ("Houston", "network.html#houston"),
     ]),
     ("Industrial AI", "industrial-ai.html", []),
-    ("About", "about.html", []),
+    ("About", "about.html", [
+        ("Company", "about.html"),
+        ("FAQ", "faq.html"),
+    ]),
     ("Insights", "insights.html", []),
     ("Contact", "contact.html", []),
 ]
@@ -172,7 +175,7 @@ def header(active):
 
 FOOTER = f"""<footer><div class="wrap"><div class="fg">
 <div><b>What we do</b><a href="services.html">Fabrication programs</a><a href="engineering.html">Engineering</a><a href="procurement.html">Procurement</a><a href="digital.html">Project controls</a></div>
-<div><b>Capability</b><a href="capability.html">Fabrication scope</a><a href="capability.html#qa">Quality and inspection</a><a href="capability.html#sectors">Sectors</a></div>
+<div><b>Capability</b><a href="capability.html">Fabrication scope</a><a href="capability.html#qa">Quality and inspection</a><a href="capability.html#sectors">Sectors</a><a href="faq.html">FAQ</a></div>
 <div><b>Global network</b><a href="hub-china.html">China hub</a><a href="hub-vietnam.html">Vietnam hub</a><a href="hub-mexico.html">Mexico hub</a><a href="network.html#houston">Houston</a><a href="industrial-ai.html">Industrial AI</a></div>
 <div><b>Contact</b><a href="mailto:{EMAIL}">{EMAIL}</a><a href="tel:+16099170633">{TEL_US}</a><a href="tel:+8618322780729">{TEL_CN}</a><span>Energy Corridor, Houston TX</span><span>Tianjin, China</span></div>
 </div><div class="fb"><span>© 2026 Hylex Energy Consulting</span><span>Driving projects from concept to commissioning</span></div></div></footer>"""
@@ -187,10 +190,55 @@ def end_band(h2, p, primary=("Send an enquiry", "contact.html"),
 
 OG = f"{SITE}/og-card.png"
 
+# breadcrumb trails: filename -> [(name, path)], last entry is the page itself
+TRAILS = {
+    "services.html": [("Home", "/"), ("What we do", "/services")],
+    "engineering.html": [("Home", "/"), ("What we do", "/services"), ("Engineering", "/engineering")],
+    "procurement.html": [("Home", "/"), ("What we do", "/services"), ("Procurement", "/procurement")],
+    "digital.html": [("Home", "/"), ("What we do", "/services"), ("Project controls", "/digital")],
+    "capability.html": [("Home", "/"), ("Capability", "/capability")],
+    "network.html": [("Home", "/"), ("Global network", "/network")],
+    "hub-china.html": [("Home", "/"), ("Global network", "/network"), ("China hub", "/hub-china")],
+    "hub-vietnam.html": [("Home", "/"), ("Global network", "/network"), ("Vietnam hub", "/hub-vietnam")],
+    "hub-mexico.html": [("Home", "/"), ("Global network", "/network"), ("Mexico hub", "/hub-mexico")],
+    "industrial-ai.html": [("Home", "/"), ("Industrial AI", "/industrial-ai")],
+    "about.html": [("Home", "/"), ("About", "/about")],
+    "contact.html": [("Home", "/"), ("Contact", "/contact")],
+    "faq.html": [("Home", "/"), ("FAQ", "/faq")],
+    "insights.html": [("Home", "/"), ("Insights", "/insights")],
+}
+
+
+def breadcrumb_ld(fn):
+    t = TRAILS.get(fn)
+    if not t:
+        return None
+    return {"@context": "https://schema.org", "@type": "BreadcrumbList",
+            "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": SITE + u}
+                                for i, (n, u) in enumerate(t)]}
+
+
+def service_ld(name, desc, path):
+    return {"@context": "https://schema.org", "@type": "Service", "name": name, "description": desc,
+            "serviceType": name, "url": SITE + path,
+            "provider": {"@type": "Organization", "name": "Hylex Energy Consulting", "url": SITE + "/"},
+            "areaServed": [{"@type": "Country", "name": c} for c in
+                           ("United States", "Mexico", "China", "Vietnam", "Australia")]}
+
+
+
+PAGE_INDEX = []
+
 
 def page(fn, title, desc, body, active, ld=None):
     url = f"{SITE}/" + ("" if fn == "index.html" else fn.replace(".html", ""))
-    ldj = "".join(f'<script type="application/ld+json">{json.dumps(x, separators=(",", ":"))}</script>' for x in (ld or []))
+    if fn != "404.html":
+        PAGE_INDEX.append((title, desc, url))
+    blocks = list(ld or [])
+    bc = breadcrumb_ld(fn)
+    if bc:
+        blocks.append(bc)
+    ldj = "".join(f'<script type="application/ld+json">{json.dumps(x, separators=(",", ":"))}</script>' for x in blocks)
     doc = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title><meta name="description" content="{e(desc)}">
@@ -208,7 +256,9 @@ def page(fn, title, desc, body, active, ld=None):
 {header(active)}
 {body}
 {FOOTER}
-{TAIL}</body></html>"""
+{TAIL}
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body></html>"""
     open(fn, "w").write(doc)
     return url
 
@@ -223,6 +273,29 @@ def kpis(pairs, cls="k4"):
     return f'<div class="kpi {cls}">' + "".join(
         f"<div><b>{e(b)}</b><span>{e(s)}</span></div>" for b, s in pairs) + "</div>"
 
+
+LLMS_HEAD = f"""# Hylex Energy Consulting
+
+> Global fabrication, procurement, engineering and project delivery for EPC companies and asset owners. Hylex takes ownership of the fabrication execution process from shop readiness and sourcing through QA, NDE, FAT and logistics, delivered through fabrication and engineering hubs in China, Vietnam and Mexico, with headquarters in the Energy Corridor, Houston, Texas.
+
+## Key facts
+- Four services: engineering and design, global procurement, fabrication delivery, project controls and lifecycle reporting
+- Houston holds the client interface, engineering coordination, procurement and QA; the hubs hold the capacity, the yards and the load out
+- Pipe spooling over 250,000 dia-inches a month across the workshops
+- Structural steel and platework over 50,000 tons a year
+- Pressure vessels and columns to 8 m diameter and 150 mm wall, single units over 300 tons
+- Pre assembled modules over 1,000 tons and up to 32 m long
+- Over 16,000 m2 of surface preparation and coating, including TSA, FBE, epoxy and galvanizing
+- Over 500 prequalified manufacturers and OEMs; strategic sourcing saves 20 to 40 percent against local procurement
+- Fabricated and tested to ASME, API, PED, EN, ISO, NORSOK M-501 and ISO 12944
+- China hub: over 200,000 dia-inches a month, over 40,000 tons a year structural, modules to 3,000 tons
+- Vietnam hub: 195,000 m2 yard, 31,000 m2 covered workshops, 260 t gantry cranes, 312 m private jetty with 10,000 DWT load out
+- Mexico hub: Monterrey, 4,000 to 5,000 spools a month, 34,000 factored dia-inches a week, 11 hectare yard, 100,000 sq ft coating facility, inside USMCA
+- Sectors: chemical, LNG terminals, downstream, power, mining and semiconductor
+- Separate line of work: industrial AI systems for estimating, sales pipeline, shop floor tracking and a private agent on the client's own server
+- Every enquiry is handled by a principal, answered within one working day
+
+"""
 
 CODES = ('<div class="codes"><span>Fabricated and tested to</span>'
          '<b>ASME · API · PED · EN · ISO · NORSOK M-501 · ISO 12944</b></div>')
@@ -322,7 +395,7 @@ def services():
 {end_band("Put a scope in front of us", "Send the drawings and the specification. We come back with the execution plan, not just a price.")}"""
     return page("services.html", "What we do | Hylex Energy Consulting",
                 "Fabrication program management, procurement and vendor ownership, technical and QA oversight, and project controls for EPC companies and asset owners.",
-                body, "services.html")
+                body, "services.html", [service_ld("Fabrication program management", "End to end management of fabrication execution for EPC companies and asset owners, from shop readiness and sourcing to QA, NDE, FAT and logistics.", "/services")])
 
 
 def engineering():
@@ -354,7 +427,7 @@ def engineering():
 {end_band("Send the drawings", "Feasibility, detailed design, or a package that needs engineering before anyone can build it.")}"""
     return page("engineering.html", "Engineering | Hylex Energy Consulting",
                 "FEED, 3D modelling and digital twin, detailed design and shop drawings, pressure vessel and structural engineering to ASME, EN and PED, plus proprietary separation and water treatment packages.",
-                body, "engineering.html")
+                body, "engineering.html", [service_ld("Engineering and design", "FEED, 3D modelling, detailed design and shop drawings, pressure vessel and structural engineering to ASME, EN and PED.", "/engineering")])
 
 
 def procurement():
@@ -386,7 +459,7 @@ def procurement():
 {end_band("Send a material list or a vendor scope", "We come back with sourcing options by region, with the cost and the lead time against each.")}"""
     return page("procurement.html", "Procurement | Hylex Energy Consulting",
                 "Global sourcing with vendor qualification, audits, expediting and logistics. Over 500 prequalified manufacturers across China, Vietnam and Mexico, compliant to ASME, API, PED and IEC.",
-                body, "procurement.html")
+                body, "procurement.html", [service_ld("Global procurement and sourcing", "Vendor qualification, audits, commercial negotiation, expediting and logistics across China, Vietnam and Mexico.", "/procurement")])
 
 
 def capability():
@@ -432,7 +505,7 @@ def capability():
 {end_band("Send a fabrication scope", "Drawings, line lists or an equipment schedule. We come back with capacity, route and lead time.")}"""
     return page("capability.html", "Fabrication capability | Hylex Energy Consulting",
                 "Pipe spooling over 250,000 dia-inches a month, 50,000 tons a year of structural steel, pressure vessels to 8 m diameter, modules over 1,000 tons, with integrated QA, NDE and digital reporting.",
-                body, "capability.html")
+                body, "capability.html", [service_ld("Fabrication delivery", "Pipe spooling, pressure vessels, structural steel, platework and turnkey modular skid systems.", "/capability")])
 
 
 HUBS = {
@@ -582,7 +655,7 @@ def digital():
           ("Send an enquiry", "contact.html"), ("Ask for a sample", f"mailto:{EMAIL}?subject=Sample%20progress%20report"))}"""
     return page("digital.html", "Project controls | Hylex Energy Consulting",
                 "Weld inch tracking, progress by piece and by weight from the shop's own records, NDE and inspection against the ITP, material traceability and a digital manufacturing record book.",
-                body, "digital.html")
+                body, "digital.html", [service_ld("Project controls and reporting", "Weld inch tracking, progress by piece and weight, NDE against the ITP, material traceability and digital manufacturing record books.", "/digital")])
 
 
 def industrial_ai():
@@ -630,7 +703,7 @@ def industrial_ai():
           ("Send a package", "contact.html"), ("Ask about a setup", f"mailto:{EMAIL}?subject=Industrial%20AI%20setup"))}"""
     return page("industrial-ai.html", "Industrial AI | Hylex Energy Consulting",
                 "Estimating and take off, sales pipeline, shop floor tracking and a private AI agent on your own server, set up for fabricators, suppliers and distributors.",
-                body, "industrial-ai.html")
+                body, "industrial-ai.html", [service_ld("Industrial AI systems", "Estimating and take off, sales pipeline, shop floor tracking and a private AI agent, set up for fabricators, suppliers and distributors.", "/industrial-ai")])
 
 
 def about():
@@ -672,6 +745,45 @@ def contact():
     return page("contact.html", "Contact | Hylex Energy Consulting",
                 "Contact Hylex Energy Consulting. Energy Corridor, Houston TX and Tianjin, China. Send drawings, specifications or a material list and we reply within one working day.",
                 body, "contact.html")
+
+
+FAQ = [
+    ("What does Hylex do?",
+     "We manage fabrication execution end to end for EPC companies and asset owners: engineering, global procurement, fabrication, QA and NDE oversight, documentation and logistics. Houston holds the client interface and the fabrication hubs in China, Vietnam and Mexico carry the capacity."),
+    ("Which codes and standards do you build to?",
+     "ASME, API, PED, EN and ISO, with coating to ISO 12944 and NORSOK M-501. Pressure equipment is fabricated and tested to ASME, PED and API, and the shop is qualified against your specification before award."),
+    ("How is quality controlled?",
+     "An inspection and test plan with hold points is agreed up front. Non destructive examination covers VT, MT, PT, RT, UT and PMI, factory acceptance testing is witnessed, third party inspection is available at your option, and a complete digital manufacturing record book is delivered at handover."),
+    ("What can the network fabricate?",
+     "Pipe spooling at over 250,000 dia-inches a month, structural steel and platework at over 50,000 tons a year, pressure vessels and columns to 8 m diameter and 150 mm wall thickness with single unit weights over 300 tons, and pre assembled modules over 1,000 tons and 32 m long."),
+    ("Where do you ship from?",
+     "China and Vietnam by sea, including a 312 m private jetty with 10,000 DWT load out and 20 t/m² quay bearing at the Vietnam yard. Mexico serves North American projects by road and rail from Monterrey, an hour and a half from the Texas border."),
+    ("How do you deal with tariffs and trade risk?",
+     "By sourcing across three regions rather than one. Vietnam carries favourable trade status with North America, Europe and Australia, Mexico sits inside USMCA, and China gives volume and lead time. A trade decision in one region does not reprice the whole package."),
+    ("How do I know what progress is real?",
+     "Progress is reported by piece and by kilogram from the shop's own workbooks, not as a percentage someone types into a status email. Weld inch tracking, NDE results against the ITP and material traceability are reported in one picture across every hub."),
+    ("What do you need in order to quote?",
+     "Drawings, datasheets, line lists or an equipment schedule, the specification, and the delivery location and date. If part of that is missing we will tell you what is needed rather than price around it."),
+    ("How quickly do you reply?",
+     "Within one working day, even when the answer is that we need longer to price it properly."),
+]
+
+
+def faq_page():
+    rows = "".join(f'<div><b>{e(q)}</b><p>{e(a)}</p></div>' for q, a in FAQ)
+    body = f"""{banner(['<a href="index.html">Home</a>', 'FAQ'], "Questions buyers ask first",
+        "What we do, which codes we build to, how quality is controlled, where the work ships from and what we need in order to quote.", "FAQ")}
+
+<section class="s"><div class="wrap"><div class="nlist">{rows}</div>
+{CODES}</div></section>
+
+{end_band("Still have a question?", "Send it with the drawings and we will answer both inside one working day.")}"""
+    ld = [{"@context": "https://schema.org", "@type": "FAQPage",
+           "mainEntity": [{"@type": "Question", "name": q,
+                           "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}]
+    return page("faq.html", "FAQ | Hylex Energy Consulting",
+                "Codes and standards, quality control and ITP, fabrication capacity, shipping and load out, tariff and trade risk, and what Hylex needs in order to quote.",
+                body, "faq.html", ld)
 
 
 def insights():
@@ -716,7 +828,7 @@ def notfound():
 # ---------------------------------------------------------------- run
 def main():
     urls = [home(), services(), engineering(), procurement(), capability(), network(),
-            hub("china"), hub("vietnam"), hub("mexico"), digital(), industrial_ai(), about(), contact()]
+            hub("china"), hub("vietnam"), hub("mexico"), digital(), industrial_ai(), about(), faq_page(), contact()]
     urls += insights()
     notfound()
 
@@ -725,11 +837,40 @@ def main():
         + "".join(f"<url><loc>{u}</loc><lastmod>{TODAY}</lastmod></url>" for u in urls) + "</urlset>\n")
     open("sitemap.txt", "w").write("\n".join(urls) + "\n")
 
+    open("llms.txt", "w").write(LLMS_HEAD + "\n## Pages\n" + "".join(
+        f"- [{t}]({u}): {d}\n" for t, d, u in PAGE_INDEX) + "\n## Contact\n"
+        f"- Email {EMAIL}\n- United States {TEL_US}, Energy Corridor, Houston TX\n- China {TEL_CN}, Tianjin\n")
+
     names = sorted({u.rsplit("/", 1)[-1] for u in urls if u.rsplit("/", 1)[-1]})
     keep = names + ["index", "404", "hylex-logo", "favicon", "img-", "og-card", "robots", "sitemap",
-                    "api/", r"[0-9a-f]{32}\.txt"]
-    cfg = {"cleanUrls": True,
-           "redirects": [{"source": "/((?!" + "|".join(keep) + ").+)", "destination": "/", "permanent": False}]}
+                    "llms", "_vercel", "api/", r"[0-9a-f]{32}\.txt"]
+    csp = ("default-src 'self'; img-src 'self' data:; "
+           "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+           "font-src 'self' https://fonts.gstatic.com; "
+           "script-src 'self' 'unsafe-inline'; "
+           "connect-src 'self' https://*.vercel-insights.com; "
+           "frame-ancestors 'self'; base-uri 'self'; form-action 'self'")
+    cfg = {
+        "cleanUrls": True,
+        "headers": [
+            {"source": "/(.*)", "headers": [
+                {"key": "X-Content-Type-Options", "value": "nosniff"},
+                {"key": "X-Frame-Options", "value": "SAMEORIGIN"},
+                {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
+                {"key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()"},
+                {"key": "Strict-Transport-Security", "value": "max-age=31536000"},
+                {"key": "Content-Security-Policy", "value": csp},
+            ]},
+            {"source": "/(img-.*|hylex-logo.png|og-card.png|favicon.ico)", "headers": [
+                {"key": "Cache-Control", "value": "public, max-age=2592000"}]},
+            {"source": "/sitemap.xml", "headers": [
+                {"key": "Content-Type", "value": "text/xml; charset=utf-8"},
+                {"key": "Content-Disposition", "value": "inline"}]},
+            {"source": "/llms.txt", "headers": [
+                {"key": "Content-Type", "value": "text/plain; charset=utf-8"}]},
+        ],
+        "redirects": [{"source": "/((?!" + "|".join(keep) + ").+)", "destination": "/", "permanent": False}],
+    }
     open("vercel.json", "w").write(json.dumps(cfg, indent=2) + "\n")
     print("pages", len(urls) + 1)
     for u in urls:
