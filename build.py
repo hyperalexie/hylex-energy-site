@@ -546,15 +546,16 @@ def network():
 def digital():
     body = f"""{banner(['<a href="index.html">Home</a>', '<a href="services.html">What we do</a>', 'Project controls'],
         "Progress you can see, not progress you are told about",
-        "Fabrication reported by piece and by weight, from the shop's own records. The same systems run our estimating and our enquiry desk, and we set them up for fabricators, distributors and procurement teams.", "Project controls and digital")}
+        "Fabrication reported by piece and by weight, out of the shop's own records, so a program running in three countries reads as one picture rather than four spreadsheets.", "Project controls")}
 
-<section class="s"><div class="wrap"><div class="eb">What you get</div><h2>Five things that take the manual work out of a program</h2>
+<section class="s"><div class="wrap"><div class="eb">What you get</div><h2>What is reported, and where it comes from</h2>
 <table><tbody>
-<tr><td>Enquiry intake</td><td>Inbound enquiries read, drawings sorted, scope summarised and filed to the job before anyone opens the mail</td></tr>
-<tr><td>Take off and estimating</td><td>Every sheet of a bid package read, spools and components counted and weighed, priced against real cost history</td></tr>
-<tr><td>Progress and weld inch tracking</td><td>Fit up, welding and final check recorded by piece and by kilogram, from the shop's own workbooks</td></tr>
-<tr><td>NDE and documentation</td><td>Inspection results, material traceability and a digital manufacturing record book built as the work happens</td></tr>
-<tr><td>Reporting</td><td>Pipeline, deadlines and progress in one daily brief instead of four spreadsheets</td></tr>
+<tr><td>Progress and weld inch tracking</td><td>Fit up, welding and final check recorded by piece and by kilogram, read from the shop's own workbooks rather than a percentage someone types in</td></tr>
+<tr><td>Take off and quantities</td><td>Every sheet of the package read, spools and components counted, weighed and typed against the piping class, with conflicts raised before anyone prices them</td></tr>
+<tr><td>NDE and inspection</td><td>Inspection results, hold point releases and repair rates tracked against the ITP as the work happens</td></tr>
+<tr><td>Material traceability</td><td>Heat numbers, certificates and release notes tied to the piece, not filed separately and reconciled at the end</td></tr>
+<tr><td>Documentation</td><td>A digital manufacturing record book that is built through the job and handed over complete, not assembled in the last week</td></tr>
+<tr><td>Reporting</td><td>One progress picture across every hub, with the deadlines and the exceptions, in a brief you can forward</td></tr>
 </tbody></table></div></section>
 
 <section class="s" style="background:var(--soft)"><div class="wrap"><div class="eb">In use</div><h2>Running systems, not screenshots of a demo</h2>
@@ -564,31 +565,22 @@ def digital():
 <figcaption><b>Take off from a bid package</b>A 69 page drawing set read sheet by sheet. Every spool typed, counted and weighed against the piping class, with the conflicts raised before pricing.</figcaption></figure>
 <figure><img src="img-sys-shopfloor.jpg" alt="Shop floor progress tracker by piece and by weight" loading="lazy">
 <figcaption><b>Shop floor</b>Progress by piece and by kilogram, fit up through final check, read from the shop's own workbooks.</figcaption></figure>
-<figure><img src="img-sys-pipeline.jpg" alt="Enquiry pipeline board tied to the mail threads" loading="lazy">
-<figcaption><b>Enquiry pipeline</b>Every enquiry on one board, updated from the mailbox rather than by hand, with first reply time on each card.</figcaption></figure>
+<figure><img src="img-sys-pipeline.jpg" alt="Enquiry and package board tied to the mail threads" loading="lazy">
+<figcaption><b>Package tracking</b>Every package on one board, updated from the correspondence rather than by hand, with the response time on each.</figcaption></figure>
 </div></div></section>
 
-<section class="s" id="agent"><div class="wrap"><div class="eb">AI agent</div><h2>Your own operations agent: server, model, messaging</h2>
-<p class="aip" style="max-width:760px">A private agent that lives on your server, reads your systems, and works with your team in the chat app they already use.</p>
-<div class="steps" style="margin-top:28px">
-<div><span>01</span><b>Private server</b><p>Your cloud account and your data. Read only links to the mailbox, file server, ERP or MES. Scheduled jobs, backups and a watchdog.</p></div>
-<div><span>02</span><b>Model with tools</b><p>Reads drawings, enquiries and spreadsheets. Takes off bills of material, drafts proposals, remembers your rules and decisions.</p></div>
-<div><span>03</span><b>In your chat app</b><p>Telegram, WhatsApp or Teams. It answers what came in overnight and drafts the clarification list for you to send.</p></div>
-<div><span>04</span><b>Human approval</b><p>Nothing goes to a client without a person releasing it. Separate brains per company, no data mixing.</p></div>
+<section class="s" id="how"><div class="wrap"><div class="eb">How it works</div><h2>Why the numbers hold up</h2>
+<div class="steps" style="margin-top:8px">
+<div><span>01</span><b>From the shop, not about it</b><p>Figures come out of the workbooks the shop already keeps, so reporting does not depend on anyone writing a status email.</p></div>
+<div><span>02</span><b>By piece and by weight</b><p>Percent complete is derived from pieces and kilograms through each gate, which is hard to flatter.</p></div>
+<div><span>03</span><b>Exceptions first</b><p>What is late, what failed inspection and what is waiting on a decision, ahead of what went fine.</p></div>
+<div><span>04</span><b>One picture</b><p>Three hubs, one report. You do not reconcile three formats to find out where the program stands.</p></div>
 </div></div></section>
 
-<section class="s" id="setup" style="background:var(--soft)"><div class="wrap"><div class="eb">How a setup runs</div><h2>From one bid package to a working desk</h2>
-<div class="nlist">
-<div><b>01 · Trial</b><p>Send one bid package. We return the take off and the clarification list, so you can judge the work before committing to anything.</p></div>
-<div><b>02 · Your data</b><p>Past quotes, cost history and the mailbox connected, read only, on your own server.</p></div>
-<div><b>03 · One desk first</b><p>Estimating or sales, whichever is costing you most. Running in weeks, not a programme.</p></div>
-<div><b>04 · Then the rest</b><p>Shop floor, reporting and the agent added once the first desk is relied on.</p></div>
-</div></div></section>
-
-{end_band("Send us one bid package", "We return the take off and a clarification list, so you can judge the work. No system access needed to start.",
-          ("Send a package", "contact.html"), ("Ask about a setup", f"mailto:{EMAIL}?subject=Project%20controls"))}"""
-    return page("digital.html", "Project controls and digital | Hylex Energy Consulting",
-                "Weld inch tracking, fabrication dashboards, NDE reporting, digital manufacturing record books, and bid package take off and estimating systems set up on your own server.",
+{end_band("Ask for a sample progress report", "We will show you what the weekly looks like on a live package, with the names taken out.",
+          ("Send an enquiry", "contact.html"), ("Ask for a sample", f"mailto:{EMAIL}?subject=Sample%20progress%20report"))}"""
+    return page("digital.html", "Project controls | Hylex Energy Consulting",
+                "Weld inch tracking, progress by piece and by weight from the shop's own records, NDE and inspection against the ITP, material traceability and a digital manufacturing record book.",
                 body, "digital.html")
 
 
