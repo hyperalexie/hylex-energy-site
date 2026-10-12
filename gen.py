@@ -12,6 +12,10 @@ def page(fn, title, desc, body):
     h = re.sub(r'<title>.*?</title>', f'<title>{e(title)}</title>', head, 1)
     h = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{e(desc)}">', h, 1)
     h = re.sub(r'<link rel="canonical" href="[^"]*">', f'<link rel="canonical" href="https://www.hylexenergy.com/{fn.replace(".html", "")}">', h, 1)
+    url = f'https://www.hylexenergy.com/{fn.replace(".html", "")}'
+    h = re.sub(r'<meta property="og:title" content="[^"]*">', f'<meta property="og:title" content="{e(title)}">', h, 1)
+    h = re.sub(r'<meta property="og:description" content="[^"]*">', f'<meta property="og:description" content="{e(desc)}">', h, 1)
+    h = re.sub(r'<meta property="og:url" content="[^"]*">', f'<meta property="og:url" content="{url}">', h, 1)
     open(fn, 'w').write(h + '<body>\n' + header + body + footer + tail + '</body></html>')
 cards = ''.join(f'<a class="ic" href="insight-{p["slug"]}.html"><div class="eb">{p["date"]}</div><h3>{e(p["title"])}</h3><p>{e(p["summary"])}</p><span>Read ›</span></a>' for p in posts)
 css = '<style>.ig{display:grid;gap:18px}@media(min-width:800px){.ig{grid-template-columns:1fr 1fr}}.ic{display:block;border:1px solid var(--line);border-top:3px solid var(--green);background:var(--soft);padding:24px}.ic h3{font-size:22px;margin:8px 0 10px}.ic p{color:var(--mute);margin:0 0 12px}.ic span{font-weight:600;color:var(--green-d)}.art p{font-size:18px;line-height:1.75;color:#2a3135;max-width:760px}</style>'

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hylex Energy Consulting | Fabrication and supply for energy and process projects</title><meta name="description" content="Fabrication and supply for energy and process projects. Thermoplastic and composite piping, special alloy fabrication, packaged equipment, valves and instruments, managed to delivery."><link rel="icon" href="hylex-logo.png"><link rel="canonical" href="https://www.hylexenergy.com/">
+<title>Hylex Energy Consulting | Fabrication and supply for energy and process projects</title><meta name="description" content="Fabrication and supply for energy and process projects. Thermoplastic and composite piping, special alloy fabrication, packaged equipment, valves and instruments, managed to delivery."><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/img-icon-32.png"><link rel="icon" type="image/png" sizes="48x48" href="/img-icon-48.png"><link rel="icon" type="image/png" sizes="192x192" href="/img-icon-192.png"><link rel="apple-touch-icon" href="/img-icon-180.png"><link rel="canonical" href="https://www.hylexenergy.com/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Hylex Energy Consulting"><meta property="og:title" content="Hylex Energy Consulting | Fabrication and supply for energy and process projects"><meta property="og:description" content="Fabrication and supply for energy and process projects. Thermoplastic and composite piping, special alloy fabrication, packaged equipment, valves and instruments, managed to delivery."><meta property="og:url" content="https://www.hylexenergy.com/"><meta property="og:image" content="https://www.hylexenergy.com/og-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://www.hylexenergy.com/og-card.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#14181b;--mute:#5d666d;--line:#e2e5e7;--soft:#f5f6f6;--green:#00A651;--green-d:#00813f}
@@ -13,6 +14,15 @@ header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
 header img{height:42px}
 nav{display:none;gap:32px;font-size:15px;color:var(--mute)}@media(min-width:900px){nav{display:flex}}
+.hr{display:flex;align-items:center;gap:10px}
+.burger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;padding:0 11px;border:1px solid var(--ink);border-radius:4px;background:#fff;cursor:pointer}
+.burger i{display:block;height:2px;background:var(--ink)}
+@media(min-width:900px){.burger{display:none}}
+@media(max-width:899px){
+header.open nav{display:flex;flex-direction:column;gap:0;position:absolute;left:0;right:0;top:72px;background:#fff;border-bottom:1px solid var(--line);padding:4px 20px 16px;box-shadow:0 12px 26px rgba(0,0,0,.07)}
+header.open nav a{padding:15px 0;border-top:1px solid var(--line);font-size:16px;color:var(--ink);font-weight:500}
+header .btn.p{padding:0 16px;font-size:14px}
+}
 .btn{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:4px;font-weight:600;font-size:15px;border:1px solid var(--ink)}
 .btn.p{background:var(--ink);color:#fff}.btn.p:hover{background:var(--green-d);border-color:var(--green-d)}
 .hero{padding:64px 0;border-bottom:1px solid var(--line)}@media(min-width:900px){.hero{padding:96px 0}}
@@ -62,7 +72,10 @@ footer{font-size:14px;color:var(--mute);padding:26px 0}footer .wrap{display:flex
 .cform button{background:var(--green);color:#fff;border:0;border-radius:10px;min-height:42px;padding:0 16px;font:inherit;font-weight:600;cursor:pointer}.cmsg{margin:0;font-size:13px;color:var(--ink)}
 @media(max-width:767px){.chatb{bottom:calc(18px + env(safe-area-inset-bottom));width:50px;height:50px}.chatp{bottom:calc(80px + env(safe-area-inset-bottom));right:16px}}
 </style></head><body>
-<header><div class="wrap"><img src="hylex-logo.png" alt="Hylex Energy Consulting"><nav><a href="#scope">Scope</a><a href="#how">How we work</a><a href="#assurance">Assurance</a><a href="#digital">Digital</a><a href="#about">About</a><a href="insights.html">Insights</a><a href="#enquiry">Contact</a></nav><a class="btn p" href="#enquiry">Send an enquiry</a></div></header>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Hylex Energy Consulting","url":"https://www.hylexenergy.com/","logo":"https://www.hylexenergy.com/img-icon-512.png","email":"amac@hylexenergy.com","address":{"@type":"PostalAddress","addressLocality":"Houston","addressRegion":"TX","addressCountry":"US"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Hylex Energy Consulting","url":"https://www.hylexenergy.com/"}</script>
+
+<header><div class="wrap"><img src="hylex-logo.png" alt="Hylex Energy Consulting"><nav><a href="#scope">Scope</a><a href="#how">How we work</a><a href="#assurance">Assurance</a><a href="#digital">Digital</a><a href="#about">About</a><a href="insights.html">Insights</a><a href="#enquiry">Contact</a></nav><div class="hr"><a class="btn p" href="#enquiry">Send an enquiry</a><button type="button" class="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button></div></div></header>
 
 <section class="hero"><div class="wrap g">
 <div><div class="eb">Hylex Energy Consulting</div>
@@ -177,4 +190,10 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 if(h.indexOf('mailto:')===0)ev('email');else if(h.indexOf('wa.me')>-1)ev('whatsapp');else if(h.indexOf('tel:')===0)ev('phone');else if(/weixin|wechat/i.test(h))ev('wechat');
 else if(/contact\.html#inquiry|#inquiry/.test(h))ev('quote_cta',1);else if(a.id==='chatb'||a.id==='tabchat')ev('chat_open',1)},true);
 var f=document.getElementById('inq');if(f){[['s',s],['r',rv||'']].forEach(function(k){var i=document.createElement('input');i.type='hidden';i.name=k[0];i.value=k[1];f.appendChild(i)});
-f.addEventListener('focusin',function(){ev('form_start',1)});f.addEventListener('submit',function(){ev('form_sent',1)})}}catch(e){}})();</script></body></html>
+f.addEventListener('focusin',function(){ev('form_start',1)});f.addEventListener('submit',function(){ev('form_sent',1)})}}catch(e){}})();</script><script>
+(function(){var h=document.querySelector('header'),b=h&&h.querySelector('.burger');if(!b)return;
+b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});
+h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');b.setAttribute('aria-expanded','false');});});
+})();
+</script>
+</body></html>
