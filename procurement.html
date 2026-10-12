@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>For manufacturers | Hylex Energy Consulting</title><meta name="description" content="Representation for manufacturers of fabricated equipment, piping, valves and oilfield products into EPC, OEM and operator accounts in the Americas, Europe, Australia and Asia.">
+<title>Procurement | Hylex Energy Consulting</title><meta name="description" content="Global sourcing with vendor qualification, audits, expediting and logistics. Over 500 prequalified manufacturers across China, Vietnam and Mexico, compliant to ASME, API, PED and IEC.">
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/img-icon-32.png"><link rel="icon" type="image/png" sizes="48x48" href="/img-icon-48.png"><link rel="icon" type="image/png" sizes="192x192" href="/img-icon-192.png"><link rel="apple-touch-icon" href="/img-icon-180.png">
-<link rel="canonical" href="https://www.hylexenergy.com/principals">
+<link rel="canonical" href="https://www.hylexenergy.com/procurement">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Hylex Energy Consulting">
-<meta property="og:title" content="For manufacturers | Hylex Energy Consulting"><meta property="og:description" content="Representation for manufacturers of fabricated equipment, piping, valves and oilfield products into EPC, OEM and operator accounts in the Americas, Europe, Australia and Asia.">
-<meta property="og:url" content="https://www.hylexenergy.com/principals"><meta property="og:image" content="https://www.hylexenergy.com/og-card.png">
+<meta property="og:title" content="Procurement | Hylex Energy Consulting"><meta property="og:description" content="Global sourcing with vendor qualification, audits, expediting and logistics. Over 500 prequalified manufacturers across China, Vietnam and Mexico, compliant to ASME, API, PED and IEC.">
+<meta property="og:url" content="https://www.hylexenergy.com/procurement"><meta property="og:image" content="https://www.hylexenergy.com/og-card.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://www.hylexenergy.com/og-card.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -81,7 +81,7 @@ footer{font-size:14px;color:var(--mute);padding:26px 0}footer .wrap{display:flex
 /* ---- dropdown nav ---- */
 nav .nd{position:relative}
 @media(min-width:900px){nav .nd>a{display:inline-flex;align-items:center;height:72px}}
-nav .dd{display:none;position:absolute;left:-18px;top:66px;min-width:248px;background:#fff;border:1px solid var(--line);box-shadow:0 14px 30px rgba(0,0,0,.08);padding:8px 0}
+nav .dd{display:none;position:absolute;left:-18px;top:66px;min-width:256px;background:#fff;border:1px solid var(--line);box-shadow:0 14px 30px rgba(0,0,0,.08);padding:8px 0}
 nav .dd a{display:block;padding:10px 18px;font-size:15px;color:var(--ink)}
 nav .dd a:hover{background:var(--soft);color:var(--green-d)}
 @media(min-width:900px){nav .nd:hover .dd,nav .nd:focus-within .dd{display:block}}
@@ -92,28 +92,54 @@ header.open nav .nd>a{display:block;padding:15px 0;font-size:16px;color:var(--in
 header.open nav .dd{display:block;position:static;min-width:0;border:0;box-shadow:none;padding:0 0 10px}
 header.open nav .dd a{padding:9px 0 9px 14px;font-size:15px;color:var(--mute);border:0}
 }
+/* ---- home hero over photo ---- */
+.phero{position:relative;background:var(--ink);overflow:hidden}
+.phero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42}
+.phero .wrap{position:relative;padding:72px 20px 64px;color:#fff}
+@media(min-width:900px){.phero .wrap{padding:118px 40px 108px}}
+.phero .eb{color:#5fd99a}
+.phero h1{font-size:clamp(30px,4.2vw,50px);margin:14px 0 18px;max-width:880px;color:#fff}
+.phero p{font-size:18px;color:#d7dcdf;max-width:680px;margin:0 0 30px}
+.phero .btn{border-color:#fff;color:#fff}.phero .btn.p{background:var(--green);border-color:var(--green)}
 /* ---- inner page banner ---- */
 .pb{border-bottom:1px solid var(--line);background:var(--soft);padding:40px 0 38px}
 @media(min-width:900px){.pb{padding:56px 0 52px}}
-.pb h1{font-size:clamp(28px,3.6vw,42px);margin:10px 0 14px;max-width:820px}
-.pb p{font-size:18px;color:#39424a;max-width:720px;margin:0}
+.pb h1{font-size:clamp(28px,3.6vw,42px);margin:10px 0 14px;max-width:860px}
+.pb p{font-size:18px;color:#39424a;max-width:740px;margin:0}
 .crumb{font-size:13px;color:var(--mute)}.crumb a{color:var(--mute)}.crumb a:hover{color:var(--green-d)}
-/* ---- home doors ---- */
+/* ---- key figures ---- */
+.kpi{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:4px}
+@media(min-width:700px){.kpi{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.kpi.k4{grid-template-columns:repeat(4,1fr)}.kpi.k3{grid-template-columns:repeat(3,1fr)}}
+.kpi div{background:#fff;padding:24px}
+.kpi b{display:block;font-size:clamp(22px,2.4vw,28px);letter-spacing:-.02em;margin-bottom:6px}
+.kpi span{font-size:14px;color:var(--mute);line-height:1.5;display:block}
+/* ---- doors / cards ---- */
 .doors{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
 @media(min-width:900px){.doors{grid-template-columns:1fr 1fr}}
-.door{background:#fff;padding:34px 30px 30px;display:flex;flex-direction:column}
-.door h3{font-size:clamp(22px,2.4vw,27px);margin:10px 0 14px}
-.door p{color:#39424a;font-size:16px;margin:0 0 20px;flex:1}
+.door{background:#fff;padding:30px 28px;display:flex;flex-direction:column}
+.door h3{font-size:clamp(20px,2.2vw,24px);margin:10px 0 12px}
+.door p{color:#39424a;font-size:16px;margin:0 0 18px;flex:1}
 .door .lk{display:flex;flex-wrap:wrap;gap:10px}
 .door .lk a{font-weight:600;font-size:15px;color:var(--green-d);border-bottom:2px solid var(--line);padding-bottom:3px}
 .door .lk a:hover{border-color:var(--green)}
-/* ---- shared bits ---- */
-.codes{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;margin-top:26px;padding:14px 18px;background:var(--soft);border-left:3px solid var(--green);font-size:14px}
-.codes span{color:var(--mute)}.codes b{font-weight:600;letter-spacing:.01em}
-.aig{display:grid;gap:34px}@media(min-width:900px){.aig{grid-template-columns:1fr 1fr;align-items:start}}
-.aip{font-size:17px;color:#39424a}
-ul.cv{list-style:none;margin:0;padding:0;background:var(--ink);color:#fff}
-ul.cv li{padding:13px 20px;border-top:1px solid #2b3236;font-size:15px}ul.cv li:first-child{border-top:0}
+/* ---- photo cards ---- */
+.pcards{display:grid;gap:22px}
+@media(min-width:700px){.pcards{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.pcards.p3{grid-template-columns:repeat(3,1fr)}}
+.pcards figure{margin:0;border:1px solid var(--line);background:#fff;display:flex;flex-direction:column}
+.pcards img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.pcards figcaption{padding:18px 20px 20px}
+.pcards figcaption b{display:block;font-size:18px;margin-bottom:6px}
+.pcards figcaption p{margin:0;font-size:15px;color:var(--mute)}
+.pcards figcaption ul{margin:10px 0 0;padding-left:18px;font-size:15px;color:var(--mute)}
+.pcards figcaption li{padding:2px 0}
+/* ---- split: photo beside text ---- */
+.split{display:grid;gap:30px;align-items:center}
+@media(min-width:900px){.split{grid-template-columns:1fr 1fr}.split.rev>div:first-child{order:2}}
+.split img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+.split h2{margin-bottom:14px}
+.split p{font-size:17px;color:#39424a}
 /* ---- screenshots ---- */
 .shots{display:grid;gap:26px;margin-top:8px}
 @media(min-width:900px){.shots{grid-template-columns:1fr 1fr}.shots figure.wide{grid-column:1/-1}}
@@ -121,16 +147,30 @@ ul.cv li{padding:13px 20px;border-top:1px solid #2b3236;font-size:15px}ul.cv li:
 .shots img{display:block;width:100%;height:auto;border-bottom:1px solid var(--line)}
 .shots figcaption{padding:14px 18px;font-size:14px;color:var(--mute)}
 .shots figcaption b{display:block;color:var(--ink);font-size:16px;margin-bottom:4px;font-weight:600}
-/* ---- numbered list ---- */
+/* ---- numbered / detail list ---- */
 .nlist{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
 .nlist div{background:#fff;padding:22px 24px;display:grid;gap:4px 18px}
-@media(min-width:800px){.nlist div{grid-template-columns:150px 1fr;align-items:baseline}}
+@media(min-width:800px){.nlist div{grid-template-columns:200px 1fr;align-items:baseline}}
 .nlist b{font-size:16px}.nlist p{margin:0;color:var(--mute);font-size:15px}
+.nlist ul{margin:0;padding-left:18px;color:var(--mute);font-size:15px}.nlist li{padding:2px 0}
+/* ---- tag grid ---- */
+.tags{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+@media(min-width:600px){.tags{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.tags{grid-template-columns:repeat(3,1fr)}}
+.tags div{background:#fff;padding:20px 22px;font-weight:600;font-size:16px}
+.tags span{display:block;font-weight:400;font-size:14px;color:var(--mute);margin-top:4px}
+/* ---- shared bits ---- */
+.codes{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;margin-top:26px;padding:14px 18px;background:var(--soft);border-left:3px solid var(--green);font-size:14px}
+.codes span{color:var(--mute)}.codes b{font-weight:600;letter-spacing:.01em}
+.aig{display:grid;gap:34px}@media(min-width:900px){.aig{grid-template-columns:1fr 1fr;align-items:start}}
+.aip{font-size:17px;color:#39424a}
+ul.cv{list-style:none;margin:0;padding:0;background:var(--ink);color:#fff}
+ul.cv li{padding:13px 20px;border-top:1px solid #2b3236;font-size:15px}ul.cv li:first-child{border-top:0}
 /* ---- dark cta band ---- */
 .end h2{font-size:clamp(24px,2.8vw,32px)}
 .end .wrap{display:grid;gap:22px}@media(min-width:900px){.end .wrap{grid-template-columns:1.4fr 1fr;align-items:center}}
 .end p{color:#aeb6bb;margin:10px 0 0}
-.end .cta{justify-content:flex-start}@media(min-width:900px){.end .cta{justify-content:flex-end}}
+.end .cta{display:flex;flex-wrap:wrap;gap:12px}@media(min-width:900px){.end .cta{justify-content:flex-end}}
 .end .btn{border-color:#fff;color:#fff}.end .btn.p{background:var(--green);border-color:var(--green);color:#fff}
 /* ---- footer columns ---- */
 footer{border-top:1px solid var(--line);padding:46px 0 34px;font-size:14px;color:var(--mute)}
@@ -138,57 +178,40 @@ footer .wrap{display:block}
 footer .fg{display:grid;gap:26px}@media(min-width:800px){footer .fg{grid-template-columns:repeat(4,1fr)}}
 footer b{display:block;color:var(--ink);font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
 footer a{display:block;padding:4px 0;color:var(--mute)}footer a:hover{color:var(--green-d)}
+footer span{display:block;padding:4px 0}
 footer .fb{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between}
 </style></head>
 <body>
 
-<header><div class="wrap"><a href="index.html"><img src="hylex-logo.png" alt="Hylex Energy Consulting"></a><nav><div class="nd"><a href="representation.html" class="on">Representation</a><div class="dd"><a href="representation.html#scope">What we supply</a><a href="representation.html#how">How an order runs</a><a href="representation.html#assurance">Assurance</a><a href="principals.html">For manufacturers</a></div></div><div class="nd"><a href="digital.html">Industrial AI</a><div class="dd"><a href="digital.html#build">What we build</a><a href="digital.html#agent">Your own agent</a><a href="digital.html#setup">How a setup runs</a></div></div><div class="nd"><a href="about.html">About</a></div><div class="nd"><a href="insights.html">Insights</a></div><div class="nd"><a href="contact.html">Contact</a></div></nav><div class="hr"><a class="btn p" href="contact.html">Send an enquiry</a><button type="button" class="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button></div></div></header>
-<section class="pb"><div class="wrap"><div class="crumb"><a href="index.html">Home</a> · <a href="representation.html">Representation</a> · For manufacturers</div><div class="eb" style="margin-top:14px">For manufacturers</div><h1>Representation into accounts a portal will not reach</h1><p>If you build equipment, piping, valves or oilfield products and you are not in front of the people who write the specification, that is the work we do. We carry your product into enquiries we are already handling.</p></div></section>
+<header><div class="wrap"><a href="index.html"><img src="hylex-logo.png" alt="Hylex Energy Consulting"></a><nav><div class="nd"><a href="services.html" class="on">What we do</a><div class="dd"><a href="services.html">Fabrication programs</a><a href="engineering.html">Engineering</a><a href="procurement.html">Procurement</a><a href="digital.html">Project controls</a></div></div><div class="nd"><a href="capability.html">Capability</a><div class="dd"><a href="capability.html">Fabrication scope</a><a href="capability.html#qa">Quality and inspection</a><a href="capability.html#sectors">Sectors</a></div></div><div class="nd"><a href="network.html">Global network</a><div class="dd"><a href="network.html">Overview</a><a href="hub-china.html">China hub</a><a href="hub-vietnam.html">Vietnam hub</a><a href="hub-mexico.html">Mexico hub</a><a href="network.html#houston">Houston</a></div></div><div class="nd"><a href="about.html">About</a></div><div class="nd"><a href="insights.html">Insights</a></div><div class="nd"><a href="contact.html">Contact</a></div></nav><div class="hr"><a class="btn p" href="contact.html">Send an enquiry</a><button type="button" class="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button></div></div></header>
+<section class="pb"><div class="wrap"><div class="crumb"><a href="index.html">Home</a> · <a href="services.html">What we do</a> · Procurement</div><div class="eb" style="margin-top:14px">Procurement</div><h1>Global sourcing without the procurement overhead</h1><p>Comprehensive sourcing across China, Vietnam, Mexico and other manufacturing regions, so every project has the right materials and equipment, on time, on budget and compliant with international standards.</p></div></section>
 
-<section class="s"><div class="wrap"><div class="eb">What representation covers</div><h2>From the enquiry to the released order</h2>
+<section class="s"><div class="wrap">
+<div class="kpi k3"><div><b>500+</b><span>Prequalified manufacturers and OEMs across piping, structural, mechanical, E&amp;I and specialty equipment</span></div><div><b>20 to 40%</b><span>Cost saving against local procurement through strategic sourcing</span></div><div><b>3 regions</b><span>China, Vietnam and Mexico, so tariff and trade exposure is not single sourced</span></div></div>
+</div></section>
+
+<section class="s" style="background:var(--soft)"><div class="wrap"><div class="eb">What it covers</div><h2>End to end supply chain management</h2>
 <div class="nlist">
-<div><b>Enquiry</b><p>We are in the account when the package is being split. Your product goes in at that point, not after the bid list is closed.</p></div>
-<div><b>Specification</b><p>We read the specification and the drawings against what you actually build, and raise the conflicts before anyone prices them.</p></div>
-<div><b>Quotation</b><p>Your offer presented in the buyer's format, with the commercial terms and the inspection plan the buyer expects to see.</p></div>
-<div><b>Negotiation</b><p>Clarifications, technical queries and the commercial round handled in the buyer's language and time zone.</p></div>
-<div><b>Order</b><p>Placed with you directly, or placed through Hylex where the buyer wants one counterparty for the whole package.</p></div>
-<div><b>Follow through</b><p>Inspection release, documentation and shipping chased, so the account does not go quiet on you.</p></div>
+<div><b>Full lifecycle sourcing</b><ul><li>Material requisition through delivery and documentation</li><li>Vendor qualification, auditing, commercial negotiation and compliance verification</li><li>Expediting, inspection coordination and logistics planning in one managed process</li></ul></div>
+<div><b>Regional specialisation</b><ul><li>China: cost effective high volume manufacturing and short lead times</li><li>Vietnam: tariff resilient sourcing with competitive labour and logistics</li><li>Mexico: nearshore supply for USMCA projects with less customs complexity</li></ul></div>
+<div><b>Cost and risk</b><ul><li>Multi region options reduce tariff exposure, trade disruption and single source dependency</li><li>Prequalified vendor base compliant with ASME, API, PED and IEC</li><li>Direct relationships with steel mills, foundries, valve and instrumentation suppliers</li></ul></div>
+<div><b>Logistics and delivery</b><ul><li>Global transport, export packing, sea freight planning and delivery scheduling</li><li>Shipment tracking and customs documentation so the package does not sit at the port</li></ul></div>
 </div></div></section>
 
-<section class="s" id="structure" style="background:var(--soft)"><div class="wrap"><div class="eb">Structure</div><h2>Two ways to appoint us</h2>
-<div class="who"><div><b>As your representative</b><p>You quote and you contract. We hold the account, present the offer and carry the order through. Commission on what ships.</p></div>
-<div><b>As the counterparty</b><p>Hylex takes the order and places it with you. The buyer gets one contract for a package that spans several shops, and you get a clean scope.</p></div>
-<div><b>Exclusive or not</b><p>By territory, by product line or by named account. We will tell you where we already have a competing line rather than carry both quietly.</p></div></div></div></section>
+<section class="s"><div class="wrap"><div class="split">
+<div><div class="eb">Delivered</div><h2>The scope arrives as one consignment, not six</h2>
+<p>Packing, freight and documentation are planned with the fabrication schedule rather than after it. One party is answerable for what lands on your site and when.</p>
+<p><a class="btn" href="contact.html">Send a material list</a></p></div>
+<div><img src="img-logistics.jpg" alt="Container vessel loaded for export" loading="lazy"></div>
+</div></div></section>
 
-<section class="s"><div class="wrap"><div class="eb">Fit</div><h2>What we need, what you get</h2>
-<div class="aig">
-<div><h3 style="font-size:19px;margin-bottom:12px">What we need from you</h3>
-<div class="nlist">
-<div><b>Product basis</b><p>Datasheets, standard range and the price basis you want quoted.</p></div>
-<div><b>Lead time</b><p>Honest shop loading, so dates we give the buyer survive the order.</p></div>
-<div><b>Quality system</b><p>Approvals, code stamps and welder qualifications we can put in front of a QA reviewer.</p></div>
-<div><b>A contact</b><p>One person who answers inside a working day during a bid.</p></div>
-</div></div>
-<div><h3 style="font-size:19px;margin-bottom:12px">What you get</h3>
-<div class="nlist">
-<div><b>Qualified enquiries</b><p>Scope read and checked against your capability before it reaches your desk.</p></div>
-<div><b>Fewer dead bids</b><p>We say no to what you cannot build well, instead of passing it on.</p></div>
-<div><b>Nothing chased by hand</b><p>Open offers and quiet accounts followed up on schedule by the systems we run.</p></div>
-<div><b>A reading of the account</b><p>Who decides, what they compare on, and where your price actually sits.</p></div>
-</div></div></div></div></section>
-
-<section class="s" style="background:var(--soft)"><div class="wrap"><div class="eb">Where</div><h2>Markets we sell into</h2>
-<div class="who"><div><b>Sectors</b><p>Energy, mining, LNG, power, chemical and process plant.</p></div>
-<div><b>Regions</b><p>The Americas, Europe, Australia and Asia.</p></div>
-<div><b>Buyers</b><p>EPC contractors, equipment OEMs and operators.</p></div></div></div></section>
-
-<section class="end"><div class="wrap"><div><h2>Send us your product line</h2><p>Datasheets and the markets you want covered. We will tell you straight whether we can sell it.</p></div><div class="cta"><a class="btn p" href="contact.html">Send the details</a><a class="btn" href="mailto:amac@hylexenergy.com?subject=Call%20request">Book a call</a></div></div></section>
+<section class="end"><div class="wrap"><div><h2>Send a material list or a vendor scope</h2><p>We come back with sourcing options by region, with the cost and the lead time against each.</p></div><div class="cta"><a class="btn p" href="contact.html">Send an enquiry</a><a class="btn" href="mailto:amac@hylexenergy.com?subject=Call%20request">Book a call</a></div></div></section>
 <footer><div class="wrap"><div class="fg">
-<div><b>Representation</b><a href="representation.html#scope">What we supply</a><a href="representation.html#how">How an order runs</a><a href="representation.html#assurance">Assurance</a><a href="principals.html">For manufacturers</a></div>
-<div><b>Industrial AI</b><a href="digital.html#build">What we build</a><a href="digital.html#agent">Your own agent</a><a href="digital.html#setup">How a setup runs</a></div>
-<div><b>Company</b><a href="about.html">About</a><a href="insights.html">Insights</a><a href="contact.html">Contact</a></div>
-<div><b>Contact</b><a href="mailto:amac@hylexenergy.com">amac@hylexenergy.com</a><span>Houston, Texas</span></div>
-</div><div class="fb"><span>© 2026 Hylex Energy Consulting</span><span>Representation and industrial AI for energy and process projects</span></div></div></footer>
+<div><b>What we do</b><a href="services.html">Fabrication programs</a><a href="engineering.html">Engineering</a><a href="procurement.html">Procurement</a><a href="digital.html">Project controls</a></div>
+<div><b>Capability</b><a href="capability.html">Fabrication scope</a><a href="capability.html#qa">Quality and inspection</a><a href="capability.html#sectors">Sectors</a></div>
+<div><b>Global network</b><a href="hub-china.html">China hub</a><a href="hub-vietnam.html">Vietnam hub</a><a href="hub-mexico.html">Mexico hub</a><a href="network.html#houston">Houston</a></div>
+<div><b>Contact</b><a href="mailto:amac@hylexenergy.com">amac@hylexenergy.com</a><a href="tel:+16099170633">+1 (609) 917-0633</a><a href="tel:+8618322780729">+86 183 2278 0729</a><span>Energy Corridor, Houston TX</span><span>Tianjin, China</span></div>
+</div><div class="fb"><span>© 2026 Hylex Energy Consulting</span><span>Driving projects from concept to commissioning</span></div></div></footer>
 <button type="button" class="chatb" id="chatb" aria-label="Chat with us"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></button>
 <div class="chatp" id="chatp" hidden><div class="chath"><b>Hylex Energy</b><span>Procurement desk</span><button type="button" id="chatx" aria-label="Close">✕</button></div>
 <div class="chatbody" id="clog"><div class="cm">Hi. What scope are you trying to place? Type here and a principal answers.</div></div>
