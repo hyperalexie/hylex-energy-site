@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/((?!index|hylex-logo|favicon|img-icon|og-card|robots|sitemap|insights|insight-|api/|[0-9a-f]{32}\\.txt).+)",
+      "source": "/((?!about|contact|digital|insight-landed-price-from-asia|insight-reading-a-bid-package|insights|principals|representation|index|404|hylex-logo|favicon|img-icon|img-sys|og-card|robots|sitemap|api/|[0-9a-f]{32}\\.txt).+)",
       "destination": "/",
       "permanent": false
     }
