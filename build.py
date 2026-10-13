@@ -74,17 +74,28 @@ section.s.in .sheet li:nth-child(4)::before{opacity:1;transform:scale(1);transit
 .sheet b{display:block;font-size:17.5px;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin-bottom:4px}
 .sheet span{display:block;font-size:14.5px;line-height:1.45;color:var(--mute)}
 /* the lifecycle line under the hero: one program, end to end */
-.life{border-top:1px solid var(--ink);margin-top:clamp(34px,4vw,56px);display:grid;
-  grid-template-columns:repeat(2,1fr);position:relative}
-@media(min-width:680px){.life{grid-template-columns:repeat(4,1fr)}}
-@media(min-width:1100px){.life{grid-template-columns:repeat(7,1fr)}}
-.life::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:100%;background:var(--green);
-  transform:scaleX(0);transform-origin:0 50%;transition:transform 1.8s var(--e) .2s}
-.xh2.in .life::before{transform:scaleX(1)}
-.life div{padding:16px 14px 20px 0;position:relative}
-.life div::before{content:"";position:absolute;left:0;top:-3px;width:5px;height:5px;background:var(--green);
+/* phone: one vertical rail, seven steps stacked on it. no orphan dots. */
+.life{margin-top:clamp(30px,3.4vw,52px);position:relative;display:grid;grid-template-columns:1fr;
+  padding-left:22px;border-left:1px solid var(--line)}
+.life::before{content:"";position:absolute;left:-1px;top:0;width:1px;height:100%;background:var(--green);
+  transform:scaleY(0);transform-origin:50% 0;transition:transform 1.8s var(--e) .2s}
+.xh2.in .life::before{transform:scaleY(1)}
+.life div{padding:11px 0;position:relative}
+.life div::before{content:"";position:absolute;left:-25px;top:17px;width:5px;height:5px;background:var(--green);
   opacity:0;transition:opacity .4s var(--e)}
 .xh2.in .life div::before{opacity:1}
+.life i{display:inline-block;min-width:30px}
+.life b{display:inline}
+@media(min-width:760px){
+  .life{grid-template-columns:repeat(7,1fr);padding-left:0;border-left:0;
+    border-top:1px solid var(--ink);margin-top:clamp(34px,4vw,56px)}
+  .life::before{left:0;top:-1px;width:100%;height:1px;transform:scaleX(0);transform-origin:0 50%}
+  .xh2.in .life::before{transform:scaleX(1)}
+  .life div{padding:16px 14px 20px 0}
+  .life div::before{left:0;top:-3px}
+  .life i{display:block;min-width:0}
+  .life b{display:block}
+}
 .life i{display:block;font-style:normal;font-size:13px;color:var(--faint);margin-bottom:6px}
 .life b{display:block;font-size:15px;font-weight:600;letter-spacing:-.005em;color:var(--ink);line-height:1.3}
 /* ============ dark data band ============ */
@@ -341,7 +352,7 @@ def home():
 </ol></div>
 <div class="pcards p3">
 <figure><div class="im"><img src="img-hub-china.jpg" alt="China fabrication and engineering hub" loading="lazy" width="800" height="600"></div><figcaption><b>China</b><p>Full fabrication capability, heavy yard and mega module assembly, procurement and engineering support.</p></figcaption></figure>
-<figure><div class="im"><img src="img-hub-vietnam.jpg" alt="Vietnam fabrication hub yard and jetty" loading="lazy" width="800" height="600"></div><figcaption><b>Vietnam</b><p>Heavy structural fabrication, modular assembly and a private jetty with deep sea load out. Tariff resilient.</p></figcaption></figure>
+<figure><div class="im"><img src="img-structural.jpg" alt="Heavy structural module fabricated for load out" loading="lazy" width="800" height="600"></div><figcaption><b>Vietnam</b><p>Heavy structural fabrication, modular assembly and a private jetty with deep sea load out. Tariff resilient.</p></figcaption></figure>
 <figure><div class="im"><img src="img-hub-mexico.jpg" alt="Mexico fabrication facility at Monterrey" loading="lazy" width="800" height="600"></div><figcaption><b>Mexico</b><p>Monterrey pipe spooling and industrial coating, 1.5 hours from the Texas border, inside USMCA.</p></figcaption></figure>
 </div>
 <div class="cta" style="margin-top:38px"><a class="btn" href="network.html"><span>The global network</span></a></div></div></section>
@@ -531,7 +542,7 @@ HUBS = {
         ],
         desc="China fabrication and engineering hub: over 200,000 dia-inches of pipe spooling a month, 40,000 tons a year of structural steel, vessels to 8 m diameter and modules over 3,000 tons."),
     "vietnam": dict(
-        name="Vietnam", title="Vietnam fabrication and engineering hub", img="img-hub-vietnam.jpg",
+        name="Vietnam", title="Vietnam fabrication and engineering hub", img="img-structural.jpg",
         lead="Vietnam covers heavy structural fabrication, modular assembly and integrated process units, with deep water load out and a trade position that gives EPCs an alternative to China based supply.",
         kpi=[("195,000 m²", "Total yard area, 136,000 m² outdoor fabrication and laydown"),
              ("31,000 m²", "Covered workshops, with 6,884 m² assembly bays at 22 m hook height"),
@@ -605,7 +616,7 @@ def network():
 <section class="s" style="background:var(--soft)"><div class="wrap"><div class="eb">Fabrication hubs</div><h2>Three routes for one scope</h2>
 <div class="pcards p3">
 <figure><img src="img-hub-china.jpg" alt="China fabrication and engineering hub" loading="lazy"><figcaption><b>China</b><p>Full fabrication, heavy yard and mega module assembly. Over 200,000 dia-inches a month and modules to 3,000 tons.</p><p style="margin-top:10px"><a href="hub-china.html" style="color:var(--green-d);font-weight:600">China hub ›</a></p></figcaption></figure>
-<figure><img src="img-hub-vietnam.jpg" alt="Vietnam fabrication hub" loading="lazy"><figcaption><b>Vietnam</b><p>Heavy structural and modular assembly on a 195,000 m² yard with a 312 m private jetty. Tariff resilient.</p><p style="margin-top:10px"><a href="hub-vietnam.html" style="color:var(--green-d);font-weight:600">Vietnam hub ›</a></p></figcaption></figure>
+<figure><img src="img-structural.jpg" alt="Heavy structural module fabricated for load out" loading="lazy"><figcaption><b>Vietnam</b><p>Heavy structural and modular assembly on a 195,000 m² yard with a 312 m private jetty. Tariff resilient.</p><p style="margin-top:10px"><a href="hub-vietnam.html" style="color:var(--green-d);font-weight:600">Vietnam hub ›</a></p></figcaption></figure>
 <figure><img src="img-hub-mexico.jpg" alt="Mexico fabrication hub at Monterrey" loading="lazy"><figcaption><b>Mexico</b><p>Monterrey spooling and coating, 1.5 hours from the Texas border, inside USMCA. Nearshore for North America.</p><p style="margin-top:10px"><a href="hub-mexico.html" style="color:var(--green-d);font-weight:600">Mexico hub ›</a></p></figcaption></figure>
 </div></div></section>
 
