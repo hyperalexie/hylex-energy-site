@@ -1,7 +1,7 @@
 <div class="rules" aria-hidden="true"><i></i></div>
-<button type="button" class="chatb" id="chatb" aria-label="Chat with us"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></button>
-<div class="chatp" id="chatp" hidden><div class="chath"><b>Hylex Energy</b><span>Procurement desk</span><button type="button" id="chatx" aria-label="Close">✕</button></div>
-<div class="chatbody" id="clog"><div class="cm">Hi. What scope are you trying to place? Type here and a principal answers.</div></div>
+<button type="button" class="chatb" id="chatb" aria-label="Chat with us" aria-expanded="false" aria-controls="chatp"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></button>
+<div class="chatp" id="chatp" role="dialog" aria-label="Chat with the Hylex procurement desk" hidden><div class="chath"><b>Hylex Energy</b><span>Procurement desk</span><button type="button" id="chatx" aria-label="Close">✕</button></div>
+<div class="chatbody" id="clog" aria-live="polite"><div class="cm">Hi. What scope are you trying to place? Type here and a principal answers.</div></div>
 <div class="cemail" id="cemail" hidden><span>Leave your email and we will reply.</span><div><input id="cmail" type="email" placeholder="Email" autocomplete="email"><button type="button" id="cmailb">OK</button></div></div>
 <form class="cform" id="cform" novalidate><textarea name="text" rows="2" placeholder="Type a message"></textarea><button type="submit" aria-label="Send">Send</button></form>
 <span hidden id="ct-sent">Thank you. We will reply by email.</span><span hidden id="ct-err">Could not send. Please email amac@hylexenergy.com.</span><span hidden id="ct-you">You</span><span hidden id="ct-ack">Message received. We reply here or by email. Add your email in case you leave.</span></div>
@@ -22,10 +22,11 @@ function add(who,t,keep){var d=document.createElement('div');d.className=who==='
 async function send(t){try{var r=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({s:st.s,text:t,email:st.email||'',lang:zh?'zh':'en',page:location.pathname})});var j=await r.json();if(j.ok){if(window.gtag&&!st.ga){st.ga=1;gtag('event','chat_start')}return true}}catch(e){}add('m',tx('ct-err'));return false}
 async function check(){try{var r=await fetch('/api/chat?s='+st.s+'&after='+(st.after||0));var j=await r.json();(j.replies||[]).forEach(function(x){if(st.ids.indexOf(x.id)<0){st.ids.push(x.id);if(st.ids.length>100)st.ids.shift();add('a',x.t);if(x.id>st.after)st.after=x.id;st.replied=1;em.hidden=true}});save()}catch(e){}}
 function start(){if(poll)return;poll=setInterval(check,4000);setTimeout(function(){clearInterval(poll);poll=null},20*60*1000);check()}
-b.onclick=function(){p.hidden=!p.hidden;if(!p.hidden){f.text.focus();if(st.log.length)start()}};var tc=document.getElementById('tabchat');if(tc)tc.onclick=function(e){e.preventDefault();b.onclick()};document.getElementById('chatx').onclick=function(){p.hidden=true;b.focus()};
+b.onclick=function(){p.hidden=!p.hidden;b.setAttribute('aria-expanded',p.hidden?'false':'true');if(!p.hidden){f.text.focus();if(st.log.length)start()}};var tc=document.getElementById('tabchat');if(tc)tc.onclick=function(e){e.preventDefault();b.onclick()};document.getElementById('chatx').onclick=function(){p.hidden=true;b.setAttribute('aria-expanded','false');b.focus()};
 document.addEventListener('keydown',function(e){if(e.key!=='Escape')return;
-if(!p.hidden){p.hidden=true;b.focus();return}
+if(!p.hidden){p.hidden=true;b.setAttribute('aria-expanded','false');b.focus();return}
 var hd=document.querySelector('header');if(hd&&hd.classList.contains('open')){hd.classList.remove('open');
+var mn=document.getElementById('main');if(mn)mn.removeAttribute('inert');document.body.style.overflow='';
 var bg=hd.querySelector('.burger');if(bg){bg.setAttribute('aria-expanded','false');bg.focus()}}});
 f.onsubmit=function(e){e.preventDefault();var t=f.text.value.trim();if(!t)return;add('v',t);f.text.value='';start();send(t).then(function(ok){if(ok&&!st.acked){st.acked=1;save();add('m',tx('ct-ack'));if(!st.email)em.hidden=false}if(ok)autoAns(t)});
 if(!st.replied&&!st.email&&!waitT){waitT=setTimeout(function(){if(!st.replied)em.hidden=false},120000)}};
@@ -44,8 +45,12 @@ else if(/contact\.html#inquiry|#inquiry/.test(h))ev('quote_cta',1);else if(a.id=
 var f=document.getElementById('inq');if(f){[['s',s],['r',rv||'']].forEach(function(k){var i=document.createElement('input');i.type='hidden';i.name=k[0];i.value=k[1];f.appendChild(i)});
 f.addEventListener('focusin',function(){ev('form_start',1)});f.addEventListener('submit',function(){ev('form_sent',1)})}}catch(e){}})();</script><script>
 (function(){var h=document.querySelector('header'),b=h&&h.querySelector('.burger');if(!b)return;
-b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});
-h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');b.setAttribute('aria-expanded','false');});});
+var mainEl=document.getElementById('main');
+b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');
+if(mainEl){if(o){mainEl.setAttribute('inert','')}else{mainEl.removeAttribute('inert')}}
+document.body.style.overflow=o?'hidden':'';});
+h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');b.setAttribute('aria-expanded','false');
+if(mainEl)mainEl.removeAttribute('inert');document.body.style.overflow='';});});
 })();
 </script>
 

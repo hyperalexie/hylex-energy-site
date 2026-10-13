@@ -68,22 +68,22 @@ header,section,footer,main{position:relative;z-index:1}
 /* ---------------------------------------------- header */
 header{background:transparent;position:sticky;top:0;z-index:50;
   border-bottom:1px solid var(--line);transition:box-shadow .3s}
-header::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(255,255,255,.86);
-  backdrop-filter:saturate(1.5) blur(14px)}
+header::before{content:"";position:absolute;inset:0;z-index:-1;background:#fff}
 header.stuck{box-shadow:0 1px 26px rgba(11,15,16,.07)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
 @media(max-width:899px){header .wrap{height:64px}}
-header .logo{display:flex;align-items:center;flex:none}
+header .logo{display:flex;align-items:center;flex:none;order:1}
 header .logo img{height:44px;width:auto;display:block}
 @media(max-width:899px){header .logo img{height:36px}}
-nav{display:none;gap:30px;font-size:15px;font-weight:500;color:var(--body);margin-left:auto}
+nav{display:none;gap:30px;font-size:15px;font-weight:500;color:var(--body);order:2;margin-left:auto}
 @media(min-width:1140px){nav{display:flex}}
 nav a{position:relative;padding:3px 0}
 nav .nd>a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;
   background:var(--green);transform:scaleX(0);transform-origin:0 50%;transition:transform .4s var(--e)}
 nav .nd>a:hover::after,nav a.on::after{transform:scaleX(1)}
 nav a.on{color:var(--ink);font-weight:600}
-.hr{display:flex;align-items:center;gap:10px;flex:none}
+.hr{display:flex;align-items:center;gap:10px;flex:none;order:3}
+@media(max-width:1139px){.hr{margin-left:auto}}
 
 /* ---------------------------------------------- buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 26px;
@@ -374,6 +374,16 @@ footer .fb{margin-top:46px;padding-top:20px;border-top:1px solid var(--line-dk);
 @media(max-width:480px){.chatb{width:48px;height:48px;right:14px;bottom:16px}
   .chatb svg{width:21px;height:21px}}
 
+/* focus: one token everywhere, not just the hero rows */
+:where(a,button,input,textarea,select):focus-visible{outline:2px solid var(--green-t);outline-offset:3px}
+.dark-s :where(a,button):focus-visible,.end :where(a,button):focus-visible,
+footer :where(a,button):focus-visible{outline-color:var(--green)}
+/* anchors land clear of the sticky header */
+:target{scroll-margin-top:92px}
+[id]{scroll-margin-top:92px}
+/* drawer links take a thumb */
+@media(max-width:1139px){header.open nav .dd a{padding:13px 0 13px 16px}}
+
 /* ============ home hero: the program traveller ============ */
 .xh2{background:var(--paper);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
 .xh2::before{content:"";position:absolute;inset:0;pointer-events:none;
@@ -395,8 +405,8 @@ footer .fb{margin-top:46px;padding-top:20px;border-top:1px solid var(--line-dk);
   .hpic{order:3;padding:0 0 clamp(46px,4.4vw,70px) clamp(28px,3vw,50px)}
   .hpic .hshot{height:100%;aspect-ratio:auto;min-height:420px}
 }
-.xh2 h1{font-family:var(--d);font-size:clamp(37px,3.65vw,53px);line-height:1.03;letter-spacing:-.02em;
-  margin:0;max-width:16ch}
+.xh2 h1{font-family:var(--d);font-size:clamp(38px,4.3vw,64px);line-height:1.0;letter-spacing:-.022em;
+  margin:0;max-width:15ch}
 .xh2 h1 em{font-style:normal;display:block;color:var(--green-t)}
 .xh2 .sub{margin:clamp(17px,1.8vw,25px) 0 0;max-width:47ch;font-size:clamp(16.5px,1.25vw,18.5px);
   line-height:1.6;color:var(--body)}
@@ -556,7 +566,7 @@ nav .nd{position:relative}
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header><div class="wrap"><a class="logo" href="index.html"><img src="hylex-logo.png" alt="Hylex Energy Consulting" width="300" height="88"></a><nav><div class="nd"><a href="services.html">What we do</a><div class="dd"><a href="services.html">Fabrication programs</a><a href="engineering.html">Engineering</a><a href="procurement.html">Procurement</a><a href="digital.html">Project controls</a></div></div><div class="nd"><a href="capability.html">Capability</a><div class="dd"><a href="capability.html">Fabrication scope</a><a href="capability.html#qa">Quality and inspection</a><a href="capability.html#sectors">Sectors</a></div></div><div class="nd"><a href="network.html">Global network</a><div class="dd"><a href="network.html">Overview</a><a href="hub-china.html">China hub</a><a href="hub-vietnam.html">Vietnam hub</a><a href="hub-mexico.html">Mexico hub</a><a href="network.html#houston">Houston</a></div></div><div class="nd"><a href="industrial-ai.html">Industrial AI</a></div><div class="nd"><a href="about.html">About</a><div class="dd"><a href="about.html">Company</a><a href="faq.html">FAQ</a></div></div><div class="nd"><a href="insights.html" class="on">Insights</a></div><div class="nd"><a href="contact.html">Contact</a></div></nav><div class="hr"><a class="btn p" href="contact.html">Send an enquiry</a><button type="button" class="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button></div></div></header>
+<header><div class="wrap"><a class="logo" href="index.html"><img src="hylex-logo.png" alt="Hylex Energy Consulting" width="300" height="88"></a><div class="hr"><a class="btn p" href="contact.html">Send an enquiry</a><button type="button" class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button></div><nav id="nav"><div class="nd"><a href="services.html">What we do</a><div class="dd"><a href="services.html">Fabrication programs</a><a href="engineering.html">Engineering</a><a href="procurement.html">Procurement</a><a href="digital.html">Project controls</a></div></div><div class="nd"><a href="capability.html">Capability</a><div class="dd"><a href="capability.html">Fabrication scope</a><a href="capability.html#qa">Quality and inspection</a><a href="capability.html#sectors">Sectors</a></div></div><div class="nd"><a href="network.html">Global network</a><div class="dd"><a href="network.html">Overview</a><a href="hub-china.html">China hub</a><a href="hub-vietnam.html">Vietnam hub</a><a href="hub-mexico.html">Mexico hub</a><a href="network.html#houston">Houston</a></div></div><div class="nd"><a href="industrial-ai.html">Industrial AI</a></div><div class="nd"><a href="about.html">About</a><div class="dd"><a href="about.html">Company</a><a href="faq.html">FAQ</a></div></div><div class="nd"><a href="insights.html" class="on">Insights</a></div><div class="nd"><a href="contact.html">Contact</a></div></nav></div></header>
 <main id="main">
 <section class="pb"><div class="wrap"><div class="crumb"><a href="index.html">Home</a> · <a href="insights.html">Insights</a> · 2026-10-09</div><div class="eb" style="margin-top:14px">Insights</div><h1>How we read a 300 page bid package in a day</h1><p>AI reads every page and cites it; a person checks the result. What comes out is a scope sheet a fabricator can price.</p></div></section><style>.ig{display:grid;gap:18px}@media(min-width:800px){.ig{grid-template-columns:1fr 1fr}}.ic{display:block;border:1px solid var(--line);border-top:3px solid var(--green);background:var(--soft);padding:24px}.ic h3{font-size:22px;margin:8px 0 10px}.ic p{color:var(--mute);margin:0 0 12px}.ic span{font-weight:600;color:var(--green-d)}.art p{font-size:18px;line-height:1.75;color:#2a3135;max-width:760px}</style><section class="s"><div class="wrap art"><p>A public bid package for a pump station or a process plant often runs to several hundred pages of specifications, drawings and addenda. The steel or piping scope is scattered across all of them.</p><p>We use AI tools to read every page and pull out each item that matters to a fabricator: the specification section, the drawing it appears on, sizes, grades, coatings, testing and the quantities that can actually be counted.</p><p>Every line is cited to its page, so anyone can check it in seconds. Conflicts between drawings and specifications are listed rather than guessed, and missing information becomes a short list of questions for the engineer.</p><p>A person then reviews the result before it goes out. The AI does the reading, the judgement stays with someone who has priced fabrication.</p><p>The output is a one screen brief, a scope table and a clarification list. A fabricator or a procurement team can price from it the same week, instead of spending the first days just finding the scope.</p><p style="margin-top:28px"><a class="btn p" href="contact.html">Send us your scope</a> <a class="btn" href="insights.html">All insights</a></p></div></section>
 </main>
@@ -572,9 +582,9 @@ nav .nd{position:relative}
 <div><b>Contact</b><a href="mailto:amac@hylexenergy.com">amac@hylexenergy.com</a><a href="tel:+16099170633">+1 (609) 917-0633</a><a href="tel:+8618322780729">+86 183 2278 0729</a><span>Energy Corridor, Houston TX</span><span>Tianjin, China</span></div>
 </div><div class="fb"><span>© 2026 Hylex Energy Consulting</span><span>Driving projects from concept to commissioning</span></div></div></footer>
 <div class="rules" aria-hidden="true"><i></i></div>
-<button type="button" class="chatb" id="chatb" aria-label="Chat with us"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></button>
-<div class="chatp" id="chatp" hidden><div class="chath"><b>Hylex Energy</b><span>Procurement desk</span><button type="button" id="chatx" aria-label="Close">✕</button></div>
-<div class="chatbody" id="clog"><div class="cm">Hi. What scope are you trying to place? Type here and a principal answers.</div></div>
+<button type="button" class="chatb" id="chatb" aria-label="Chat with us" aria-expanded="false" aria-controls="chatp"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></button>
+<div class="chatp" id="chatp" role="dialog" aria-label="Chat with the Hylex procurement desk" hidden><div class="chath"><b>Hylex Energy</b><span>Procurement desk</span><button type="button" id="chatx" aria-label="Close">✕</button></div>
+<div class="chatbody" id="clog" aria-live="polite"><div class="cm">Hi. What scope are you trying to place? Type here and a principal answers.</div></div>
 <div class="cemail" id="cemail" hidden><span>Leave your email and we will reply.</span><div><input id="cmail" type="email" placeholder="Email" autocomplete="email"><button type="button" id="cmailb">OK</button></div></div>
 <form class="cform" id="cform" novalidate><textarea name="text" rows="2" placeholder="Type a message"></textarea><button type="submit" aria-label="Send">Send</button></form>
 <span hidden id="ct-sent">Thank you. We will reply by email.</span><span hidden id="ct-err">Could not send. Please email amac@hylexenergy.com.</span><span hidden id="ct-you">You</span><span hidden id="ct-ack">Message received. We reply here or by email. Add your email in case you leave.</span></div>
@@ -595,10 +605,11 @@ function add(who,t,keep){var d=document.createElement('div');d.className=who==='
 async function send(t){try{var r=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({s:st.s,text:t,email:st.email||'',lang:zh?'zh':'en',page:location.pathname})});var j=await r.json();if(j.ok){if(window.gtag&&!st.ga){st.ga=1;gtag('event','chat_start')}return true}}catch(e){}add('m',tx('ct-err'));return false}
 async function check(){try{var r=await fetch('/api/chat?s='+st.s+'&after='+(st.after||0));var j=await r.json();(j.replies||[]).forEach(function(x){if(st.ids.indexOf(x.id)<0){st.ids.push(x.id);if(st.ids.length>100)st.ids.shift();add('a',x.t);if(x.id>st.after)st.after=x.id;st.replied=1;em.hidden=true}});save()}catch(e){}}
 function start(){if(poll)return;poll=setInterval(check,4000);setTimeout(function(){clearInterval(poll);poll=null},20*60*1000);check()}
-b.onclick=function(){p.hidden=!p.hidden;if(!p.hidden){f.text.focus();if(st.log.length)start()}};var tc=document.getElementById('tabchat');if(tc)tc.onclick=function(e){e.preventDefault();b.onclick()};document.getElementById('chatx').onclick=function(){p.hidden=true;b.focus()};
+b.onclick=function(){p.hidden=!p.hidden;b.setAttribute('aria-expanded',p.hidden?'false':'true');if(!p.hidden){f.text.focus();if(st.log.length)start()}};var tc=document.getElementById('tabchat');if(tc)tc.onclick=function(e){e.preventDefault();b.onclick()};document.getElementById('chatx').onclick=function(){p.hidden=true;b.setAttribute('aria-expanded','false');b.focus()};
 document.addEventListener('keydown',function(e){if(e.key!=='Escape')return;
-if(!p.hidden){p.hidden=true;b.focus();return}
+if(!p.hidden){p.hidden=true;b.setAttribute('aria-expanded','false');b.focus();return}
 var hd=document.querySelector('header');if(hd&&hd.classList.contains('open')){hd.classList.remove('open');
+var mn=document.getElementById('main');if(mn)mn.removeAttribute('inert');document.body.style.overflow='';
 var bg=hd.querySelector('.burger');if(bg){bg.setAttribute('aria-expanded','false');bg.focus()}}});
 f.onsubmit=function(e){e.preventDefault();var t=f.text.value.trim();if(!t)return;add('v',t);f.text.value='';start();send(t).then(function(ok){if(ok&&!st.acked){st.acked=1;save();add('m',tx('ct-ack'));if(!st.email)em.hidden=false}if(ok)autoAns(t)});
 if(!st.replied&&!st.email&&!waitT){waitT=setTimeout(function(){if(!st.replied)em.hidden=false},120000)}};
@@ -617,8 +628,12 @@ else if(/contact\.html#inquiry|#inquiry/.test(h))ev('quote_cta',1);else if(a.id=
 var f=document.getElementById('inq');if(f){[['s',s],['r',rv||'']].forEach(function(k){var i=document.createElement('input');i.type='hidden';i.name=k[0];i.value=k[1];f.appendChild(i)});
 f.addEventListener('focusin',function(){ev('form_start',1)});f.addEventListener('submit',function(){ev('form_sent',1)})}}catch(e){}})();</script><script>
 (function(){var h=document.querySelector('header'),b=h&&h.querySelector('.burger');if(!b)return;
-b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});
-h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');b.setAttribute('aria-expanded','false');});});
+var mainEl=document.getElementById('main');
+b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');
+if(mainEl){if(o){mainEl.setAttribute('inert','')}else{mainEl.removeAttribute('inert')}}
+document.body.style.overflow=o?'hidden':'';});
+h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');b.setAttribute('aria-expanded','false');
+if(mainEl)mainEl.removeAttribute('inert');document.body.style.overflow='';});});
 })();
 </script>
 

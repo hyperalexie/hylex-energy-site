@@ -43,8 +43,8 @@ EXTRA_CSS = r"""
   .hpic{order:3;padding:0 0 clamp(46px,4.4vw,70px) clamp(28px,3vw,50px)}
   .hpic .hshot{height:100%;aspect-ratio:auto;min-height:420px}
 }
-.xh2 h1{font-family:var(--d);font-size:clamp(37px,3.65vw,53px);line-height:1.03;letter-spacing:-.02em;
-  margin:0;max-width:16ch}
+.xh2 h1{font-family:var(--d);font-size:clamp(38px,4.3vw,64px);line-height:1.0;letter-spacing:-.022em;
+  margin:0;max-width:15ch}
 .xh2 h1 em{font-style:normal;display:block;color:var(--green-t)}
 .xh2 .sub{margin:clamp(17px,1.8vw,25px) 0 0;max-width:47ch;font-size:clamp(16.5px,1.25vw,18.5px);
   line-height:1.6;color:var(--body)}
@@ -244,10 +244,11 @@ def header(active):
             items += f'<div class="nd"><a href="{href}"{on}>{e(label)}</a></div>'
     return ('<header><div class="wrap">'
             '<a class="logo" href="index.html"><img src="hylex-logo.png" alt="Hylex Energy Consulting" width="300" height="88"></a>'
-            f'<nav>{items}</nav>'
             '<div class="hr"><a class="btn p" href="contact.html">Send an enquiry</a>'
-            '<button type="button" class="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button>'
-            '</div></div></header>')
+            '<button type="button" class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button>'
+            '</div>'
+            f'<nav id="nav">{items}</nav>'
+            '</div></header>')
 
 
 FOOTER = f"""<footer><div class="wrap"><div class="tblock">
@@ -409,7 +410,7 @@ def home():
 </ol>
 <p class="tvf">You hold the record book, not the coordination.</p>
 </div>
-<div class="hpic"><figure class="hshot"><img src="img-piperacks.jpg" alt="Galvanised pipe racks and spools laid out in the fabrication shop" fetchpriority="high" width="784" height="980"><figcaption>Pipe racks and spools, shop assembled</figcaption></figure></div>
+<div class="hpic"><figure class="hshot"><img src="img-piperacks.jpg" alt="Galvanised pipe racks and spools laid out in the fabrication shop" fetchpriority="high" width="784" height="1125"><figcaption>Pipe racks and spools, shop assembled</figcaption></figure></div>
 </div>
 </div></section>
 
@@ -435,7 +436,7 @@ def home():
 {kpis([("250,000+", "Dia-inches of pipe spooling per month across the workshops"),
        ("50,000+", "Tons a year of structural steel and platework"),
        ("8 m / 150 mm", "Vessel diameter and wall thickness, single units over 300 tons"),
-       ("1,000+ tons", "Pre assembled modules up to 32 m in length")])}
+       ("1,000 to 3,000 t", "Pre assembled modules, up to 32 m in length")])}
 <p class="prov">Nameplate capacity declared by the partner workshops and checked on audit. It is capacity available to your program, not Hylex output.</p>
 <div class="cta" style="margin-top:30px"><a class="btn" href="capability.html"><span>Full fabrication scope</span></a></div></div></section>
 
@@ -650,6 +651,7 @@ HUBS = {
         desc="China fabrication and engineering hub: over 200,000 dia-inches of pipe spooling a month, 40,000 tons a year of structural steel, vessels to 8 m diameter and modules over 3,000 tons."),
     "vietnam": dict(
         name="Vietnam", title="Vietnam fabrication and engineering hub", img="img-structural.jpg",
+        imgalt="Heavy structural module fabricated and painted for load out",
         lead="Vietnam covers heavy structural fabrication, modular assembly and integrated process units, with deep water load out and a trade position that gives EPCs an alternative to China based supply.",
         kpi=[("195,000 m²", "Total yard area, 136,000 m² outdoor fabrication and laydown"),
              ("31,000 m²", "Covered workshops, with 6,884 m² assembly bays at 22 m hook height"),
@@ -696,7 +698,7 @@ def hub(key):
 <div><div class="eb">In the network</div><h2>One program, routed to the right yard</h2>
 <p>Scope is placed where the capacity, the trade position and the schedule fit, and the whole package still reports to one team in Houston. The other hubs cover what this one does not.</p>
 <p><a class="btn" href="network.html">The global network</a></p></div>
-<div><img src="{h['img']}" alt="{e(h['title'])}" loading="lazy"></div>
+<div><img src="{h['img']}" alt="{e(h.get('imgalt', h['title']))}" loading="lazy"></div>
 </div></div></section>
 
 {end_band("Send a scope for " + h["name"], "Drawings, line lists or an equipment schedule. We come back with capacity, route and lead time.")}"""
@@ -723,7 +725,7 @@ def network():
 <section class="s" style="background:var(--soft)"><div class="wrap"><div class="eb">Fabrication hubs</div><h2>Three routes for one scope</h2>
 <div class="pcards p3">
 <figure><img src="img-hub-china.jpg" alt="China fabrication and engineering hub" loading="lazy"><figcaption><b>China</b><p>Full fabrication, heavy yard and mega module assembly. Over 200,000 dia-inches a month and modules to 3,000 tons.</p><p style="margin-top:10px"><a href="hub-china.html" style="color:var(--green-d);font-weight:600">China hub ›</a></p></figcaption></figure>
-<figure><img src="img-structural.jpg" alt="Heavy structural module fabricated for load out" loading="lazy"><figcaption><b>Vietnam</b><p>Heavy structural and modular assembly on a 195,000 m² yard with a 312 m private jetty. Tariff resilient.</p><p style="margin-top:10px"><a href="hub-vietnam.html" style="color:var(--green-d);font-weight:600">Vietnam hub ›</a></p></figcaption></figure>
+<figure><img src="img-structural.jpg" alt="Heavy structural module fabricated and painted for load out" loading="lazy"><figcaption><b>Vietnam</b><p>Heavy structural work of the kind the Vietnam yard runs, on a 195,000 m² yard with a 312 m private jetty. Tariff resilient.</p><p style="margin-top:10px"><a href="hub-vietnam.html" style="color:var(--green-d);font-weight:600">Vietnam hub ›</a></p></figcaption></figure>
 <figure><img src="img-hub-mexico.jpg" alt="Mexico fabrication hub at Monterrey" loading="lazy"><figcaption><b>Mexico</b><p>Monterrey spooling and coating, 1.5 hours from the Texas border, inside USMCA. Nearshore for North America.</p><p style="margin-top:10px"><a href="hub-mexico.html" style="color:var(--green-d);font-weight:600">Mexico hub ›</a></p></figcaption></figure>
 </div></div></section>
 
