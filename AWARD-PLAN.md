@@ -38,3 +38,14 @@ Benchmark against current SOTD winners. Loop until three clean rounds, no gate f
 ## Open with Alex
 - Logo: original vector, or I redraw the mark.
 - Quality bar only, or actual paid submission with a jury page. Assuming quality bar.
+
+## Progress
+- 2026-10-13 Phase 1 + 2 done, commit 060dfc5, STAGED NOT DEPLOYED.
+  New token set in parts/base.css, Archivo + IBM Plex Mono, motion layer in parts/tail.html,
+  home rebuilt in build.py. Self score 5.5 -> ~7.5.
+  Gates: no overflow 18 pages x 1440/390, AA contrast on every pair (--faint darkened to #697572),
+  0 missing alt, 0 unlabelled buttons, FCP 0.33s, no-JS safe.
+  Alex rejected all 8 logo concepts ("maybe E2 but didn't like any of them, work on website and
+  original logo first"). Original hylex-logo.png kept in the header. Revisit the mark later.
+  Remaining: phase 3 interactive hub map, phase 4 the other 17 pages art directed, phase 5 motion
+  pass, phase 6 the blind reviewer scoring loop.

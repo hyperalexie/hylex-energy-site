@@ -68,7 +68,7 @@ h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',funct
     });
   }
   /* 2. reveal + group animations */
-  var groups = document.querySelectorAll('.kpi, .steps, .end, .xh, section.s');
+  var groups = document.querySelectorAll('.kpi, .steps, .end, .xh2, section.s');
   var io = new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});

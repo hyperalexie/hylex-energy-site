@@ -22,52 +22,59 @@ TAIL = open("parts/tail.html").read()
 FORM = open("parts/form.html").read()
 
 EXTRA_CSS = r"""
-/* ============ home hero: the program line starts here ============ */
-.xh{position:relative;background:var(--ink);color:#fff;overflow:hidden;isolation:isolate}
-.xh .bg{position:absolute;inset:0;z-index:-2}
-.xh .bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.12) brightness(.72)}
-.xh .bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(100deg,rgba(11,15,16,.90) 0%,rgba(11,15,16,.72) 46%,rgba(11,15,16,.52) 100%),
-             radial-gradient(70% 80% at 86% 14%,rgba(0,196,106,.16),transparent 72%)}
-.xh .wrap{display:flex;flex-direction:column;min-height:min(88vh,860px);
-  padding-top:clamp(52px,7vw,96px);padding-bottom:0}
-@media(max-width:899px){.xh .wrap{min-height:auto;padding-top:46px}}
-.xh .top{font-family:var(--m);font-size:11.5px;letter-spacing:.17em;text-transform:uppercase;
-  color:rgba(255,255,255,.52);display:flex;gap:10px 26px;flex-wrap:wrap;align-items:center}
-.xh .top b{color:var(--green);font-weight:500;display:inline-flex;align-items:center;gap:8px}
-.xh .top b::before{content:"";width:6px;height:6px;background:var(--green);border-radius:50%;
-  animation:pulse 2.6s var(--e2) infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
-.xh h1{color:#fff;font-size:clamp(38px,5.3vw,78px);line-height:1.0;letter-spacing:-.042em;
-  margin:clamp(22px,2.6vw,34px) 0 0;max-width:19ch}
-.xh h1 em{font-style:normal;display:block;color:rgba(255,255,255,.52)}
-.xh .sub{margin:clamp(20px,2vw,26px) 0 0;max-width:54ch;font-size:clamp(16.5px,1.32vw,19.5px);
-  line-height:1.6;color:rgba(255,255,255,.72)}
-.xh .cta{margin:clamp(26px,2.6vw,34px) 0 clamp(34px,4vw,52px)}
-.xh .btn{border-color:rgba(255,255,255,.4);color:#fff}
-.xh .btn::before{background:#fff}.xh .btn:hover{color:var(--ink)}
-.xh .btn.p{background:var(--green);border-color:var(--green);color:var(--ink)}
-.xh .btn.p::before{background:#fff}
-/* the route: four stations along one line */
-.route{margin-top:auto;border-top:1px solid rgba(255,255,255,.17);display:grid;
-  grid-template-columns:repeat(2,1fr);position:relative}
-@media(min-width:760px){.route{grid-template-columns:repeat(4,1fr)}}
-.route::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:100%;background:var(--green);
-  transform:scaleX(0);transform-origin:0 50%;transition:transform 1.6s var(--e) .25s}
-.xh.in .route::before{transform:scaleX(1)}
-.route div{padding:20px 18px 38px 0;position:relative}
-@media(min-width:760px){.route div{padding-left:18px}.route div:first-child{padding-left:0}}
-.route div::before{content:"";position:absolute;left:0;top:-4px;width:7px;height:7px;background:var(--green);
+/* ============ home hero: the program, not a photograph ============ */
+.xh2{background:var(--paper);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.xh2::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(58% 70% at 88% 0%,rgba(0,196,106,.07),transparent 72%)}
+.xh2 .wrap{padding-top:clamp(44px,5.6vw,80px);padding-bottom:clamp(34px,4vw,56px)}
+.xh2 .g{display:grid;gap:clamp(34px,4vw,64px);align-items:start}
+@media(min-width:1000px){.xh2 .g{grid-template-columns:1.22fr .88fr}}
+.xh2 .top{font-size:14.5px;color:var(--faint);display:flex;gap:8px 22px;flex-wrap:wrap;align-items:center}
+.xh2 .top b{color:var(--green-t);font-weight:500;display:inline-flex;align-items:center;gap:8px}
+.xh2 .top b::before{content:"";width:7px;height:7px;background:var(--green);
+  animation:pulse 2.8s var(--e2) infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+.xh2 h1{font-family:var(--d);font-size:clamp(36px,4.3vw,62px);line-height:1.04;letter-spacing:-.038em;
+  margin:clamp(20px,2.2vw,30px) 0 0;max-width:17ch}
+.xh2 h1 em{font-style:normal;display:block;color:var(--faint)}
+.xh2 .sub{margin:clamp(20px,2vw,28px) 0 0;max-width:52ch;font-size:clamp(16.5px,1.3vw,19px);
+  line-height:1.6;color:var(--body)}
+.xh2 .cta{margin:clamp(26px,2.6vw,34px) 0 0}
+/* the program sheet: four stations on one line, drawn like a title block */
+.sheet{border:1px solid var(--line);background:#fff}
+.sheet .hd{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:14px 18px;border-bottom:1px solid var(--line);font-size:14px;color:var(--faint)}
+.sheet .hd b{color:var(--ink);font-weight:500}
+.sheet ol{list-style:none;margin:0;padding:6px 18px 18px;position:relative;counter-reset:st}
+.sheet ol::before{content:"";position:absolute;left:25px;top:25px;bottom:30px;width:1px;background:var(--line-2)}
+.sheet ol::after{content:"";position:absolute;left:25px;top:24px;width:1px;background:var(--green);
+  height:0;transition:height 1.5s var(--e) .3s}
+.xh2.in .sheet ol::after{height:calc(100% - 54px)}
+.sheet li{position:relative;padding:15px 0 15px 46px}
+.sheet li+li{border-top:1px solid var(--line)}
+.sheet li::before{content:"";position:absolute;left:21px;top:21px;width:9px;height:9px;background:var(--green);
   opacity:0;transform:scale(.3);transition:opacity .5s var(--e),transform .5s var(--e)}
-@media(min-width:760px){.route div:not(:first-child)::before{left:18px}}
-.xh.in .route div::before{opacity:1;transform:scale(1)}
-.xh.in .route div:nth-child(2)::before{transition-delay:.45s}
-.xh.in .route div:nth-child(3)::before{transition-delay:.7s}
-.xh.in .route div:nth-child(4)::before{transition-delay:.95s}
-.route i{display:block;font-style:normal;font-family:var(--m);font-size:10.5px;letter-spacing:.17em;
-  text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:9px}
-.route b{display:block;font-size:17px;font-weight:700;letter-spacing:-.02em;color:#fff;margin-bottom:5px}
-.route span{display:block;font-size:13.5px;line-height:1.45;color:rgba(255,255,255,.55)}
+.xh2.in .sheet li:nth-child(1)::before{opacity:1;transform:scale(1);transition-delay:.45s}
+.xh2.in .sheet li:nth-child(2)::before{opacity:1;transform:scale(1);transition-delay:.75s}
+.xh2.in .sheet li:nth-child(3)::before{opacity:1;transform:scale(1);transition-delay:1.05s}
+.xh2.in .sheet li:nth-child(4)::before{opacity:1;transform:scale(1);transition-delay:1.35s}
+.sheet i{display:block;font-style:normal;font-size:13.5px;color:var(--faint);margin-bottom:5px}
+.sheet b{display:block;font-size:17px;font-weight:700;letter-spacing:-.025em;color:var(--ink);margin-bottom:4px}
+.sheet span{display:block;font-size:14.5px;line-height:1.45;color:var(--mute)}
+/* the lifecycle line under the hero: one program, end to end */
+.life{border-top:1px solid var(--ink);margin-top:clamp(34px,4vw,56px);display:grid;
+  grid-template-columns:repeat(2,1fr);position:relative}
+@media(min-width:680px){.life{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:1100px){.life{grid-template-columns:repeat(7,1fr)}}
+.life::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:100%;background:var(--green);
+  transform:scaleX(0);transform-origin:0 50%;transition:transform 1.8s var(--e) .2s}
+.xh2.in .life::before{transform:scaleX(1)}
+.life div{padding:16px 14px 20px 0;position:relative}
+.life div::before{content:"";position:absolute;left:0;top:-3px;width:5px;height:5px;background:var(--green);
+  opacity:0;transition:opacity .4s var(--e)}
+.xh2.in .life div::before{opacity:1}
+.life i{display:block;font-style:normal;font-size:13px;color:var(--faint);margin-bottom:6px}
+.life b{display:block;font-size:14.5px;font-weight:600;letter-spacing:-.015em;color:var(--ink);line-height:1.3}
 /* ============ dark data band ============ */
 .dark-s{background:var(--ink);color:#fff;padding:clamp(64px,8vw,116px) 0;border-bottom:0}
 .dark-s h2{color:#fff}
@@ -212,7 +219,7 @@ def page(fn, title, desc, body, active, ld=None):
 <meta property="og:url" content="{url}"><meta property="og:image" content="{OG}">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{OG}">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>{BASE_CSS}{EXTRA_CSS}</style></head>
 <body>
 {ldj}
@@ -266,17 +273,30 @@ CODES = ('<div class="codes"><span>Fabricated and tested to</span>'
 
 # ---------------------------------------------------------------- pages
 def home():
-    body = f"""<section class="xh"><div class="bg"><img src="img-yard.jpg" alt="Fabrication yard with pipe racks and modules under assembly" fetchpriority="high" width="1600" height="900"></div>
-<div class="wrap">
-<div class="top"><b>Program running</b><span>Houston · Tianjin · Vung Tau · Monterrey</span><span>Concept to commissioning</span></div>
+    body = f"""<section class="xh2"><div class="wrap">
+<div class="g">
+<div>
+<div class="top"><b>Four locations, one program</b><span>Houston, China, Vietnam, Mexico</span></div>
 <h1>We run the fabrication program.<em>You run the project.</em></h1>
-<p class="sub">Hylex takes complete ownership of fabrication execution for EPC companies and asset owners. Engineering, global procurement, fabrication and project controls, delivered through hubs in China, Vietnam and Mexico.</p>
+<p class="sub">Hylex takes complete ownership of fabrication execution for EPC companies and asset owners. Engineering, global procurement, fabrication and project controls, under one owner from concept to commissioning.</p>
 <div class="cta"><a class="btn p" href="contact.html"><span>Send us the scope</span></a><a class="btn" href="services.html"><span>What we do</span></a></div>
-<div class="route">
-<div><i>01 · Houston</i><b>The interface</b><span>Client contact, engineering coordination, procurement and QA.</span></div>
-<div><i>02 · China</i><b>Heavy fabrication</b><span>Full capability, mega module assembly, engineering support.</span></div>
-<div><i>03 · Vietnam</i><b>Yard and jetty</b><span>Heavy structural, modular assembly, deep sea load out.</span></div>
-<div><i>04 · Mexico</i><b>Nearshore</b><span>Monterrey spooling and coating, inside USMCA.</span></div>
+</div>
+<div class="sheet"><div class="hd"><b>The network</b><span>Houston decides, the hubs build</span></div>
+<ol>
+<li><i>01 · Houston, Texas</i><b>The interface</b><span>Client contact, engineering coordination, procurement and QA.</span></li>
+<li><i>02 · China</i><b>Heavy fabrication</b><span>Full capability, mega module assembly, engineering support.</span></li>
+<li><i>03 · Vietnam</i><b>Yard and jetty</b><span>Heavy structural, modular assembly, deep sea load out.</span></li>
+<li><i>04 · Mexico</i><b>Nearshore</b><span>Monterrey spooling and coating, inside USMCA.</span></li>
+</ol></div>
+</div>
+<div class="life">
+<div><i>01</i><b>FEED and design</b></div>
+<div><i>02</i><b>Shop drawings</b></div>
+<div><i>03</i><b>Procurement</b></div>
+<div><i>04</i><b>Fabrication</b></div>
+<div><i>05</i><b>NDE and FAT</b></div>
+<div><i>06</i><b>Coating</b></div>
+<div><i>07</i><b>Load out</b></div>
 </div></div></section>
 
 <section class="s"><div class="wrap"><div class="eb">What we do</div><h2>One partner, the whole lifecycle</h2>
