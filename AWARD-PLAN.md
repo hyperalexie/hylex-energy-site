@@ -105,3 +105,37 @@ A juror's words: "the rare B2B page where the idea and the business model are th
 
 **Lesson, again.** Self-scores run about a point high. Two independent blind jurors disagreed with
 each other by 0.5, so run two, average them, and never quote your own number.
+
+## 2026-10-13, rounds 3 and 4
+
+Four blind jurors across four builds: **6.4 → 7.33 / 7.80 → 7.4 → 7.4**. The score stopped
+moving because the remaining gap is not craft.
+
+**Alex killed the seven station traveller**, in his words "the 7 station is really meaningless
+to me", and he is right: FEED, drawings, procurement, fabrication, NDE, coating, load out is
+what every fabricator does. The sheet frame stays; its contents are now the burden transfer,
+the five things that leave the client's desk, each stamped HYLEX.
+
+**Bugs the jury found that the gates did not.** Worth remembering, because every one of them
+is a class of thing the overflow, contrast and alt gates cannot see:
+- `backdrop-filter` on `header` made it the containing block for its own `position:fixed`
+  drawer, so the mobile menu opened as a 48px sliver. The site was unusable on a phone.
+- The drawer media query stopped at 999px while the burger ran to 1139px.
+- A translucent header let the dark sections' own copy read through it.
+- Tabbing out of the open drawer walked into the page behind it; `main` was not inert.
+- `parts/tail.html` was copied from USP and never rewritten, so the Hylex chat answered
+  with USP's distribution catalogue, in English and Chinese, triggered by the word "scope",
+  which is Hylex's own call to action.
+- An HTML `height` attribute beat CSS `aspect-ratio`, upscaling 376x212 thumbnails ~5x.
+- Content contradicted itself across pages: four shops vs three, 3,000 t as a ceiling on two
+  pages and a floor on two others, a PQR claim that fails ASME IX, and a capacity disclaimer
+  that existed on the home page but not in `llms.txt` or the `FAQPage` JSON-LD, which are
+  the surfaces a machine actually quotes.
+
+**The ceiling.** Every juror puts 8.5 behind the same two things: one device carried the whole
+length of the page, and one real delivered program, even anonymised. Without the case study
+the ceiling is about 8.1. Both are now with Alex.
+
+**Process lesson.** Run the juror against the live build, not screenshots, and do not edit the
+repo while one is reviewing. Two of four rounds were partly wasted scoring a page that had
+already changed underneath them.
