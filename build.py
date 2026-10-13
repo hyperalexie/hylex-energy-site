@@ -94,11 +94,12 @@ section.s.in .sheet li:nth-child(4)::before{opacity:1;transform:scale(1);transit
 .tvh b{font-weight:600;color:var(--ink);font-size:13.5px}
 @media(min-width:1080px){.tvh{display:block;padding:0 0 19px}.tvh span{display:block;margin-top:4px}}
 .trav ol{list-style:none;margin:0;padding:0;position:relative}
-.trav ol::before{content:"";position:absolute;left:3px;top:11px;bottom:16px;width:1px;background:var(--line-2)}
-.trav ol::after{content:"";position:absolute;left:3px;top:11px;width:1px;background:var(--green);
-  height:calc(100% - 27px)}
-.js .trav ol::after{height:0;transition:height 1.05s var(--e2) .08s}
-.js .xh2.in .trav ol::after{height:calc(100% - 27px)}
+/* the rail is drawn per station, not once down the whole list, so it stays
+   connected whatever column count the breakpoint puts the stations in */
+.trav li::after{content:"";position:absolute;left:3px;top:15px;bottom:-11px;width:1px;background:var(--green)}
+.trav li:last-child::after{display:none}
+.js .trav li::after{transform:scaleY(0);transform-origin:50% 0;transition:transform .13s linear}
+.js .xh2.in .trav li::after{transform:scaleY(1)}
 .trav li{position:relative;padding:0 0 clamp(13px,1.45vw,19px) 22px;
   display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 10px;align-items:center}
 .trav li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:7px;border-radius:50%;
@@ -116,15 +117,19 @@ section.s.in .sheet li:nth-child(4)::before{opacity:1;transform:scale(1);transit
 .js .trav .sk{opacity:0;transform:scale(1.85) rotate(-8deg);
   transition:opacity .2s var(--e2),transform .28s var(--e2)}
 .js .xh2.in .trav .sk{opacity:1;transform:scale(1) rotate(-1.5deg)}
-.js .xh2.in .trav li:nth-child(1) .sk,.js .xh2.in .trav li:nth-child(1)::before{transition-delay:.20s}
-.js .xh2.in .trav li:nth-child(2) .sk,.js .xh2.in .trav li:nth-child(2)::before{transition-delay:.33s}
-.js .xh2.in .trav li:nth-child(3) .sk,.js .xh2.in .trav li:nth-child(3)::before{transition-delay:.46s}
-.js .xh2.in .trav li:nth-child(4) .sk,.js .xh2.in .trav li:nth-child(4)::before{transition-delay:.59s}
-.js .xh2.in .trav li:nth-child(5) .sk,.js .xh2.in .trav li:nth-child(5)::before{transition-delay:.72s}
-.js .xh2.in .trav li:nth-child(6) .sk,.js .xh2.in .trav li:nth-child(6)::before{transition-delay:.85s}
-.js .xh2.in .trav li:nth-child(7) .sk,.js .xh2.in .trav li:nth-child(7)::before{transition-delay:.98s}
+.js .xh2.in .trav li:nth-child(1) .sk,.js .xh2.in .trav li:nth-child(1)::before,.js .xh2.in .trav li:nth-child(1)::after{transition-delay:.20s}
+.js .xh2.in .trav li:nth-child(2) .sk,.js .xh2.in .trav li:nth-child(2)::before,.js .xh2.in .trav li:nth-child(2)::after{transition-delay:.33s}
+.js .xh2.in .trav li:nth-child(3) .sk,.js .xh2.in .trav li:nth-child(3)::before,.js .xh2.in .trav li:nth-child(3)::after{transition-delay:.46s}
+.js .xh2.in .trav li:nth-child(4) .sk,.js .xh2.in .trav li:nth-child(4)::before,.js .xh2.in .trav li:nth-child(4)::after{transition-delay:.59s}
+.js .xh2.in .trav li:nth-child(5) .sk,.js .xh2.in .trav li:nth-child(5)::before,.js .xh2.in .trav li:nth-child(5)::after{transition-delay:.72s}
+.js .xh2.in .trav li:nth-child(6) .sk,.js .xh2.in .trav li:nth-child(6)::before,.js .xh2.in .trav li:nth-child(6)::after{transition-delay:.85s}
+.js .xh2.in .trav li:nth-child(7) .sk,.js .xh2.in .trav li:nth-child(7)::before,.js .xh2.in .trav li:nth-child(7)::after{transition-delay:.98s}
 .tvf{border-top:1px solid var(--line);padding-top:13px;font-size:12.5px;line-height:1.45;color:var(--faint)}
 @media(max-width:1079px){.trav{padding-bottom:4px}}
+@media(min-width:620px) and (max-width:1079px){
+  .trav ol{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;
+    grid-template-rows:repeat(4,auto);column-gap:clamp(30px,5vw,64px)}
+  .trav li:nth-child(4)::after{display:none}}
 /* ============ footer title block ============ */
 .tblock{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-dk);
   border-left:1px solid var(--line-dk);margin-bottom:clamp(38px,4.2vw,60px)}
