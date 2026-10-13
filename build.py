@@ -35,7 +35,7 @@ EXTRA_CSS = r"""
 /* three zones: the traveller runs the hero, the claim sits beside it, the work is evidence */
 .hg{display:grid;gap:clamp(24px,2.8vw,38px);margin-top:clamp(18px,2vw,28px);align-items:start}
 @media(min-width:1080px){
-  .hg{grid-template-columns:236px minmax(0,1.14fr) minmax(0,.72fr);gap:0;align-items:stretch;
+  .hg{grid-template-columns:292px minmax(0,1.08fr) minmax(0,.7fr);gap:0;align-items:stretch;
     margin-top:clamp(24px,2.5vw,36px)}
   .hcopy{order:2;display:flex;flex-direction:column;justify-content:center;
     padding:clamp(30px,3vw,48px) clamp(28px,3vw,50px);border-right:1px solid var(--line)}
@@ -97,46 +97,36 @@ section.s.in .sheet li:nth-child(4)::before{opacity:1;transform:scale(1);transit
 .trav ol{list-style:none;margin:0;padding:0;position:relative}
 /* the rail is drawn per station, not once down the whole list, so it stays
    connected whatever column count the breakpoint puts the stations in */
-.trav li::after{content:"";position:absolute;left:3px;top:23px;bottom:-19px;width:1px;background:var(--green)}
-.trav li:last-child::after{display:none}
-.js .trav li::after{transform:scaleY(0);transform-origin:50% 0;transition:transform .13s linear}
-.js .xh2.in .trav li::after{transform:scaleY(1)}
-.trav li{position:relative;padding:0 0 clamp(12px,1.3vw,17px)}
+.trav li{position:relative;padding:0 0 clamp(14px,1.5vw,20px)}
 .trav li a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 10px;align-items:center;
   padding:0 0 0 22px;min-height:44px;align-content:center}
 .trav li a:hover b{color:var(--green-t)}
 .trav li a:hover .sk{background:var(--green);color:var(--ink);border-color:var(--green)}
 .trav li a:focus-visible{outline:2px solid var(--green-t);outline-offset:3px}
-.trav li::before{content:"";position:absolute;left:0;top:18px;width:7px;height:7px;border-radius:50%;
+.trav li::before{content:"";position:absolute;left:0;top:19px;width:7px;height:7px;
   background:var(--green)}
 .js .trav li::before{opacity:0;transform:scale(.2);transition:opacity .3s,transform .34s var(--e)}
 .js .xh2.in .trav li::before{opacity:1;transform:scale(1)}
-.trav i{grid-column:1;font-style:normal;font-size:12px;color:var(--faint);display:block;line-height:1}
-.trav b{grid-column:1;display:block;font-size:14.5px;font-weight:600;color:var(--ink);
-  line-height:1.22;letter-spacing:-.005em;margin-top:3px;transition:color .25s}
-.trav u{grid-column:1;display:block;text-decoration:none;font-size:11.5px;line-height:1.3;
-  color:var(--faint);margin-top:3px}
+.trav b{grid-column:1;display:block;font-size:15px;font-weight:600;color:var(--ink);
+  line-height:1.3;letter-spacing:-.005em;transition:color .25s}
 /* the stamp: lands like a rubber stamp on paper, once */
-.trav .sk{grid-column:2;grid-row:1/4;align-self:center;justify-self:end;
-  font-size:11px;font-weight:700;letter-spacing:.03em;color:var(--green-t);
+.trav .sk{grid-column:2;align-self:center;justify-self:end;
+  font-size:10.5px;font-weight:700;letter-spacing:0;color:var(--green-t);
   border:1.5px solid var(--green);padding:4px 6px;line-height:1;white-space:nowrap;
   transform:rotate(-1.5deg);transition:background .25s,color .25s,border-color .25s}
 .js .trav .sk{opacity:0;transform:scale(1.85) rotate(-8deg);
   transition:opacity .2s var(--e2),transform .28s var(--e2)}
 .js .xh2.in .trav .sk{opacity:1;transform:scale(1) rotate(-1.5deg)}
-.js .xh2.in .trav li:nth-child(1) .sk,.js .xh2.in .trav li:nth-child(1)::before,.js .xh2.in .trav li:nth-child(1)::after{transition-delay:.20s}
-.js .xh2.in .trav li:nth-child(2) .sk,.js .xh2.in .trav li:nth-child(2)::before,.js .xh2.in .trav li:nth-child(2)::after{transition-delay:.33s}
-.js .xh2.in .trav li:nth-child(3) .sk,.js .xh2.in .trav li:nth-child(3)::before,.js .xh2.in .trav li:nth-child(3)::after{transition-delay:.46s}
-.js .xh2.in .trav li:nth-child(4) .sk,.js .xh2.in .trav li:nth-child(4)::before,.js .xh2.in .trav li:nth-child(4)::after{transition-delay:.59s}
-.js .xh2.in .trav li:nth-child(5) .sk,.js .xh2.in .trav li:nth-child(5)::before,.js .xh2.in .trav li:nth-child(5)::after{transition-delay:.72s}
-.js .xh2.in .trav li:nth-child(6) .sk,.js .xh2.in .trav li:nth-child(6)::before,.js .xh2.in .trav li:nth-child(6)::after{transition-delay:.85s}
-.js .xh2.in .trav li:nth-child(7) .sk,.js .xh2.in .trav li:nth-child(7)::before,.js .xh2.in .trav li:nth-child(7)::after{transition-delay:.98s}
+.js .xh2.in .trav li:nth-child(1) .sk,.js .xh2.in .trav li:nth-child(1)::before{transition-delay:.20s}
+.js .xh2.in .trav li:nth-child(2) .sk,.js .xh2.in .trav li:nth-child(2)::before{transition-delay:.33s}
+.js .xh2.in .trav li:nth-child(3) .sk,.js .xh2.in .trav li:nth-child(3)::before{transition-delay:.46s}
+.js .xh2.in .trav li:nth-child(4) .sk,.js .xh2.in .trav li:nth-child(4)::before{transition-delay:.59s}
+.js .xh2.in .trav li:nth-child(5) .sk,.js .xh2.in .trav li:nth-child(5)::before{transition-delay:.72s}
 .tvf{border-top:1px solid var(--line);padding-top:13px;font-size:12.5px;line-height:1.45;color:var(--faint)}
 @media(max-width:1079px){.trav{padding-bottom:4px}}
 @media(min-width:620px) and (max-width:1079px){
   .trav ol{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;
-    grid-template-rows:repeat(4,auto);column-gap:clamp(30px,5vw,64px)}
-  .trav li:nth-child(4)::after{display:none}}
+    grid-template-rows:repeat(3,auto);column-gap:clamp(30px,5vw,64px)}}
 /* ============ section 03: one sharp photograph, three hard facts ============ */
 figure.wide{margin:0}
 figure.wide img{display:block;width:100%;height:auto;max-width:600px;
@@ -411,18 +401,16 @@ def home():
 <div class="cta"><a class="btn p" href="contact.html"><span>Send us the scope</span></a><a class="btn" href="services.html"><span>What we do</span></a></div>
 {CODES}
 </div>
-<div class="trav" aria-label="The program traveller, FEED to load out">
-<div class="tvh"><b>Program traveller</b><span>FEED to load out</span></div>
+<div class="trav">
+<div class="tvh"><b>What leaves your desk</b><span>Signed over to Hylex</span></div>
 <ol>
-<li><a href="engineering.html"><i>01</i><b>FEED and design</b><u>Inspection and test plan</u><span class="sk">ITP</span></a></li>
-<li><a href="engineering.html"><i>02</i><b>Shop drawings</b><u>Drawings issued for construction</u><span class="sk">IFC</span></a></li>
-<li><a href="procurement.html"><i>03</i><b>Procurement</b><u>Material test reports, by heat</u><span class="sk">MTR</span></a></li>
-<li><a href="capability.html"><i>04</i><b>Fabrication</b><u>Weld procedures and welders qualified</u><span class="sk">WPS</span></a></li>
-<li><a href="capability.html#qa"><i>05</i><b>NDE and FAT</b><u>Examination and test reports</u><span class="sk">NDE</span></a></li>
-<li><a href="capability.html"><i>06</i><b>Coating</b><u>Coating thickness records</u><span class="sk">DFT</span></a></li>
-<li><a href="digital.html"><i>07</i><b>Load out</b><u>The manufacturing record book</u><span class="sk">MDR</span></a></li>
+<li><a href="network.html"><b>Qualifying and auditing the workshops</b><span class="sk">HYLEX</span></a></li>
+<li><a href="procurement.html"><b>Chasing material certs back to the heat number</b><span class="sk">HYLEX</span></a></li>
+<li><a href="capability.html#qa"><b>Running the inspection and NDE regime</b><span class="sk">HYLEX</span></a></li>
+<li><a href="digital.html"><b>Four shops turned into one progress report</b><span class="sk">HYLEX</span></a></li>
+<li><a href="capability.html"><b>Coating, FAT and load out coordination</b><span class="sk">HYLEX</span></a></li>
 </ol>
-<p class="tvf">Seven stations. One owner. You hold the record book, not the coordination.</p>
+<p class="tvf">You hold the record book, not the coordination.</p>
 </div>
 <div class="hpic"><figure class="hshot"><img src="img-piperacks.jpg" alt="Galvanised pipe racks and spools laid out in the fabrication shop" fetchpriority="high" width="784" height="980"><figcaption>Pipe racks and spools, shop assembled</figcaption></figure></div>
 </div>
