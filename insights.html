@@ -9,7 +9,7 @@
 <meta property="og:url" content="https://www.hylexenergy.com/insights"><meta property="og:image" content="https://www.hylexenergy.com/og-card.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://www.hylexenergy.com/og-card.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
 <style>/* ============================================================
    Hylex Energy design system, 2026-10-13
    Art direction: the engineering drawing. Hairline grid, mono
@@ -26,25 +26,25 @@
   --soft:#F4F6F5; --green-d:#00753F;   /* aliases kept so existing pages keep working */
   --wrap:1280px; --gut:24px;
   --e:cubic-bezier(.16,1,.3,1); --e2:cubic-bezier(.4,0,.2,1);
-  --f:"Instrument Sans",system-ui,-apple-system,sans-serif;
-  --d:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;
-  --m:"Instrument Sans",system-ui,sans-serif;
+  --f:Barlow,system-ui,-apple-system,sans-serif;
+  --d:"Barlow Semi Condensed",Barlow,system-ui,sans-serif;
+  --m:Barlow,system-ui,sans-serif;
 }
 @media(min-width:900px){:root{--gut:48px}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--body);
-  font:400 17px/1.62 var(--f);font-synthesis-weight:none;
+  font:400 17.5px/1.6 var(--f);font-synthesis-weight:none;
   -webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{max-width:100%}
 ::selection{background:var(--green);color:var(--ink)}
 
 /* ---------------------------------------------- type */
-h1,h2,h3,h4{font-family:var(--d);font-weight:800;letter-spacing:-.035em;margin:0;line-height:1.02;color:var(--ink);text-wrap:balance}
-h1{font-size:clamp(40px,6.2vw,88px);line-height:.96;letter-spacing:-.042em}
-h2{font-size:clamp(30px,3.9vw,56px);letter-spacing:-.038em}
-h3{font-size:clamp(20px,1.7vw,25px);letter-spacing:-.025em;font-weight:700;line-height:1.14}
+h1,h2,h3,h4{font-family:var(--d);font-weight:700;letter-spacing:-.018em;margin:0;line-height:1.02;color:var(--ink);text-wrap:balance}
+h1{font-size:clamp(44px,6.6vw,94px);line-height:.98;letter-spacing:-.022em}
+h2{font-size:clamp(33px,4.2vw,60px);letter-spacing:-.02em}
+h3{font-size:clamp(21px,1.8vw,27px);letter-spacing:-.012em;font-weight:600;line-height:1.14}
 p{margin:0 0 1em}
 b,strong{font-weight:700}
 .lead{font-size:clamp(18px,1.45vw,21px);line-height:1.56;color:var(--body);max-width:62ch}
@@ -167,8 +167,8 @@ section.s>.wrap>.eb::before{counter-increment:sec;content:"0" counter(sec);color
 @media(min-width:700px){.kpi div{border-right:1px solid var(--line);padding-left:26px}
   .kpi div:first-child{padding-left:0}
   .kpi.k4 div:nth-child(4n),.kpi.k3 div:nth-child(3n),.kpi.k2 div:nth-child(2n){border-right:0}}
-.kpi b{display:block;font-family:var(--d);font-weight:800;letter-spacing:-.045em;
-  font-size:clamp(28px,2.9vw,40px);line-height:1;color:var(--ink);margin-bottom:12px;white-space:nowrap}
+.kpi b{display:block;font-family:var(--d);font-weight:700;letter-spacing:-.022em;
+  font-size:clamp(31px,3.2vw,45px);line-height:1;color:var(--ink);margin-bottom:12px;white-space:nowrap}
 .kpi span{display:block;font-size:14.5px;line-height:1.5;color:var(--mute);max-width:30ch}
 .kpi div::before{content:"";position:absolute;left:0;top:-1px;width:28px;height:2px;background:var(--green);
   transform:scaleX(0);transform-origin:0 50%;transition:transform .7s var(--e)}
@@ -372,7 +372,7 @@ footer .fb{margin-top:46px;padding-top:20px;border-top:1px solid var(--line-dk);
 .xh2 .top b::before{content:"";width:7px;height:7px;background:var(--green);
   animation:pulse 2.8s var(--e2) infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
-.xh2 h1{font-family:var(--d);font-size:clamp(36px,4.3vw,62px);line-height:1.04;letter-spacing:-.038em;
+.xh2 h1{font-family:var(--d);font-size:clamp(40px,4.9vw,70px);line-height:1.02;letter-spacing:-.02em;
   margin:clamp(20px,2.2vw,30px) 0 0;max-width:17ch}
 .xh2 h1 em{font-style:normal;display:block;color:var(--faint)}
 .xh2 .sub{margin:clamp(20px,2vw,28px) 0 0;max-width:52ch;font-size:clamp(16.5px,1.3vw,19px);
@@ -397,7 +397,7 @@ footer .fb{margin-top:46px;padding-top:20px;border-top:1px solid var(--line-dk);
 .xh2.in .sheet li:nth-child(3)::before{opacity:1;transform:scale(1);transition-delay:1.05s}
 .xh2.in .sheet li:nth-child(4)::before{opacity:1;transform:scale(1);transition-delay:1.35s}
 .sheet i{display:block;font-style:normal;font-size:13.5px;color:var(--faint);margin-bottom:5px}
-.sheet b{display:block;font-size:17px;font-weight:700;letter-spacing:-.025em;color:var(--ink);margin-bottom:4px}
+.sheet b{display:block;font-size:17.5px;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin-bottom:4px}
 .sheet span{display:block;font-size:14.5px;line-height:1.45;color:var(--mute)}
 /* the lifecycle line under the hero: one program, end to end */
 .life{border-top:1px solid var(--ink);margin-top:clamp(34px,4vw,56px);display:grid;
@@ -412,7 +412,7 @@ footer .fb{margin-top:46px;padding-top:20px;border-top:1px solid var(--line-dk);
   opacity:0;transition:opacity .4s var(--e)}
 .xh2.in .life div::before{opacity:1}
 .life i{display:block;font-style:normal;font-size:13px;color:var(--faint);margin-bottom:6px}
-.life b{display:block;font-size:14.5px;font-weight:600;letter-spacing:-.015em;color:var(--ink);line-height:1.3}
+.life b{display:block;font-size:15px;font-weight:600;letter-spacing:-.005em;color:var(--ink);line-height:1.3}
 /* ============ dark data band ============ */
 .dark-s{background:var(--ink);color:#fff;padding:clamp(64px,8vw,116px) 0;border-bottom:0}
 .dark-s h2{color:#fff}
@@ -421,7 +421,7 @@ footer .fb{margin-top:46px;padding-top:20px;border-top:1px solid var(--line-dk);
 .dark-s .lead{color:rgba(255,255,255,.66)}
 .dark-s .kpi{border-color:var(--line-dk)}
 .dark-s .kpi div{border-color:var(--line-dk)}
-.dark-s .kpi b{color:#fff;font-size:clamp(32px,3.5vw,50px)}
+.dark-s .kpi b{color:#fff;font-size:clamp(34px,3.7vw,54px)}
 .dark-s .kpi span{color:rgba(255,255,255,.55)}
 .dark-s .btn{border-color:rgba(255,255,255,.4);color:#fff}
 .dark-s .btn::before{background:#fff}.dark-s .btn:hover{color:var(--ink)}

@@ -49,3 +49,11 @@ Benchmark against current SOTD winners. Loop until three clean rounds, no gate f
   original logo first"). Original hylex-logo.png kept in the header. Revisit the mark later.
   Remaining: phase 3 interactive hub map, phase 4 the other 17 pages art directed, phase 5 motion
   pass, phase 6 the blind reviewer scoring loop.
+- 2026-10-13 Alex: "why design is so close to USP? and why the black and white photo?" then
+  "I meant those little words, even the font is similar". He was right. Commit 14000e0:
+  Bricolage Grotesque + Instrument Sans replace Archivo + IBM Plex Mono (USP runs Inter);
+  every letterspaced uppercase mono label removed site wide; home hero is no longer a photo,
+  it opens on the network sheet + seven station lifecycle line on light paper; hub photos
+  restored to colour with a common grade. RULE: Hylex must never share USP's visual
+  architecture, not just its palette. USP leads on product photography, Hylex leads on the
+  program. Still staged, not deployed.

@@ -34,7 +34,7 @@ EXTRA_CSS = r"""
 .xh2 .top b::before{content:"";width:7px;height:7px;background:var(--green);
   animation:pulse 2.8s var(--e2) infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
-.xh2 h1{font-family:var(--d);font-size:clamp(36px,4.3vw,62px);line-height:1.04;letter-spacing:-.038em;
+.xh2 h1{font-family:var(--d);font-size:clamp(40px,4.9vw,70px);line-height:1.02;letter-spacing:-.02em;
   margin:clamp(20px,2.2vw,30px) 0 0;max-width:17ch}
 .xh2 h1 em{font-style:normal;display:block;color:var(--faint)}
 .xh2 .sub{margin:clamp(20px,2vw,28px) 0 0;max-width:52ch;font-size:clamp(16.5px,1.3vw,19px);
@@ -59,7 +59,7 @@ EXTRA_CSS = r"""
 .xh2.in .sheet li:nth-child(3)::before{opacity:1;transform:scale(1);transition-delay:1.05s}
 .xh2.in .sheet li:nth-child(4)::before{opacity:1;transform:scale(1);transition-delay:1.35s}
 .sheet i{display:block;font-style:normal;font-size:13.5px;color:var(--faint);margin-bottom:5px}
-.sheet b{display:block;font-size:17px;font-weight:700;letter-spacing:-.025em;color:var(--ink);margin-bottom:4px}
+.sheet b{display:block;font-size:17.5px;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin-bottom:4px}
 .sheet span{display:block;font-size:14.5px;line-height:1.45;color:var(--mute)}
 /* the lifecycle line under the hero: one program, end to end */
 .life{border-top:1px solid var(--ink);margin-top:clamp(34px,4vw,56px);display:grid;
@@ -74,7 +74,7 @@ EXTRA_CSS = r"""
   opacity:0;transition:opacity .4s var(--e)}
 .xh2.in .life div::before{opacity:1}
 .life i{display:block;font-style:normal;font-size:13px;color:var(--faint);margin-bottom:6px}
-.life b{display:block;font-size:14.5px;font-weight:600;letter-spacing:-.015em;color:var(--ink);line-height:1.3}
+.life b{display:block;font-size:15px;font-weight:600;letter-spacing:-.005em;color:var(--ink);line-height:1.3}
 /* ============ dark data band ============ */
 .dark-s{background:var(--ink);color:#fff;padding:clamp(64px,8vw,116px) 0;border-bottom:0}
 .dark-s h2{color:#fff}
@@ -83,7 +83,7 @@ EXTRA_CSS = r"""
 .dark-s .lead{color:rgba(255,255,255,.66)}
 .dark-s .kpi{border-color:var(--line-dk)}
 .dark-s .kpi div{border-color:var(--line-dk)}
-.dark-s .kpi b{color:#fff;font-size:clamp(32px,3.5vw,50px)}
+.dark-s .kpi b{color:#fff;font-size:clamp(34px,3.7vw,54px)}
 .dark-s .kpi span{color:rgba(255,255,255,.55)}
 .dark-s .btn{border-color:rgba(255,255,255,.4);color:#fff}
 .dark-s .btn::before{background:#fff}.dark-s .btn:hover{color:var(--ink)}
@@ -219,7 +219,7 @@ def page(fn, title, desc, body, active, ld=None):
 <meta property="og:url" content="{url}"><meta property="og:image" content="{OG}">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{OG}">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
 <style>{BASE_CSS}{EXTRA_CSS}</style></head>
 <body>
 {ldj}

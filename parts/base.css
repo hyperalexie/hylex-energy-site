@@ -14,25 +14,25 @@
   --soft:#F4F6F5; --green-d:#00753F;   /* aliases kept so existing pages keep working */
   --wrap:1280px; --gut:24px;
   --e:cubic-bezier(.16,1,.3,1); --e2:cubic-bezier(.4,0,.2,1);
-  --f:"Instrument Sans",system-ui,-apple-system,sans-serif;
-  --d:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;
-  --m:"Instrument Sans",system-ui,sans-serif;
+  --f:Barlow,system-ui,-apple-system,sans-serif;
+  --d:"Barlow Semi Condensed",Barlow,system-ui,sans-serif;
+  --m:Barlow,system-ui,sans-serif;
 }
 @media(min-width:900px){:root{--gut:48px}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--body);
-  font:400 17px/1.62 var(--f);font-synthesis-weight:none;
+  font:400 17.5px/1.6 var(--f);font-synthesis-weight:none;
   -webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{max-width:100%}
 ::selection{background:var(--green);color:var(--ink)}
 
 /* ---------------------------------------------- type */
-h1,h2,h3,h4{font-family:var(--d);font-weight:800;letter-spacing:-.035em;margin:0;line-height:1.02;color:var(--ink);text-wrap:balance}
-h1{font-size:clamp(40px,6.2vw,88px);line-height:.96;letter-spacing:-.042em}
-h2{font-size:clamp(30px,3.9vw,56px);letter-spacing:-.038em}
-h3{font-size:clamp(20px,1.7vw,25px);letter-spacing:-.025em;font-weight:700;line-height:1.14}
+h1,h2,h3,h4{font-family:var(--d);font-weight:700;letter-spacing:-.018em;margin:0;line-height:1.02;color:var(--ink);text-wrap:balance}
+h1{font-size:clamp(44px,6.6vw,94px);line-height:.98;letter-spacing:-.022em}
+h2{font-size:clamp(33px,4.2vw,60px);letter-spacing:-.02em}
+h3{font-size:clamp(21px,1.8vw,27px);letter-spacing:-.012em;font-weight:600;line-height:1.14}
 p{margin:0 0 1em}
 b,strong{font-weight:700}
 .lead{font-size:clamp(18px,1.45vw,21px);line-height:1.56;color:var(--body);max-width:62ch}
@@ -155,8 +155,8 @@ section.s>.wrap>.eb::before{counter-increment:sec;content:"0" counter(sec);color
 @media(min-width:700px){.kpi div{border-right:1px solid var(--line);padding-left:26px}
   .kpi div:first-child{padding-left:0}
   .kpi.k4 div:nth-child(4n),.kpi.k3 div:nth-child(3n),.kpi.k2 div:nth-child(2n){border-right:0}}
-.kpi b{display:block;font-family:var(--d);font-weight:800;letter-spacing:-.045em;
-  font-size:clamp(28px,2.9vw,40px);line-height:1;color:var(--ink);margin-bottom:12px;white-space:nowrap}
+.kpi b{display:block;font-family:var(--d);font-weight:700;letter-spacing:-.022em;
+  font-size:clamp(31px,3.2vw,45px);line-height:1;color:var(--ink);margin-bottom:12px;white-space:nowrap}
 .kpi span{display:block;font-size:14.5px;line-height:1.5;color:var(--mute);max-width:30ch}
 .kpi div::before{content:"";position:absolute;left:0;top:-1px;width:28px;height:2px;background:var(--green);
   transform:scaleX(0);transform-origin:0 50%;transition:transform .7s var(--e)}
