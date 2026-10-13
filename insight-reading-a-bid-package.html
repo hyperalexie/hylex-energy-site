@@ -64,11 +64,6 @@ b,strong{font-weight:700}
 @media(max-width:620px){.rules{display:none}}
 header,section,footer,main{position:relative;z-index:1}
 
-/* the program line: left rail, fills as you move down the page */
-.prog{position:fixed;left:0;top:0;bottom:0;width:3px;z-index:60;pointer-events:none;background:var(--line)}
-.prog i{display:block;width:100%;height:100%;background:var(--green);
-  transform:scaleY(0);transform-origin:0 0;transition:transform .12s linear}
-@media(max-width:620px){.prog{width:2px}}
 
 /* ---------------------------------------------- header */
 header{background:rgba(255,255,255,.86);backdrop-filter:saturate(1.5) blur(14px);
@@ -132,7 +127,6 @@ nav .nd{position:relative}
 }
 
 /* ---------------------------------------------- section frame + counter */
-body{counter-reset:sec}
 section.s{padding:clamp(64px,8vw,120px) 0;border-bottom:1px solid var(--line)}
 section.s>.wrap{position:relative}
 section.s>.wrap::before{content:"";position:absolute;left:-5px;top:-1px;
@@ -141,8 +135,6 @@ section.s>.wrap::before{content:"";position:absolute;left:-5px;top:-1px;
 @media(max-width:620px){section.s>.wrap::before{display:none}}
 section.s.in>.wrap::before{opacity:1;transform:scale(1)}
 section.s>.wrap>.eb{position:relative}
-section.s>.wrap>.eb::before{counter-increment:sec;content:"0" counter(sec);color:var(--faint);
-  font-weight:500;order:-2;flex:none}
 .s h2{margin:14px 0 26px;max-width:18ch}
 .s h2+.lead{margin:-12px 0 32px}
 
@@ -203,7 +195,7 @@ section.s>.wrap>.eb::before{counter-increment:sec;content:"0" counter(sec);color
 @media(min-width:1000px){.pcards.p3{grid-template-columns:repeat(3,1fr)}}
 .pcards figure{margin:0;display:flex;flex-direction:column}
 .pcards .im{overflow:hidden;background:var(--paper-3);position:relative}
-.pcards img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;
+.pcards img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;
   /* colour kept. graded only so the three hubs share a black point and temperature */
   filter:saturate(.88) contrast(1.07) brightness(1.01);
   transition:transform 1.2s var(--e),filter .8s var(--e);will-change:transform}
@@ -372,6 +364,13 @@ footer .fb{margin-top:46px;padding-top:20px;border-top:1px solid var(--line-dk);
   header .hr .btn{min-height:44px}
 }
 
+/* skip link: the first thing a keyboard reaches */
+.skip{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;clip:auto;z-index:100;
+  background:var(--ink);color:#fff;padding:12px 18px;font-size:15px;font-weight:600}
+@media(max-width:480px){.chatb{width:48px;height:48px;right:14px;bottom:16px}
+  .chatb svg{width:21px;height:21px}}
+
 /* ============ home hero: the program traveller ============ */
 .xh2{background:var(--paper);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
 .xh2::before{content:"";position:absolute;inset:0;pointer-events:none;
@@ -385,9 +384,10 @@ footer .fb{margin-top:46px;padding-top:20px;border-top:1px solid var(--line-dk);
 /* three zones: the traveller runs the hero, the claim sits beside it, the work is evidence */
 .hg{display:grid;gap:clamp(24px,2.8vw,38px);margin-top:clamp(18px,2vw,28px);align-items:start}
 @media(min-width:1080px){
-  .hg{grid-template-columns:208px minmax(0,1.18fr) minmax(0,.76fr);gap:0;align-items:stretch;
+  .hg{grid-template-columns:236px minmax(0,1.14fr) minmax(0,.72fr);gap:0;align-items:stretch;
     margin-top:clamp(24px,2.5vw,36px)}
-  .hcopy{order:2;padding:2px clamp(28px,3vw,50px) clamp(46px,4.4vw,70px);border-right:1px solid var(--line)}
+  .hcopy{order:2;display:flex;flex-direction:column;justify-content:center;
+    padding:clamp(30px,3vw,48px) clamp(28px,3vw,50px);border-right:1px solid var(--line)}
   .trav{order:1}
   .hpic{order:3;padding:0 0 clamp(46px,4.4vw,70px) clamp(28px,3vw,50px)}
   .hpic .hshot{height:100%;aspect-ratio:auto;min-height:420px}
@@ -446,24 +446,30 @@ section.s.in .sheet li:nth-child(4)::before{opacity:1;transform:scale(1);transit
 .trav ol{list-style:none;margin:0;padding:0;position:relative}
 /* the rail is drawn per station, not once down the whole list, so it stays
    connected whatever column count the breakpoint puts the stations in */
-.trav li::after{content:"";position:absolute;left:3px;top:15px;bottom:-11px;width:1px;background:var(--green)}
+.trav li::after{content:"";position:absolute;left:3px;top:23px;bottom:-19px;width:1px;background:var(--green)}
 .trav li:last-child::after{display:none}
 .js .trav li::after{transform:scaleY(0);transform-origin:50% 0;transition:transform .13s linear}
 .js .xh2.in .trav li::after{transform:scaleY(1)}
-.trav li{position:relative;padding:0 0 clamp(13px,1.45vw,19px) 22px;
-  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 10px;align-items:center}
-.trav li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:7px;border-radius:50%;
+.trav li{position:relative;padding:0 0 clamp(12px,1.3vw,17px)}
+.trav li a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 10px;align-items:center;
+  padding:0 0 0 22px;min-height:44px;align-content:center}
+.trav li a:hover b{color:var(--green-t)}
+.trav li a:hover .sk{background:var(--green);color:var(--ink);border-color:var(--green)}
+.trav li a:focus-visible{outline:2px solid var(--green-t);outline-offset:3px}
+.trav li::before{content:"";position:absolute;left:0;top:18px;width:7px;height:7px;border-radius:50%;
   background:var(--green)}
 .js .trav li::before{opacity:0;transform:scale(.2);transition:opacity .3s,transform .34s var(--e)}
 .js .xh2.in .trav li::before{opacity:1;transform:scale(1)}
 .trav i{grid-column:1;font-style:normal;font-size:12px;color:var(--faint);display:block;line-height:1}
 .trav b{grid-column:1;display:block;font-size:14.5px;font-weight:600;color:var(--ink);
-  line-height:1.22;letter-spacing:-.005em;margin-top:4px}
+  line-height:1.22;letter-spacing:-.005em;margin-top:3px;transition:color .25s}
+.trav u{grid-column:1;display:block;text-decoration:none;font-size:11.5px;line-height:1.3;
+  color:var(--faint);margin-top:3px}
 /* the stamp: lands like a rubber stamp on paper, once */
-.trav .sk{grid-column:2;grid-row:1/3;align-self:center;justify-self:end;
+.trav .sk{grid-column:2;grid-row:1/4;align-self:center;justify-self:end;
   font-size:11px;font-weight:700;letter-spacing:.03em;color:var(--green-t);
   border:1.5px solid var(--green);padding:4px 6px;line-height:1;white-space:nowrap;
-  transform:rotate(-1.5deg)}
+  transform:rotate(-1.5deg);transition:background .25s,color .25s,border-color .25s}
 .js .trav .sk{opacity:0;transform:scale(1.85) rotate(-8deg);
   transition:opacity .2s var(--e2),transform .28s var(--e2)}
 .js .xh2.in .trav .sk{opacity:1;transform:scale(1) rotate(-1.5deg)}
@@ -480,6 +486,58 @@ section.s.in .sheet li:nth-child(4)::before{opacity:1;transform:scale(1);transit
   .trav ol{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;
     grid-template-rows:repeat(4,auto);column-gap:clamp(30px,5vw,64px)}
   .trav li:nth-child(4)::after{display:none}}
+/* ============ section 03: one sharp photograph, three hard facts ============ */
+figure.wide{margin:0}
+figure.wide img{display:block;width:100%;height:auto;max-width:600px;
+  filter:saturate(.9) contrast(1.06)}
+figure.wide figcaption{margin-top:14px;font-size:14.5px;line-height:1.5;color:var(--faint);max-width:62ch}
+.netsplit{display:grid;gap:clamp(24px,3vw,44px)}
+@media(min-width:1040px){.netsplit{grid-template-columns:600px minmax(0,1fr);align-items:start}}
+.facts{display:grid;gap:0;border-top:1px solid var(--ink)}
+@media(min-width:800px) and (max-width:1039px){.facts{grid-template-columns:repeat(3,1fr)}
+  .facts div{border-right:1px solid var(--line);padding-left:24px}
+  .facts div:first-child{padding-left:0}.facts div:last-child{border-right:0}}
+.facts div{padding:18px 26px 22px 0;border-bottom:1px solid var(--line)}
+.facts i{font-style:normal;display:block;font-size:13px;color:var(--green-t);font-weight:600;margin-bottom:8px}
+.facts b{display:block;font-size:16px;font-weight:500;line-height:1.45;color:var(--ink)}
+/* the network rows carry no ordinal: on this page a number means a station */
+.sheet.plain li::before{display:none}
+.sheet.plain li{padding-left:0}
+.sheet.plain ol::before,.sheet.plain ol::after{display:none}
+/* ============ the record book: the traveller, closed ============ */
+.book{background:var(--paper-2)}
+.bhead{display:grid;gap:4px clamp(36px,4vw,64px)}
+@media(min-width:1000px){.bhead{grid-template-columns:1.05fr 1fr;align-items:end}
+  .bhead h2{margin-bottom:0}.bhead .lead{margin:0 0 6px}}
+.mdr{border:1px solid var(--line);background:#fff;margin-top:clamp(28px,3vw,44px)}
+.mdr .hd{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:14px 18px;border-bottom:1px solid var(--line);font-size:14px;color:var(--faint)}
+.mdr .hd b{color:var(--ink);font-weight:600}
+.mdr ol{list-style:none;margin:0;padding:0;counter-reset:none}
+@media(min-width:900px){.mdr ol{display:grid;grid-template-columns:1fr 1fr;column-gap:0}
+  .mdr li:nth-child(odd){border-right:1px solid var(--line)}
+  .mdr li:nth-child(2){border-top:0}}
+.mdr li{display:flex;align-items:baseline;gap:14px;padding:13px 18px;border-top:1px solid var(--line)}
+.mdr li:first-child{border-top:0}
+
+.mdr .sk{flex:none;width:46px;text-align:center;font-size:11px;font-weight:700;letter-spacing:.03em;
+  color:var(--green-t);border:1.5px solid var(--green);padding:4px 0;line-height:1;
+  transform:rotate(-1.5deg)}
+.js .mdr .sk{opacity:0;transform:scale(1.8) rotate(-8deg);
+  transition:opacity .2s var(--e2),transform .28s var(--e2)}
+.js section.book.in .mdr .sk{opacity:1;transform:scale(1) rotate(-1.5deg)}
+.js section.book.in .mdr li:nth-child(1) .sk{transition-delay:0.06s}
+.js section.book.in .mdr li:nth-child(2) .sk{transition-delay:0.12s}
+.js section.book.in .mdr li:nth-child(3) .sk{transition-delay:0.18s}
+.js section.book.in .mdr li:nth-child(4) .sk{transition-delay:0.24s}
+.js section.book.in .mdr li:nth-child(5) .sk{transition-delay:0.30s}
+.js section.book.in .mdr li:nth-child(6) .sk{transition-delay:0.36s}
+.js section.book.in .mdr li:nth-child(7) .sk{transition-delay:0.42s}
+.js section.book.in .mdr li:nth-child(8) .sk{transition-delay:0.48s}
+.js section.book.in .mdr li:nth-child(9) .sk{transition-delay:0.54s}
+.js section.book.in .mdr li:nth-child(10) .sk{transition-delay:0.60s}
+.mdr b{font-weight:500;font-size:15.5px;line-height:1.4;color:var(--ink)}
+.book .note{margin:clamp(26px,2.8vw,38px) 0 0;max-width:72ch;font-size:16px;line-height:1.6;color:var(--mute)}
 /* ============ footer title block ============ */
 .tblock{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-dk);
   border-left:1px solid var(--line-dk);margin-bottom:clamp(38px,4.2vw,60px)}
@@ -506,9 +564,12 @@ nav .nd{position:relative}
 .xh .eb::before,.end .eb::before{content:none}
 </style></head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header><div class="wrap"><a class="logo" href="index.html"><img src="hylex-logo.png" alt="Hylex Energy Consulting" width="300" height="88"></a><nav><div class="nd"><a href="services.html">What we do</a><div class="dd"><a href="services.html">Fabrication programs</a><a href="engineering.html">Engineering</a><a href="procurement.html">Procurement</a><a href="digital.html">Project controls</a></div></div><div class="nd"><a href="capability.html">Capability</a><div class="dd"><a href="capability.html">Fabrication scope</a><a href="capability.html#qa">Quality and inspection</a><a href="capability.html#sectors">Sectors</a></div></div><div class="nd"><a href="network.html">Global network</a><div class="dd"><a href="network.html">Overview</a><a href="hub-china.html">China hub</a><a href="hub-vietnam.html">Vietnam hub</a><a href="hub-mexico.html">Mexico hub</a><a href="network.html#houston">Houston</a></div></div><div class="nd"><a href="industrial-ai.html">Industrial AI</a></div><div class="nd"><a href="about.html">About</a><div class="dd"><a href="about.html">Company</a><a href="faq.html">FAQ</a></div></div><div class="nd"><a href="insights.html" class="on">Insights</a></div><div class="nd"><a href="contact.html">Contact</a></div></nav><div class="hr"><a class="btn p" href="contact.html">Send an enquiry</a><button type="button" class="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button></div></div></header>
+<main id="main">
 <section class="pb"><div class="wrap"><div class="crumb"><a href="index.html">Home</a> · <a href="insights.html">Insights</a> · 2026-10-09</div><div class="eb" style="margin-top:14px">Insights</div><h1>How we read a 300 page bid package in a day</h1><p>AI reads every page and cites it; a person checks the result. What comes out is a scope sheet a fabricator can price.</p></div></section><style>.ig{display:grid;gap:18px}@media(min-width:800px){.ig{grid-template-columns:1fr 1fr}}.ic{display:block;border:1px solid var(--line);border-top:3px solid var(--green);background:var(--soft);padding:24px}.ic h3{font-size:22px;margin:8px 0 10px}.ic p{color:var(--mute);margin:0 0 12px}.ic span{font-weight:600;color:var(--green-d)}.art p{font-size:18px;line-height:1.75;color:#2a3135;max-width:760px}</style><section class="s"><div class="wrap art"><p>A public bid package for a pump station or a process plant often runs to several hundred pages of specifications, drawings and addenda. The steel or piping scope is scattered across all of them.</p><p>We use AI tools to read every page and pull out each item that matters to a fabricator: the specification section, the drawing it appears on, sizes, grades, coatings, testing and the quantities that can actually be counted.</p><p>Every line is cited to its page, so anyone can check it in seconds. Conflicts between drawings and specifications are listed rather than guessed, and missing information becomes a short list of questions for the engineer.</p><p>A person then reviews the result before it goes out. The AI does the reading, the judgement stays with someone who has priced fabrication.</p><p>The output is a one screen brief, a scope table and a clarification list. A fabricator or a procurement team can price from it the same week, instead of spending the first days just finding the scope.</p><p style="margin-top:28px"><a class="btn p" href="contact.html">Send us your scope</a> <a class="btn" href="insights.html">All insights</a></p></div></section>
+</main>
 <footer><div class="wrap"><div class="tblock">
 <div><i>Program owner</i><b>Hylex Energy Consulting</b></div>
 <div><i>Head office</i><b>Energy Corridor, Houston, Texas</b></div>
@@ -521,7 +582,6 @@ nav .nd{position:relative}
 <div><b>Contact</b><a href="mailto:amac@hylexenergy.com">amac@hylexenergy.com</a><a href="tel:+16099170633">+1 (609) 917-0633</a><a href="tel:+8618322780729">+86 183 2278 0729</a><span>Energy Corridor, Houston TX</span><span>Tianjin, China</span></div>
 </div><div class="fb"><span>© 2026 Hylex Energy Consulting</span><span>Driving projects from concept to commissioning</span></div></div></footer>
 <div class="rules" aria-hidden="true"><i></i></div>
-<div class="prog" aria-hidden="true"><i id="progi"></i></div>
 <button type="button" class="chatb" id="chatb" aria-label="Chat with us"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></button>
 <div class="chatp" id="chatp" hidden><div class="chath"><b>Hylex Energy</b><span>Procurement desk</span><button type="button" id="chatx" aria-label="Close">✕</button></div>
 <div class="chatbody" id="clog"><div class="cm">Hi. What scope are you trying to place? Type here and a principal answers.</div></div>
@@ -573,7 +633,6 @@ h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',funct
 (function(){
   var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var h = document.querySelector('header');
-  var bar = document.getElementById('progi');
   /* 1. tag what reveals, without touching the page markup */
   if(!rm){
     var sel = 'section .wrap > .eb, section .wrap > h1, section .wrap > h2, section .wrap > p,'
@@ -596,13 +655,11 @@ h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',funct
   }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
   document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
   groups.forEach(function(el){ io.observe(el); });
-  /* 3. the program line + header state */
+  /* 3. sticky header state */
   var tick = false;
   function frame(){
     tick = false;
     var y = window.scrollY || document.documentElement.scrollTop;
-    var max = document.documentElement.scrollHeight - window.innerHeight;
-    if(bar) bar.style.transform = 'scaleY(' + (max > 0 ? Math.min(1, y/max) : 0) + ')';
     if(h) h.classList.toggle('stuck', y > 10);
   }
   window.addEventListener('scroll', function(){ if(!tick){ tick = true; requestAnimationFrame(frame); } }, {passive:true});

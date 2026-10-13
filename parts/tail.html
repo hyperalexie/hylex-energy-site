@@ -1,5 +1,4 @@
 <div class="rules" aria-hidden="true"><i></i></div>
-<div class="prog" aria-hidden="true"><i id="progi"></i></div>
 <button type="button" class="chatb" id="chatb" aria-label="Chat with us"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></button>
 <div class="chatp" id="chatp" hidden><div class="chath"><b>Hylex Energy</b><span>Procurement desk</span><button type="button" id="chatx" aria-label="Close">✕</button></div>
 <div class="chatbody" id="clog"><div class="cm">Hi. What scope are you trying to place? Type here and a principal answers.</div></div>
@@ -51,7 +50,6 @@ h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',funct
 (function(){
   var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var h = document.querySelector('header');
-  var bar = document.getElementById('progi');
   /* 1. tag what reveals, without touching the page markup */
   if(!rm){
     var sel = 'section .wrap > .eb, section .wrap > h1, section .wrap > h2, section .wrap > p,'
@@ -74,13 +72,11 @@ h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',funct
   }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
   document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
   groups.forEach(function(el){ io.observe(el); });
-  /* 3. the program line + header state */
+  /* 3. sticky header state */
   var tick = false;
   function frame(){
     tick = false;
     var y = window.scrollY || document.documentElement.scrollTop;
-    var max = document.documentElement.scrollHeight - window.innerHeight;
-    if(bar) bar.style.transform = 'scaleY(' + (max > 0 ? Math.min(1, y/max) : 0) + ')';
     if(h) h.classList.toggle('stuck', y > 10);
   }
   window.addEventListener('scroll', function(){ if(!tick){ tick = true; requestAnimationFrame(frame); } }, {passive:true});
