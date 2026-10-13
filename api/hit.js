@@ -9,7 +9,9 @@ const EVENTS = new Set(["email", "whatsapp", "phone", "wechat", "quote_cta", "fo
 const SAID = { email: "tapped our email", whatsapp: "tapped WhatsApp", phone: "tapped a phone number", wechat: "tapped WeChat",
   quote_cta: "clicked Request a quotation", form_start: "started the inquiry form", form_sent: "sent the inquiry form", chat_open: "opened the chat" };
 const ok = () => new Response(null, { status: 204, headers: { "cache-control": "no-store" } });
-const BOT = /bot|crawl|spider|slurp|headless|lighthouse|preview|facebookexternalhit|embedly|python|curl|wget/i;
+// Anything automated never becomes a visit. Search and AI crawlers are WELCOME on the site, robots.txt
+// invites them, they simply are not people and do not belong in the visitor log.
+const BOT = /bot|crawl|spider|slurp|headless|lighthouse|preview|facebookexternalhit|embedly|python|curl|wget|puppeteer|playwright|selenium|phantom|scrapy|axios|node-fetch|okhttp|java\/|go-http|libwww|httpclient|semrush|ahrefs|mj12|dotbot|petalbot|screaming frog|serpstat|dataforseo/i;
 
 export async function POST(request) {
   let b;
