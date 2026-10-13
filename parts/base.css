@@ -347,3 +347,15 @@ footer .fb{margin-top:46px;padding-top:20px;border-top:1px solid var(--line-dk);
 .cmsg{margin:0;font-size:13px;color:var(--ink)}
 @media(max-width:767px){.chatb{bottom:calc(20px + env(safe-area-inset-bottom));width:50px;height:50px}
   .chatp{bottom:calc(80px + env(safe-area-inset-bottom));right:16px}}
+
+/* hero photo column: the figure fills the padded cell */
+.hpic .hshot{width:100%}
+/* code stamps in the hero copy column */
+.xh2 .codes{margin-top:clamp(26px,2.6vw,36px)}
+
+/* phone tap targets: 44px minimum on every text link that sits in a list */
+@media(max-width:899px){
+  .door .lk a{padding-top:16px}
+  footer a{padding:11px 0}
+  header .hr .btn{min-height:44px}
+}

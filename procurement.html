@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en"><head><script>document.documentElement.className="js"</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Procurement | Hylex Energy Consulting</title><meta name="description" content="Global sourcing with vendor qualification, audits, expediting and logistics. Over 500 prequalified manufacturers across China, Vietnam and Mexico, compliant to ASME, API, PED and IEC.">
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/img-icon-32.png"><link rel="icon" type="image/png" sizes="48x48" href="/img-icon-48.png"><link rel="icon" type="image/png" sizes="192x192" href="/img-icon-192.png"><link rel="apple-touch-icon" href="/img-icon-180.png">
 <link rel="canonical" href="https://www.hylexenergy.com/procurement">
@@ -360,33 +360,53 @@ footer .fb{margin-top:46px;padding-top:20px;border-top:1px solid var(--line-dk);
 @media(max-width:767px){.chatb{bottom:calc(20px + env(safe-area-inset-bottom));width:50px;height:50px}
   .chatp{bottom:calc(80px + env(safe-area-inset-bottom));right:16px}}
 
-/* ============ home hero: the program, not a photograph ============ */
+/* hero photo column: the figure fills the padded cell */
+.hpic .hshot{width:100%}
+/* code stamps in the hero copy column */
+.xh2 .codes{margin-top:clamp(26px,2.6vw,36px)}
+
+/* phone tap targets: 44px minimum on every text link that sits in a list */
+@media(max-width:899px){
+  .door .lk a{padding-top:16px}
+  footer a{padding:11px 0}
+  header .hr .btn{min-height:44px}
+}
+
+/* ============ home hero: the program traveller ============ */
 .xh2{background:var(--paper);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
 .xh2::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(58% 70% at 88% 0%,rgba(0,196,106,.07),transparent 72%)}
-.xh2 .wrap{padding-top:clamp(44px,5.6vw,80px);padding-bottom:clamp(34px,4vw,56px)}
-.xh2 .g{display:grid;gap:clamp(34px,4vw,64px);align-items:start}
-@media(min-width:1000px){.xh2 .g{grid-template-columns:1.18fr .82fr;align-items:stretch}}
+  background:radial-gradient(52% 62% at 93% 2%,rgba(0,196,106,.06),transparent 70%)}
+.xh2 .wrap{padding-top:clamp(28px,3.4vw,50px);padding-bottom:0}
 .xh2 .top{font-size:14.5px;color:var(--faint);display:flex;gap:8px 22px;flex-wrap:wrap;align-items:center}
 .xh2 .top b{color:var(--green-t);font-weight:500;display:inline-flex;align-items:center;gap:8px}
 .xh2 .top b::before{content:"";width:7px;height:7px;background:var(--green);
   animation:pulse 2.8s var(--e2) infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
-.xh2 h1{font-family:var(--d);font-size:clamp(40px,4.9vw,70px);line-height:1.02;letter-spacing:-.02em;
-  margin:clamp(20px,2.2vw,30px) 0 0;max-width:17ch}
+/* three zones: the traveller runs the hero, the claim sits beside it, the work is evidence */
+.hg{display:grid;gap:clamp(24px,2.8vw,38px);margin-top:clamp(18px,2vw,28px);align-items:start}
+@media(min-width:1080px){
+  .hg{grid-template-columns:208px minmax(0,1.18fr) minmax(0,.76fr);gap:0;align-items:stretch;
+    margin-top:clamp(24px,2.5vw,36px)}
+  .hcopy{order:2;padding:2px clamp(28px,3vw,50px) clamp(46px,4.4vw,70px);border-right:1px solid var(--line)}
+  .trav{order:1}
+  .hpic{order:3;padding:0 0 clamp(46px,4.4vw,70px) clamp(28px,3vw,50px)}
+  .hpic .hshot{height:100%;aspect-ratio:auto;min-height:420px}
+}
+.xh2 h1{font-family:var(--d);font-size:clamp(37px,3.65vw,53px);line-height:1.03;letter-spacing:-.02em;
+  margin:0;max-width:16ch}
 .xh2 h1 em{font-style:normal;display:block;color:var(--faint)}
-.xh2 .sub{margin:clamp(20px,2vw,28px) 0 0;max-width:52ch;font-size:clamp(16.5px,1.3vw,19px);
+.xh2 .sub{margin:clamp(17px,1.8vw,25px) 0 0;max-width:47ch;font-size:clamp(16.5px,1.25vw,18.5px);
   line-height:1.6;color:var(--body)}
-.xh2 .cta{margin:clamp(26px,2.6vw,34px) 0 0}
-/* the program sheet: four stations on one line, drawn like a title block */
-.hshot{position:relative;overflow:hidden;background:var(--paper-3);min-height:340px;width:100%;margin:0}
+.xh2 .cta{margin:clamp(23px,2.3vw,31px) 0 0}
+/* the work is evidence, never the identity of the page */
+.hshot{position:relative;overflow:hidden;background:var(--paper-3);width:100%;margin:0;aspect-ratio:4/5}
 .hshot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  filter:saturate(.92) contrast(1.06);transform:scale(1.02);transition:transform 2.4s var(--e)}
+  filter:saturate(.94) contrast(1.05);transform:scale(1.03);transition:transform 2.4s var(--e)}
 .xh2.in .hshot img{transform:scale(1)}
-.hshot figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;color:#fff;
-  font-size:14px;line-height:1.35;background:linear-gradient(0deg,rgba(11,15,16,.84),transparent)}
-@media(max-width:767px){.hshot figcaption{padding-right:76px}}
-@media(max-width:999px){.hshot{min-height:0;aspect-ratio:16/10;width:100%}}
+.hshot figcaption{position:absolute;left:0;right:0;bottom:0;padding:15px 17px;color:#fff;
+  font-size:13.5px;line-height:1.35;background:linear-gradient(0deg,rgba(11,15,16,.86),transparent)}
+@media(max-width:1079px){.hshot{aspect-ratio:16/10}}
+@media(max-width:767px){.hshot figcaption{padding-right:74px}}
 .sheet{border:1px solid var(--line);background:#fff}
 .sheet .hd{display:flex;justify-content:space-between;align-items:center;gap:12px;
   padding:14px 18px;border-bottom:1px solid var(--line);font-size:14px;color:var(--faint)}
@@ -411,31 +431,57 @@ section.s.in .sheet li:nth-child(4)::before{opacity:1;transform:scale(1);transit
 .sheet i{display:block;font-style:normal;font-size:13.5px;color:var(--faint);margin-bottom:5px}
 .sheet b{display:block;font-size:17.5px;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin-bottom:4px}
 .sheet span{display:block;font-size:14.5px;line-height:1.45;color:var(--mute)}
-/* the lifecycle line under the hero: one program, end to end */
-/* phone: one vertical rail, seven steps stacked on it. no orphan dots. */
-.life{margin-top:clamp(30px,3.4vw,52px);position:relative;display:grid;grid-template-columns:1fr;
-  padding-left:22px;border-left:1px solid var(--line)}
-.life::before{content:"";position:absolute;left:-1px;top:0;width:1px;height:100%;background:var(--green);
-  transform:scaleY(0);transform-origin:50% 0;transition:transform 1.8s var(--e) .2s}
-.xh2.in .life::before{transform:scaleY(1)}
-.life div{padding:11px 0;position:relative}
-.life div::before{content:"";position:absolute;left:-25px;top:17px;width:5px;height:5px;background:var(--green);
-  opacity:0;transition:opacity .4s var(--e)}
-.xh2.in .life div::before{opacity:1}
-.life i{display:inline-block;min-width:30px}
-.life b{display:inline}
-@media(min-width:760px){
-  .life{grid-template-columns:repeat(7,1fr);padding-left:0;border-left:0;
-    border-top:1px solid var(--ink);margin-top:clamp(34px,4vw,56px)}
-  .life::before{left:0;top:-1px;width:100%;height:1px;transform:scaleX(0);transform-origin:0 50%}
-  .xh2.in .life::before{transform:scaleX(1)}
-  .life div{padding:16px 14px 20px 0}
-  .life div::before{left:0;top:-3px}
-  .life i{display:block;min-width:0}
-  .life b{display:block}
-}
-.life i{display:block;font-style:normal;font-size:13px;color:var(--faint);margin-bottom:6px}
-.life b{display:block;font-size:15px;font-weight:600;letter-spacing:-.005em;color:var(--ink);line-height:1.3}
+/* ============ the traveller ============================================
+   Every fabricated piece carries a traveller: a sheet that follows the steel
+   from station to station and is stamped at each one. Hylex does not own the
+   steel in the photograph, it owns the sheet. So the sheet runs the page.
+   Stations stamp themselves once, fast. No JS, no prefers-reduced-motion:
+   everything is already stamped, nothing is hidden. */
+.trav{position:relative;border-top:1px solid var(--ink);padding-top:0}
+@media(min-width:1080px){.trav{border-top:0;border-right:1px solid var(--line);padding:2px 26px 70px 0}}
+.tvh{display:flex;justify-content:space-between;gap:10px;align-items:baseline;
+  padding:13px 0 15px;font-size:13px;color:var(--faint)}
+.tvh b{font-weight:600;color:var(--ink);font-size:13.5px}
+@media(min-width:1080px){.tvh{display:block;padding:0 0 19px}.tvh span{display:block;margin-top:4px}}
+.trav ol{list-style:none;margin:0;padding:0;position:relative}
+.trav ol::before{content:"";position:absolute;left:3px;top:11px;bottom:16px;width:1px;background:var(--line-2)}
+.trav ol::after{content:"";position:absolute;left:3px;top:11px;width:1px;background:var(--green);
+  height:calc(100% - 27px)}
+.js .trav ol::after{height:0;transition:height 1.05s var(--e2) .08s}
+.js .xh2.in .trav ol::after{height:calc(100% - 27px)}
+.trav li{position:relative;padding:0 0 clamp(13px,1.45vw,19px) 22px;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 10px;align-items:center}
+.trav li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:7px;border-radius:50%;
+  background:var(--green)}
+.js .trav li::before{opacity:0;transform:scale(.2);transition:opacity .3s,transform .34s var(--e)}
+.js .xh2.in .trav li::before{opacity:1;transform:scale(1)}
+.trav i{grid-column:1;font-style:normal;font-size:12px;color:var(--faint);display:block;line-height:1}
+.trav b{grid-column:1;display:block;font-size:14.5px;font-weight:600;color:var(--ink);
+  line-height:1.22;letter-spacing:-.005em;margin-top:4px}
+/* the stamp: lands like a rubber stamp on paper, once */
+.trav .sk{grid-column:2;grid-row:1/3;align-self:center;justify-self:end;
+  font-size:11px;font-weight:700;letter-spacing:.03em;color:var(--green-t);
+  border:1.5px solid var(--green);padding:4px 6px;line-height:1;white-space:nowrap;
+  transform:rotate(-1.5deg)}
+.js .trav .sk{opacity:0;transform:scale(1.85) rotate(-8deg);
+  transition:opacity .2s var(--e2),transform .28s var(--e2)}
+.js .xh2.in .trav .sk{opacity:1;transform:scale(1) rotate(-1.5deg)}
+.js .xh2.in .trav li:nth-child(1) .sk,.js .xh2.in .trav li:nth-child(1)::before{transition-delay:.20s}
+.js .xh2.in .trav li:nth-child(2) .sk,.js .xh2.in .trav li:nth-child(2)::before{transition-delay:.33s}
+.js .xh2.in .trav li:nth-child(3) .sk,.js .xh2.in .trav li:nth-child(3)::before{transition-delay:.46s}
+.js .xh2.in .trav li:nth-child(4) .sk,.js .xh2.in .trav li:nth-child(4)::before{transition-delay:.59s}
+.js .xh2.in .trav li:nth-child(5) .sk,.js .xh2.in .trav li:nth-child(5)::before{transition-delay:.72s}
+.js .xh2.in .trav li:nth-child(6) .sk,.js .xh2.in .trav li:nth-child(6)::before{transition-delay:.85s}
+.js .xh2.in .trav li:nth-child(7) .sk,.js .xh2.in .trav li:nth-child(7)::before{transition-delay:.98s}
+.tvf{border-top:1px solid var(--line);padding-top:13px;font-size:12.5px;line-height:1.45;color:var(--faint)}
+@media(max-width:1079px){.trav{padding-bottom:4px}}
+/* ============ footer title block ============ */
+.tblock{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-dk);
+  border-left:1px solid var(--line-dk);margin-bottom:clamp(38px,4.2vw,60px)}
+@media(min-width:900px){.tblock{grid-template-columns:repeat(4,1fr)}}
+.tblock div{padding:13px 15px;border-right:1px solid var(--line-dk);border-bottom:1px solid var(--line-dk)}
+.tblock i{font-style:normal;display:block;font-size:12px;color:rgba(255,255,255,.42);margin-bottom:5px}
+.tblock b{display:block;margin:0;font-size:13.5px;font-weight:600;color:#fff;line-height:1.3}
 /* ============ dark data band ============ */
 .dark-s{background:var(--ink);color:#fff;padding:clamp(64px,8vw,116px) 0;border-bottom:0}
 .dark-s h2{color:#fff}
@@ -479,7 +525,12 @@ nav .nd{position:relative}
 </div></div></section>
 
 <section class="end"><div class="wrap"><div><h2>Send a material list or a vendor scope</h2><p>We come back with sourcing options by region, with the cost and the lead time against each.</p></div><div class="cta"><a class="btn p" href="contact.html">Send an enquiry</a><a class="btn" href="mailto:amac@hylexenergy.com?subject=Call%20request">Book a call</a></div></div></section>
-<footer><div class="wrap"><div class="fg">
+<footer><div class="wrap"><div class="tblock">
+<div><i>Program owner</i><b>Hylex Energy Consulting</b></div>
+<div><i>Head office</i><b>Energy Corridor, Houston, Texas</b></div>
+<div><i>Scope</i><b>Engineering · Procurement · Fabrication · Controls</b></div>
+<div><i>Fabrication hubs</i><b>China · Vietnam · Mexico</b></div>
+</div><div class="fg">
 <div><b>What we do</b><a href="services.html">Fabrication programs</a><a href="engineering.html">Engineering</a><a href="procurement.html">Procurement</a><a href="digital.html">Project controls</a></div>
 <div><b>Capability</b><a href="capability.html">Fabrication scope</a><a href="capability.html#qa">Quality and inspection</a><a href="capability.html#sectors">Sectors</a><a href="faq.html">FAQ</a></div>
 <div><b>Global network</b><a href="hub-china.html">China hub</a><a href="hub-vietnam.html">Vietnam hub</a><a href="hub-mexico.html">Mexico hub</a><a href="network.html#houston">Houston</a><a href="industrial-ai.html">Industrial AI</a></div>

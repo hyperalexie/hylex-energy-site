@@ -66,3 +66,12 @@ Benchmark against current SOTD winners. Loop until three clean rounds, no gate f
 - 2026-10-13 Alex rejected Bricolage Grotesque ("hell no"), left the replacement to me. Commit
   d59ab9f: Barlow Semi Condensed display + Barlow text, chosen from six candidates rendered at
   headline scale. Geist and Familjen Grotesk ruled out as too close to Inter (USP's face).
+- 2026-10-13 First blind scoring round. My self score 7.4, blind reviewer 6.4
+  (Design 6.5 / Usability 7.3 / Creativity 4.5 / Content 7.5). Creativity is the binding
+  constraint: "nothing here is invented", layout reads as a well executed template default.
+  LESSON: self scores run ~1.0 high, always run the blind reviewer before quoting a number.
+  It caught Alpha ECC branding on the Vietnam quay. Audited every photo at 3x: img-hub-vietnam.jpg
+  and img-yard.jpg both carried another fabricator's name, both deleted (commit 203a2f5).
+  Also fixed: the 01-07 rail orphaned its dots when it wrapped on phone.
+  OPEN: the hero has no signature moment. Proposal is to let the seven step program line drive
+  the hero rather than sit under it. Put to Alex, awaiting his call.
