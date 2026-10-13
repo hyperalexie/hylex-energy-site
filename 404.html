@@ -66,8 +66,10 @@ header,section,footer,main{position:relative;z-index:1}
 
 
 /* ---------------------------------------------- header */
-header{background:rgba(255,255,255,.86);backdrop-filter:saturate(1.5) blur(14px);
-  position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);transition:box-shadow .3s}
+header{background:transparent;position:sticky;top:0;z-index:50;
+  border-bottom:1px solid var(--line);transition:box-shadow .3s}
+header::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(255,255,255,.86);
+  backdrop-filter:saturate(1.5) blur(14px)}
 header.stuck{box-shadow:0 1px 26px rgba(11,15,16,.07)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
 @media(max-width:899px){header .wrap{height:64px}}
@@ -117,7 +119,7 @@ nav .nd{position:relative}
   nav .dd a:hover{background:var(--paper-2);color:var(--ink)}
   nav .nd:hover .dd,nav .nd:focus-within .dd{display:block}
 }
-@media(max-width:999px){
+@media(max-width:1139px){
   header.open nav{display:flex;flex-direction:column;gap:0;position:fixed;left:0;right:0;top:64px;
     bottom:0;background:#fff;padding:8px var(--gut) 40px;overflow-y:auto;margin:0}
   header.open nav .nd{border-top:1px solid var(--line)}
@@ -316,7 +318,8 @@ footer .fb{margin-top:46px;padding-top:20px;border-top:1px solid var(--line-dk);
 .rv{opacity:0;transform:translateY(18px);transition:opacity .85s var(--e),transform .85s var(--e)}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;
+    transition-duration:.001ms!important;transition-delay:0s!important}
   .rv{opacity:1;transform:none}
 }
 
@@ -394,7 +397,7 @@ footer .fb{margin-top:46px;padding-top:20px;border-top:1px solid var(--line-dk);
 }
 .xh2 h1{font-family:var(--d);font-size:clamp(37px,3.65vw,53px);line-height:1.03;letter-spacing:-.02em;
   margin:0;max-width:16ch}
-.xh2 h1 em{font-style:normal;display:block;color:var(--faint)}
+.xh2 h1 em{font-style:normal;display:block;color:var(--green-t)}
 .xh2 .sub{margin:clamp(17px,1.8vw,25px) 0 0;max-width:47ch;font-size:clamp(16.5px,1.25vw,18.5px);
   line-height:1.6;color:var(--body)}
 .xh2 .cta{margin:clamp(23px,2.3vw,31px) 0 0}
@@ -482,19 +485,16 @@ figure.wide img{display:block;width:100%;height:auto;max-width:600px;
   filter:saturate(.9) contrast(1.06)}
 figure.wide figcaption{margin-top:14px;font-size:14.5px;line-height:1.5;color:var(--faint);max-width:62ch}
 .netsplit{display:grid;gap:clamp(24px,3vw,44px)}
-@media(min-width:1040px){.netsplit{grid-template-columns:600px minmax(0,1fr);align-items:start}}
-.facts{display:grid;gap:0;border-top:1px solid var(--ink)}
-@media(min-width:800px) and (max-width:1039px){.facts{grid-template-columns:repeat(3,1fr)}
-  .facts div{border-right:1px solid var(--line);padding-left:24px}
-  .facts div:first-child{padding-left:0}.facts div:last-child{border-right:0}}
-.facts div{padding:18px 26px 22px 0;border-bottom:1px solid var(--line)}
-.facts i{font-style:normal;display:block;font-size:13px;color:var(--green-t);font-weight:600;margin-bottom:8px}
-.facts b{display:block;font-size:16px;font-weight:500;line-height:1.45;color:var(--ink)}
+@media(min-width:1040px){.netsplit{grid-template-columns:600px minmax(0,1fr);align-items:start}
+  .netsplit .sheet ol{display:block;padding-bottom:10px}
+  .netsplit .sheet li:nth-child(n+3){border-top:1px solid var(--line)}
+  .netsplit .sheet li+li{border-top:1px solid var(--line)}}
 /* the network rows carry no ordinal: on this page a number means a station */
 .sheet.plain li::before{display:none}
 .sheet.plain li{padding-left:0}
 .sheet.plain ol::before,.sheet.plain ol::after{display:none}
 /* ============ the record book: the traveller, closed ============ */
+.prov{margin:26px 0 0;max-width:68ch;font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.55)}
 .book{background:var(--paper-2)}
 .bhead{display:grid;gap:4px clamp(36px,4vw,64px)}
 @media(min-width:1000px){.bhead{grid-template-columns:1.05fr 1fr;align-items:end}
@@ -582,23 +582,27 @@ nav .nd{position:relative}
 <form class="cform" id="cform" novalidate><textarea name="text" rows="2" placeholder="Type a message"></textarea><button type="submit" aria-label="Send">Send</button></form>
 <span hidden id="ct-sent">Thank you. We will reply by email.</span><span hidden id="ct-err">Could not send. Please email amac@hylexenergy.com.</span><span hidden id="ct-you">You</span><span hidden id="ct-ack">Message received. We reply here or by email. Add your email in case you leave.</span></div>
 <script>(function(){var b=document.getElementById('chatb'),p=document.getElementById('chatp'),log=document.getElementById('clog'),f=document.getElementById('cform'),em=document.getElementById('cemail'),
-zh=location.pathname.indexOf('/zh/')>-1,K='uspchat',st={},poll=null,waitT=null;function tx(id){return document.getElementById(id).textContent}
+zh=location.pathname.indexOf('/zh/')>-1,K='hxchat',st={},poll=null,waitT=null;function tx(id){return document.getElementById(id).textContent}
 try{st=JSON.parse(sessionStorage.getItem(K)||'{}')}catch(e){}if(!st.s){st.s=Math.random().toString(36).slice(2,10);st.log=[]}if(!st.ids)st.ids=[];if(!st.after)st.after=0
 function save(){try{sessionStorage.setItem(K,JSON.stringify(st))}catch(e){}}
-var AA=[[/plastic|pp|pvdf|hdpe|grp|frp|composite|alloy|lined|valve|instrument|pump|plug|oilfield|scope|supply|塑料|阀|泵/i,'We supply thermoplastic piping (PP, PVDF, HDPE), GRP and FRP pipe, ducts and tanks, special alloy and lined fabrication, packaged equipment to datasheet, valves, instruments and electrical, and oilfield and completion products.','我们供应PP、PVDF、HDPE热塑性管道，玻璃钢管道、风管和储罐，特种合金及衬里制作，按数据表成套设备，阀门、仪表、电气，以及油田完井产品。'],
-[/how|process|work|contract|manage|流程/i,'How it works: you send the scope as you would to any bidder, we qualify the shop against your specification, you get one offer with price, lead time and inspection plan, and we manage inspection, documentation and shipping.','流程：按常规招标方式发来范围，我们按规范资格审查工厂，给出包含价格、交期和检验计划的一份报价，并负责检验、资料和发运。'],
-[/inspect|quality|qa|qc|itp|third party|sgs|bureau|tuv|certif|code|asme|aws|iso|检验|质量|证书/i,'Assurance: the shop is qualified before award, an ITP with hold points is agreed up front, third party inspection by SGS, Bureau Veritas or TUV at your option, payment tied to inspection release, and full records at shipment.','质量保证：授标前审查工厂，事先约定带停检点的ITP，可选SGS、BV或TUV第三方检验，按检验放行付款，发货时提供完整资料。'],
-[/ai|automation|digital|estimat|software|tool|crm|人工智能|软件/i,'Digital: we set up the AI tools we run on our own desk for fabricators, distributors and EPC procurement teams: RFQ intake, estimating from your past quotes, follow up on open quotes, and a daily brief.','数字化：我们为制造商、分销商和EPC采购团队部署我们自己在用的AI工具：询价接收、基于历史报价的估算、报价跟进和每日简报。'],
-[/price|quote|cost|rfq|lead ?time|how long|报价|价格|交期/i,'For a price, send drawings, datasheets and specification with quantities and your deadline. We reply within one working day.','报价请发送图纸、数据表、规格、数量和截止日期，我们一个工作日内回复。'],
-[/where|location|houston|office|地址|在哪/i,'We are based in Houston, Texas, and work with shops across Asia and beyond.','我们位于美国得克萨斯州休斯顿，与亚洲及其他地区的工厂合作。']];
-function autoAns(t){st.aa=st.aa||[];var out=[];for(var i=0;i<AA.length;i++){if(AA[i][0].test(t)&&st.aa.indexOf(i)<0){st.aa.push(i);out.push(zh?AA[i][2]:AA[i][1])}}
-if(!out.length)return;save();setTimeout(function(){add('m',(zh?'自动回复 · ':'Automatic answer · ')+out.slice(0,3).join(' ')+(zh?' 负责人会亲自回复您。':' A principal will also reply personally.'))},900)}
+var AA=[[/scope|supply|fabricat|spool|vessel|structural|platework|module|skid|pipe|weld/i,'We take on the fabrication program: engineering and shop drawings, global procurement, pipe spooling, pressure vessels, structural steel, platework and complete modules, with QA, NDE, FAT and logistics, through hubs in China, Vietnam and Mexico.'],
+[/how|process|work|contract|manage|own/i,'How it works: you send the scope as you would to any bidder. We qualify the shop against your specification, route it to the hub that fits, and come back with price, lead time and an execution plan, not just a number. We then manage inspection, documentation and shipping.'],
+[/inspect|quality|qa|qc|itp|third party|sgs|bureau|tuv|certif|code|asme|api|norsok|iso|record|mdr|trace/i,'Assurance: the shop is qualified before award, an ITP with hold points is agreed up front, third party inspection at your option, payment tied to inspection release, and a complete manufacturing data record at handover. Fabricated and tested to ASME, API, PED, EN, ISO, NORSOK M-501 and ISO 12944.'],
+[/progress|dashboard|report|control|schedule|tracking|ai|automation|digital|software/i,'Project controls: weld inch tracking, fabrication dashboards, NDE reporting and material traceability, with digital record books and as built data at handover. We also build industrial AI systems for estimating, pipeline and shop floor tracking.'],
+[/price|quote|cost|rfq|lead ?time|how long|budget/i,'For a price, send drawings, datasheets and specification with quantities and your deadline. We reply within one working day.'],
+[/where|location|houston|office|hub|china|vietnam|mexico/i,'Houston, Texas, in the Energy Corridor, holds the client interface, the engineering coordination and the procurement. The fabrication hubs in China, Vietnam and Mexico carry the capacity, the yards and the load out.']];
+function autoAns(t){st.aa=st.aa||[];var out=[];for(var i=0;i<AA.length;i++){if(AA[i][0].test(t)&&st.aa.indexOf(i)<0){st.aa.push(i);out.push(AA[i][1])}}
+if(!out.length)return;save();setTimeout(function(){add('m','Automatic answer. '+out.slice(0,2).join(' ')+' A principal will also reply personally.')},900)}
 function add(who,t,keep){var d=document.createElement('div');d.className=who==='v'?'cv':(who==='a'?'ca2':'cm');d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;if(keep!==false){st.log.push([who,t]);save()}}
 (st.log||[]).forEach(function(x){add(x[0],x[1],false)});
 async function send(t){try{var r=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({s:st.s,text:t,email:st.email||'',lang:zh?'zh':'en',page:location.pathname})});var j=await r.json();if(j.ok){if(window.gtag&&!st.ga){st.ga=1;gtag('event','chat_start')}return true}}catch(e){}add('m',tx('ct-err'));return false}
 async function check(){try{var r=await fetch('/api/chat?s='+st.s+'&after='+(st.after||0));var j=await r.json();(j.replies||[]).forEach(function(x){if(st.ids.indexOf(x.id)<0){st.ids.push(x.id);if(st.ids.length>100)st.ids.shift();add('a',x.t);if(x.id>st.after)st.after=x.id;st.replied=1;em.hidden=true}});save()}catch(e){}}
 function start(){if(poll)return;poll=setInterval(check,4000);setTimeout(function(){clearInterval(poll);poll=null},20*60*1000);check()}
-b.onclick=function(){p.hidden=!p.hidden;if(!p.hidden){f.text.focus();if(st.log.length)start()}};var tc=document.getElementById('tabchat');if(tc)tc.onclick=function(e){e.preventDefault();b.onclick()};document.getElementById('chatx').onclick=function(){p.hidden=true};
+b.onclick=function(){p.hidden=!p.hidden;if(!p.hidden){f.text.focus();if(st.log.length)start()}};var tc=document.getElementById('tabchat');if(tc)tc.onclick=function(e){e.preventDefault();b.onclick()};document.getElementById('chatx').onclick=function(){p.hidden=true;b.focus()};
+document.addEventListener('keydown',function(e){if(e.key!=='Escape')return;
+if(!p.hidden){p.hidden=true;b.focus();return}
+var hd=document.querySelector('header');if(hd&&hd.classList.contains('open')){hd.classList.remove('open');
+var bg=hd.querySelector('.burger');if(bg){bg.setAttribute('aria-expanded','false');bg.focus()}}});
 f.onsubmit=function(e){e.preventDefault();var t=f.text.value.trim();if(!t)return;add('v',t);f.text.value='';start();send(t).then(function(ok){if(ok&&!st.acked){st.acked=1;save();add('m',tx('ct-ack'));if(!st.email)em.hidden=false}if(ok)autoAns(t)});
 if(!st.replied&&!st.email&&!waitT){waitT=setTimeout(function(){if(!st.replied)em.hidden=false},120000)}};
 f.text.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();f.requestSubmit()}});

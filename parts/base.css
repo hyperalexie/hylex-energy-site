@@ -54,8 +54,10 @@ header,section,footer,main{position:relative;z-index:1}
 
 
 /* ---------------------------------------------- header */
-header{background:rgba(255,255,255,.86);backdrop-filter:saturate(1.5) blur(14px);
-  position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);transition:box-shadow .3s}
+header{background:transparent;position:sticky;top:0;z-index:50;
+  border-bottom:1px solid var(--line);transition:box-shadow .3s}
+header::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(255,255,255,.86);
+  backdrop-filter:saturate(1.5) blur(14px)}
 header.stuck{box-shadow:0 1px 26px rgba(11,15,16,.07)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
 @media(max-width:899px){header .wrap{height:64px}}
@@ -105,7 +107,7 @@ nav .nd{position:relative}
   nav .dd a:hover{background:var(--paper-2);color:var(--ink)}
   nav .nd:hover .dd,nav .nd:focus-within .dd{display:block}
 }
-@media(max-width:999px){
+@media(max-width:1139px){
   header.open nav{display:flex;flex-direction:column;gap:0;position:fixed;left:0;right:0;top:64px;
     bottom:0;background:#fff;padding:8px var(--gut) 40px;overflow-y:auto;margin:0}
   header.open nav .nd{border-top:1px solid var(--line)}
@@ -304,7 +306,8 @@ footer .fb{margin-top:46px;padding-top:20px;border-top:1px solid var(--line-dk);
 .rv{opacity:0;transform:translateY(18px);transition:opacity .85s var(--e),transform .85s var(--e)}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;
+    transition-duration:.001ms!important;transition-delay:0s!important}
   .rv{opacity:1;transform:none}
 }
 

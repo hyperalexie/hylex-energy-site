@@ -45,7 +45,7 @@ EXTRA_CSS = r"""
 }
 .xh2 h1{font-family:var(--d);font-size:clamp(37px,3.65vw,53px);line-height:1.03;letter-spacing:-.02em;
   margin:0;max-width:16ch}
-.xh2 h1 em{font-style:normal;display:block;color:var(--faint)}
+.xh2 h1 em{font-style:normal;display:block;color:var(--green-t)}
 .xh2 .sub{margin:clamp(17px,1.8vw,25px) 0 0;max-width:47ch;font-size:clamp(16.5px,1.25vw,18.5px);
   line-height:1.6;color:var(--body)}
 .xh2 .cta{margin:clamp(23px,2.3vw,31px) 0 0}
@@ -133,19 +133,16 @@ figure.wide img{display:block;width:100%;height:auto;max-width:600px;
   filter:saturate(.9) contrast(1.06)}
 figure.wide figcaption{margin-top:14px;font-size:14.5px;line-height:1.5;color:var(--faint);max-width:62ch}
 .netsplit{display:grid;gap:clamp(24px,3vw,44px)}
-@media(min-width:1040px){.netsplit{grid-template-columns:600px minmax(0,1fr);align-items:start}}
-.facts{display:grid;gap:0;border-top:1px solid var(--ink)}
-@media(min-width:800px) and (max-width:1039px){.facts{grid-template-columns:repeat(3,1fr)}
-  .facts div{border-right:1px solid var(--line);padding-left:24px}
-  .facts div:first-child{padding-left:0}.facts div:last-child{border-right:0}}
-.facts div{padding:18px 26px 22px 0;border-bottom:1px solid var(--line)}
-.facts i{font-style:normal;display:block;font-size:13px;color:var(--green-t);font-weight:600;margin-bottom:8px}
-.facts b{display:block;font-size:16px;font-weight:500;line-height:1.45;color:var(--ink)}
+@media(min-width:1040px){.netsplit{grid-template-columns:600px minmax(0,1fr);align-items:start}
+  .netsplit .sheet ol{display:block;padding-bottom:10px}
+  .netsplit .sheet li:nth-child(n+3){border-top:1px solid var(--line)}
+  .netsplit .sheet li+li{border-top:1px solid var(--line)}}
 /* the network rows carry no ordinal: on this page a number means a station */
 .sheet.plain li::before{display:none}
 .sheet.plain li{padding-left:0}
 .sheet.plain ol::before,.sheet.plain ol::after{display:none}
 /* ============ the record book: the traveller, closed ============ */
+.prov{margin:26px 0 0;max-width:68ch;font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.55)}
 .book{background:var(--paper-2)}
 .bhead{display:grid;gap:4px clamp(36px,4vw,64px)}
 @media(min-width:1000px){.bhead{grid-template-columns:1.05fr 1fr;align-items:end}
@@ -396,7 +393,7 @@ def home():
 <div class="top"><b>Four locations, one program</b><span>Houston, China, Vietnam, Mexico</span></div>
 <div class="hg">
 <div class="hcopy">
-<h1>We run the fabrication program.<em>You run the project.</em></h1>
+<h1>We run the fabrication program. <em>You run the project.</em></h1>
 <p class="sub">Hylex takes complete ownership of fabrication execution for EPC companies and asset owners. Engineering, global procurement, fabrication and project controls, under one owner from concept to commissioning.</p>
 <div class="cta"><a class="btn p" href="contact.html"><span>Send us the scope</span></a><a class="btn" href="services.html"><span>What we do</span></a></div>
 {CODES}
@@ -419,48 +416,46 @@ def home():
 <section class="s"><div class="wrap"><div class="eb">What we do</div><h2>One partner, the whole lifecycle</h2>
 <p class="lead">Four disciplines under one owner, so nothing falls between a designer, a buyer and a workshop.</p>
 <div class="doors">
-<div class="door"><div class="eb">Stations 01 to 02 · <b>Engineering and design</b></div><h3>Fabrication ready execution</h3>
+<div class="door"><div class="eb"><b>Engineering and design</b></div><h3>Fabrication ready execution</h3>
 <p>Detailed shop drawings, 3D models, clash checks and datasheets, from FEED through as built.</p>
 <div class="lk"><a href="engineering.html">Engineering</a></div></div>
-<div class="door"><div class="eb">Station 03 · <b>Procurement</b></div><h3>Global sourcing under one owner</h3>
+<div class="door"><div class="eb"><b>Procurement</b></div><h3>Global sourcing under one owner</h3>
 <p>Vendor qualification, audits, commercial negotiation, expediting and logistics coordination across China, Vietnam and Mexico.</p>
 <div class="lk"><a href="procurement.html">Procurement</a></div></div>
-<div class="door"><div class="eb">Stations 04 to 06 · <b>Fabrication delivery</b></div><h3>Pipe spools to complete modules</h3>
+<div class="door"><div class="eb"><b>Fabrication delivery</b></div><h3>Pipe spools to complete modules</h3>
 <p>Pipe spooling, pressure vessels, structural steel, platework and turnkey skid systems through a network of qualified workshops.</p>
 <div class="lk"><a href="capability.html">Capability</a><a href="network.html">The hubs</a></div></div>
-<div class="door"><div class="eb">Station 07 · <b>Project controls</b></div><h3>Progress you can see</h3>
+<div class="door"><div class="eb"><b>Project controls</b></div><h3>Progress you can see</h3>
 <p>Real time weld inch tracking, fabrication dashboards, NDE reporting, material traceability and digital manufacturing record books.</p>
 <div class="lk"><a href="digital.html">Project controls</a></div></div>
 </div></div></section>
 
-<section class="s dark-s"><div class="wrap"><div class="eb">Scale</div><h2>What the network delivers</h2>
+<section class="s dark-s"><div class="wrap"><div class="eb">Scale</div><h2>What the network can take on</h2>
 <p class="lead">Capacity held across the hubs, available to one program without you qualifying a single workshop.</p>
 {kpis([("250,000+", "Dia-inches of pipe spooling per month across the workshops"),
        ("50,000+", "Tons a year of structural steel and platework"),
        ("8 m / 150 mm", "Vessel diameter and wall thickness, single units over 300 tons"),
        ("1,000+ tons", "Pre assembled modules up to 32 m in length")])}
-<div class="cta" style="margin-top:38px"><a class="btn" href="capability.html"><span>Full fabrication scope</span></a></div></div></section>
+<p class="prov">Nameplate capacity declared by the partner workshops and checked on audit. It is capacity available to your program, not Hylex output.</p>
+<div class="cta" style="margin-top:30px"><a class="btn" href="capability.html"><span>Full fabrication scope</span></a></div></div></section>
 
 <section class="s"><div class="wrap"><div class="eb">Global network</div><h2>Houston decides. The hubs build.</h2>
 <p class="lead">Houston holds the client interface, the engineering coordination and the procurement. The fabrication hubs carry the capacity, the yards and the load out.</p>
-<div class="sheet plain" style="margin-bottom:clamp(30px,3.4vw,46px)"><div class="hd"><b>The network</b><span>Who does what, and where</span></div>
+<div class="netsplit">
+<figure class="wide"><img src="img-structural.jpg" alt="Structural steel frame fabricated for load out, the member weight stencilled on the web" loading="lazy" width="600" height="600"><figcaption>Heavy structural, fabricated and marked for load out. The weight on the member is the first entry in its record.</figcaption></figure>
+<div class="sheet plain"><div class="hd"><b>The network</b><span>Who does what, and where</span></div>
 <ol>
 <li><i>Houston, Texas</i><b>The interface</b><span>Client contact, engineering coordination, procurement and QA.</span></li>
 <li><i>China</i><b>Heavy fabrication</b><span>Full capability, mega module assembly, engineering support.</span></li>
 <li><i>Vietnam</i><b>Yard and jetty</b><span>Heavy structural, modular assembly, deep sea load out.</span></li>
 <li><i>Mexico</i><b>Nearshore</b><span>Monterrey spooling and coating, inside USMCA.</span></li>
 </ol></div>
-<div class="netsplit"><figure class="wide"><img src="img-structural.jpg" alt="Structural steel frame fabricated for load out, the member weight stencilled on the web" loading="lazy" width="600" height="600"><figcaption>Heavy structural, fabricated and marked for load out. The weight on the member is the first entry in its record.</figcaption></figure>
-<div class="facts">
-<div><i>China</i><b>Heavy fabrication and mega module assembly, with engineering support on site.</b></div>
-<div><i>Vietnam</i><b>Heavy structural and modular assembly on a private jetty with deep sea load out.</b></div>
-<div><i>Mexico</i><b>Monterrey spooling and coating, 1.5 hours from the Texas border, inside USMCA.</b></div>
-</div></div>
+</div>
 <div class="cta" style="margin-top:38px"><a class="btn" href="network.html"><span>The global network</span></a></div></div></section>
 
 <section class="s book"><div class="wrap"><div class="eb">The record book</div>
 <div class="bhead"><h2>At load out you get this, not a coordination problem</h2>
-<p class="lead">The traveller closes into one manufacturing data record. Every station that stamped the piece put its paper in the book, so the asset arrives with its own history attached.</p></div>
+<p class="lead">Everything signed over on that sheet closes into one manufacturing data record. Every hold point, every certificate and every test ends up in the book, so the asset arrives with its own history attached.</p></div>
 <div class="mdr"><div class="hd"><b>Manufacturing data record</b><span>Contents, as issued at handover</span></div>
 <ol>
 <li><span class="sk">ITP</span><b>Inspection and test plan, every hold point signed</b></li>
