@@ -41,6 +41,19 @@ export async function POST(request) {
   for (const [k] of FIELDS) if (v(k)) rec[k] = v(k);
   let saved = false;
   try { await put(`hylex-leads/${Date.now()}.json`, JSON.stringify(rec), { access: "private", addRandomSuffix: true, contentType: "application/json" }); saved = true; } catch (e) { console.error(e); }
+  const partial = (msg) => json(200, { ok: true, partial: true, error: zh ? ZH[msg] || msg : msg });
+  const file = form.get("file");
+  const hasFile = file && typeof file === "object" && file.size > 0;
+  // A Telegram outage must never lose the drawings. Hold the bytes in the private lead store, on a
+  // failure path only: a delivered attachment is already in Alex's chat and every put is billed.
+  const hold = async () => {
+    if (!hasFile || file.size > MAX_FILE) return "";
+    try {
+      const b = await put(`lead-files/${String(file.name || "attachment").replace(/[^\w.\-]+/g, "_").slice(0, 80)}`,
+        await file.arrayBuffer(), { access: "private", addRandomSuffix: true, contentType: file.type || "application/octet-stream" });
+      return b.pathname;
+    } catch (e) { console.error(e); return ""; }
+  };
   // The message and the attachment are sent separately; a failed attachment must not report the message as lost.
   try {
     const m = new FormData();
@@ -48,15 +61,16 @@ export async function POST(request) {
     await tg("sendMessage", m);
   } catch (e) {
     console.error(e);
+    const held = await hold();
     if (saved) { // kept in the lead log; flag it so the ops box pings Alex from there
-      try { await put(`hylex-leads/${Date.now()}.json`, JSON.stringify({ ...rec, kind: "inquiry_unsent" }), { access: "private", addRandomSuffix: true, contentType: "application/json" }); } catch {}
+      try { await put(`hylex-leads/${Date.now()}.json`, JSON.stringify({ ...rec, kind: "inquiry_unsent", held }), { access: "private", addRandomSuffix: true, contentType: "application/json" }); } catch {}
+      // The words are safe either way. Only ask for the file again if we could not keep it.
+      if (hasFile && !held) return partial("Your message was received, but the attachment did not go through. Please email it to amac@hylexenergy.com.");
       return json(200, { ok: true });
     }
     return fail(502, "We could not send your inquiry. Please email amac@hylexenergy.com.");
   }
-  const partial = (msg) => json(200, { ok: true, partial: true, error: zh ? ZH[msg] || msg : msg });
-  const file = form.get("file");
-  if (file && typeof file === "object" && file.size > 0) {
+  if (hasFile) {
     if (file.size > MAX_FILE) return partial("Attachment is over 4 MB. Your message was received; please email the drawings.");
     try {
       const d = new FormData();
@@ -66,6 +80,8 @@ export async function POST(request) {
       await tg("sendDocument", d);
     } catch (e) {
       console.error(e);
+      const held = await hold();
+      try { await put(`hylex-leads/${Date.now()}.json`, JSON.stringify({ ...rec, kind: "attachment_unsent", held }), { access: "private", addRandomSuffix: true, contentType: "application/json" }); } catch {}
       return partial("Your message was received, but the attachment did not go through. Please email it to amac@hylexenergy.com.");
     }
   }
