@@ -60,17 +60,17 @@ header::before{content:"";position:absolute;inset:0;z-index:-1;background:#fff}
 header.stuck{box-shadow:0 1px 26px rgba(11,15,16,.07)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
 @media(max-width:899px){header .wrap{height:64px}}
-header .logo{display:flex;align-items:center;flex:none;order:1}
+header .logo{display:flex;align-items:center;flex:none}
 header .logo img{height:44px;width:auto;display:block}
 @media(max-width:899px){header .logo img{height:36px}}
-nav{display:none;gap:30px;font-size:15px;font-weight:500;color:var(--body);order:2;margin-left:auto}
+nav{display:none;gap:30px;font-size:15px;font-weight:500;color:var(--body);margin-left:auto}
 @media(min-width:1140px){nav{display:flex}}
 nav a{position:relative;padding:3px 0}
 nav .nd>a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;
   background:var(--green);transform:scaleX(0);transform-origin:0 50%;transition:transform .4s var(--e)}
 nav .nd>a:hover::after,nav a.on::after{transform:scaleX(1)}
 nav a.on{color:var(--ink);font-weight:600}
-.hr{display:flex;align-items:center;gap:10px;flex:none;order:3}
+.hr{display:flex;align-items:center;gap:10px;flex:none}
 @media(max-width:1139px){.hr{margin-left:auto}}
 
 /* ---------------------------------------------- buttons */
@@ -371,3 +371,5 @@ footer :where(a,button):focus-visible{outline-color:var(--green)}
 [id]{scroll-margin-top:92px}
 /* drawer links take a thumb */
 @media(max-width:1139px){header.open nav .dd a{padding:13px 0 13px 16px}}
+
+header.open ~ .chatb,header.open ~ .chatp{display:none}

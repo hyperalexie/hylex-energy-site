@@ -142,6 +142,7 @@ figure.wide figcaption{margin-top:14px;font-size:14.5px;line-height:1.5;color:va
 .sheet.plain li{padding-left:0}
 .sheet.plain ol::before,.sheet.plain ol::after{display:none}
 /* ============ the record book: the traveller, closed ============ */
+.src{margin:20px 0 0;max-width:68ch;font-size:14px;line-height:1.5;color:var(--faint)}
 .prov{margin:26px 0 0;max-width:68ch;font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.55)}
 .book{background:var(--paper-2)}
 .bhead{display:grid;gap:4px clamp(36px,4vw,64px)}
@@ -244,11 +245,10 @@ def header(active):
             items += f'<div class="nd"><a href="{href}"{on}>{e(label)}</a></div>'
     return ('<header><div class="wrap">'
             '<a class="logo" href="index.html"><img src="hylex-logo.png" alt="Hylex Energy Consulting" width="300" height="88"></a>'
+            f'<nav id="nav">{items}</nav>'
             '<div class="hr"><a class="btn p" href="contact.html">Send an enquiry</a>'
             '<button type="button" class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button>'
-            '</div>'
-            f'<nav id="nav">{items}</nav>'
-            '</div></header>')
+            '</div></div></header>')
 
 
 FOOTER = f"""<footer><div class="wrap"><div class="tblock">
@@ -265,7 +265,7 @@ FOOTER = f"""<footer><div class="wrap"><div class="tblock">
 
 
 def end_band(h2, p, primary=("Send an enquiry", "contact.html"),
-             secondary=("Book a call", f"mailto:{EMAIL}?subject=Call%20request")):
+             secondary=("Email about a call", f"mailto:{EMAIL}?subject=Call%20request")):
     return (f'<section class="end"><div class="wrap"><div><h2>{e(h2)}</h2><p>{e(p)}</p></div>'
             f'<div class="cta"><a class="btn p" href="{primary[1]}">{e(primary[0])}</a>'
             f'<a class="btn" href="{secondary[1]}">{e(secondary[0])}</a></div></div></section>')
@@ -368,12 +368,13 @@ LLMS_HEAD = f"""# Hylex Energy Consulting
 ## Key facts
 - Four services: engineering and design, global procurement, fabrication delivery, project controls and lifecycle reporting
 - Houston holds the client interface, engineering coordination, procurement and QA; the hubs hold the capacity, the yards and the load out
+- Capacity attribution: every tonnage, dia-inch and square metre figure below is nameplate capacity declared by the partner workshops and checked on audit. It is capacity available to a Hylex managed program, not Hylex output, and Hylex does not own the yards
 - Pipe spooling over 250,000 dia-inches a month across the workshops
 - Structural steel and platework over 50,000 tons a year
 - Pressure vessels and columns to 8 m diameter and 150 mm wall, single units over 300 tons
-- Pre assembled modules over 1,000 tons and up to 32 m long
+- Pre assembled modules 1,000 to 3,000 tons and up to 32 m long
 - Over 16,000 m2 of surface preparation and coating, including TSA, FBE, epoxy and galvanizing
-- Over 500 prequalified manufacturers and OEMs; strategic sourcing saves 20 to 40 percent against local procurement
+- Over 500 prequalified manufacturers and OEMs; strategic sourcing gives an indicative 20 to 40 percent saving against local procurement, priced per scope rather than guaranteed
 - Fabricated and tested to ASME, API, PED, EN, ISO, NORSOK M-501 and ISO 12944
 - China hub: over 200,000 dia-inches a month, over 40,000 tons a year structural, modules to 3,000 tons
 - Vietnam hub: 195,000 m2 yard, 31,000 m2 covered workshops, 260 t gantry cranes, 312 m private jetty with 10,000 DWT load out
@@ -405,7 +406,7 @@ def home():
 <li><a href="network.html"><b>Qualifying and auditing the workshops</b><span class="sk">HYLEX</span></a></li>
 <li><a href="procurement.html"><b>Chasing material certs back to the heat number</b><span class="sk">HYLEX</span></a></li>
 <li><a href="capability.html#qa"><b>Running the inspection and NDE regime</b><span class="sk">HYLEX</span></a></li>
-<li><a href="digital.html"><b>Four shops turned into one progress report</b><span class="sk">HYLEX</span></a></li>
+<li><a href="digital.html"><b>Every shop turned into one progress report</b><span class="sk">HYLEX</span></a></li>
 <li><a href="capability.html"><b>Coating, FAT and load out coordination</b><span class="sk">HYLEX</span></a></li>
 </ol>
 <p class="tvf">You hold the record book, not the coordination.</p>
@@ -470,7 +471,7 @@ def home():
 <li><span class="sk">AB</span><b>As built drawings with the red lines integrated</b></li>
 <li><span class="sk">NCR</span><b>Non conformance reports and how each one was closed</b></li>
 </ol></div>
-<p class="note">Fabrication stops being your problem to manage because the proof of it leaves with the steel. No procurement, inspection or fabrication specialists on your staff. One team owning cost, schedule, quality and compliance. One progress picture instead of four spreadsheets from three shops.</p>
+<p class="note">Fabrication stops being your problem to manage because the proof of it leaves with the steel. No procurement, inspection or fabrication specialists on your staff. One team owning cost, schedule, quality and compliance. One progress picture instead of a spreadsheet from every shop.</p>
 <div class="cta" style="margin-top:36px"><a class="btn" href="digital.html"><span>How the record is built</span></a></div></div></section>
 
 {end_band("Send us the scope", "Drawings, datasheets and specification. We reply within one working day.")}"""
@@ -495,7 +496,7 @@ def services():
 <div class="nlist">
 <div><b>Fabrication program management</b><ul><li>End to end oversight from shop readiness and sourcing to QA, NDE, FAT and logistics</li><li>Every interface managed between your engineering team, the fabricators, the inspectors and the freight forwarders</li></ul></div>
 <div><b>Procurement and vendor ownership</b><ul><li>Single point of accountability for supplier selection, qualification, contracting and expediting</li><li>Your procurement team does not have to run the RFPs or the audits</li></ul></div>
-<div><b>Technical and QA oversight</b><ul><li>Fabrication technical reviews, WPS and PQR qualification, inspection regimes and document control</li><li>Handled by our own subject matter experts, not handed back to the shop to mark its own work</li></ul></div>
+<div><b>Technical and QA oversight</b><ul><li>Fabrication technical reviews, review and acceptance of the shop WPS and PQR, inspection regimes and document control</li><li>Reviewed by our own subject matter experts rather than taken on the shop word, with the qualification records staying where the code puts them, with the manufacturer</li></ul></div>
 <div><b>Project controls and lifecycle reporting</b><ul><li>Progress dashboards, weld inch tracking, NDE reporting and material traceability</li><li>Complete digital manufacturing record books and as built data at handover</li></ul></div>
 </div></div></section>
 
@@ -512,7 +513,7 @@ def services():
 <div>Single point accountability<span>One team owns cost, schedule, quality and compliance.</span></div>
 <div>Faster mobilisation<span>No procurement delay, no staffing gap, no technical onboarding.</span></div>
 <div>Optimised outcomes<span>A qualified global network instead of whoever is already on the approved list.</span></div>
-<div>Predictable reporting<span>One progress picture, not four spreadsheets from three shops.</span></div>
+<div>Predictable reporting<span>One progress picture, not a spreadsheet from every shop.</span></div>
 <div>Clean handover<span>Digital record books, as built data and maintenance packages at completion.</span></div>
 </div></div></section>
 
@@ -544,7 +545,8 @@ def engineering():
 <div><b>Hydrocyclone and CFU</b><p>Hydrocyclone takes oil in water from under 1000 mg/L to under 100 mg/L. Compact flotation takes it below 30 mg/L.</p></div>
 <div><b>Ultrafiltration</b><p>Removes particulates and organics from 0.002 to 0.1 micron, ten times the anti fouling performance of conventional membranes, Class A1 water for reinjection.</p></div>
 <div><b>Biofilm wastewater</b><p>Up to 99 percent media fill with no clogging, for high COD and high turbidity streams offshore and in petrochemical plants.</p></div>
-</div></div>
+</div>
+<p class="src">Performance figures are the partner published data for the equipment, confirmed per project against your own stream and specification.</p></div>
 <div><img src="img-processunit.jpg" alt="Process package under assembly in the workshop" loading="lazy"></div>
 </div></div></section>
 
@@ -561,7 +563,7 @@ def procurement():
 
 <section class="s"><div class="wrap">
 {kpis([("500+", "Prequalified manufacturers and OEMs across piping, structural, mechanical, E&I and specialty equipment"),
-       ("20 to 40%", "Cost saving against local procurement through strategic sourcing"),
+       ("20 to 40%", "Indicative saving against local procurement through strategic sourcing, priced per scope against your own baseline"),
        ("3 regions", "China, Vietnam and Mexico, so tariff and trade exposure is not single sourced")], "k3")}
 </div></section>
 
@@ -638,8 +640,8 @@ HUBS = {
         lead="China is the backbone of the delivery platform, combining fabrication capacity, heavy engineering and modularisation at a scale and flexibility that is hard to match elsewhere.",
         kpi=[("200,000+", "Dia-inches of pipe spooling per month"),
              ("40,000+", "Tons a year of structural steel and platework"),
-             ("3,000+ tons", "Pre assembled module weight"),
-             ("30 to 50%", "Cost saving against Western markets")],
+             ("to 3,000 tons", "Pre assembled module weight"),
+             ("30 to 50%", "Indicative saving against Western markets, priced per scope")],
         blocks=[
             ("Pipe spooling and piping", ["Automated cutting, welding and hydrotesting", "Full digital traceability on every spool"]),
             ("Vessels and exchangers", ["Diameter to 8 m, wall thickness to 150 mm, single units over 300 tons", "ASME, PED and API certified fabrication and testing"]),
@@ -648,7 +650,7 @@ HUBS = {
             ("Heavy yard assembly", ["One of the largest heavy industrial assembly yards in Asia", "Pre assembly before shipment cuts site labour and installation schedule"]),
             ("Sourcing and supply chain", ["Access to steel mills, component OEMs and raw material suppliers", "Mature domestic ecosystem with supplier redundancy"]),
         ],
-        desc="China fabrication and engineering hub: over 200,000 dia-inches of pipe spooling a month, 40,000 tons a year of structural steel, vessels to 8 m diameter and modules over 3,000 tons."),
+        desc="China fabrication and engineering hub: over 200,000 dia-inches of pipe spooling a month, 40,000 tons a year of structural steel, vessels to 8 m diameter and modules to 3,000 tons."),
     "vietnam": dict(
         name="Vietnam", title="Vietnam fabrication and engineering hub", img="img-structural.jpg",
         imgalt="Heavy structural module fabricated and painted for load out",
@@ -837,7 +839,7 @@ def about():
 
 <section class="s"><div class="wrap"><div class="aig">
 <div><p class="aip" style="margin:0 0 14px">We work with EPC companies and asset owners on fabrication and supply for energy, mining and process projects. Hylex takes complete ownership of fabrication execution from day one, acting as an embedded extension of your organisation.</p>
-<p class="aip" style="margin:0 0 14px">That removes the need for in house subject matter experts, vendor management overhead, and the coordination cost that sits between an engineering team and four workshops in three countries.</p>
+<p class="aip" style="margin:0 0 14px">That removes the need for in house subject matter experts, vendor management overhead, and the coordination cost that sits between an engineering team and a workshop on the other side of the world.</p>
 <p class="aip" style="margin:0">Every enquiry is handled by a principal, from first drawing to delivery.</p></div>
 <ul class="cv"><li>Fabrication program management for EPCs and owners</li><li>Engineering, procurement and project controls</li><li>Hubs in China, Vietnam and Mexico</li><li>Chemical, LNG, downstream, power, mining and semiconductor</li><li>Energy Corridor, Houston TX</li></ul></div></div></section>
 
@@ -880,7 +882,7 @@ FAQ = [
     ("How is quality controlled?",
      "An inspection and test plan with hold points is agreed up front. Non destructive examination covers VT, MT, PT, RT, UT and PMI, factory acceptance testing is witnessed, third party inspection is available at your option, and a complete digital manufacturing record book is delivered at handover."),
     ("What can the network fabricate?",
-     "Pipe spooling at over 250,000 dia-inches a month, structural steel and platework at over 50,000 tons a year, pressure vessels and columns to 8 m diameter and 150 mm wall thickness with single unit weights over 300 tons, and pre assembled modules over 1,000 tons and 32 m long."),
+     "Pipe spooling at over 250,000 dia-inches a month, structural steel and platework at over 50,000 tons a year, pressure vessels and columns to 8 m diameter and 150 mm wall thickness with single unit weights over 300 tons, and pre assembled modules of 1,000 to 3,000 tons and 32 m long. Those are nameplate capacities declared by the partner workshops and checked on audit. They are capacity available to your program, not Hylex output, and Hylex does not own the yards."),
     ("Where do you ship from?",
      "China and Vietnam by sea, including a 312 m private jetty with 10,000 DWT load out and 20 t/m² quay bearing at the Vietnam yard. Mexico serves North American projects by road and rail from Monterrey, an hour and a half from the Texas border."),
     ("How do you deal with tariffs and trade risk?",

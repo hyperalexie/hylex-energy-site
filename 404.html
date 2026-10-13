@@ -72,17 +72,17 @@ header::before{content:"";position:absolute;inset:0;z-index:-1;background:#fff}
 header.stuck{box-shadow:0 1px 26px rgba(11,15,16,.07)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
 @media(max-width:899px){header .wrap{height:64px}}
-header .logo{display:flex;align-items:center;flex:none;order:1}
+header .logo{display:flex;align-items:center;flex:none}
 header .logo img{height:44px;width:auto;display:block}
 @media(max-width:899px){header .logo img{height:36px}}
-nav{display:none;gap:30px;font-size:15px;font-weight:500;color:var(--body);order:2;margin-left:auto}
+nav{display:none;gap:30px;font-size:15px;font-weight:500;color:var(--body);margin-left:auto}
 @media(min-width:1140px){nav{display:flex}}
 nav a{position:relative;padding:3px 0}
 nav .nd>a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;
   background:var(--green);transform:scaleX(0);transform-origin:0 50%;transition:transform .4s var(--e)}
 nav .nd>a:hover::after,nav a.on::after{transform:scaleX(1)}
 nav a.on{color:var(--ink);font-weight:600}
-.hr{display:flex;align-items:center;gap:10px;flex:none;order:3}
+.hr{display:flex;align-items:center;gap:10px;flex:none}
 @media(max-width:1139px){.hr{margin-left:auto}}
 
 /* ---------------------------------------------- buttons */
@@ -384,6 +384,8 @@ footer :where(a,button):focus-visible{outline-color:var(--green)}
 /* drawer links take a thumb */
 @media(max-width:1139px){header.open nav .dd a{padding:13px 0 13px 16px}}
 
+header.open ~ .chatb,header.open ~ .chatp{display:none}
+
 /* ============ home hero: the program traveller ============ */
 .xh2{background:var(--paper);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
 .xh2::before{content:"";position:absolute;inset:0;pointer-events:none;
@@ -504,6 +506,7 @@ figure.wide figcaption{margin-top:14px;font-size:14.5px;line-height:1.5;color:va
 .sheet.plain li{padding-left:0}
 .sheet.plain ol::before,.sheet.plain ol::after{display:none}
 /* ============ the record book: the traveller, closed ============ */
+.src{margin:20px 0 0;max-width:68ch;font-size:14px;line-height:1.5;color:var(--faint)}
 .prov{margin:26px 0 0;max-width:68ch;font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.55)}
 .book{background:var(--paper-2)}
 .bhead{display:grid;gap:4px clamp(36px,4vw,64px)}
@@ -566,7 +569,7 @@ nav .nd{position:relative}
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header><div class="wrap"><a class="logo" href="index.html"><img src="hylex-logo.png" alt="Hylex Energy Consulting" width="300" height="88"></a><div class="hr"><a class="btn p" href="contact.html">Send an enquiry</a><button type="button" class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button></div><nav id="nav"><div class="nd"><a href="services.html">What we do</a><div class="dd"><a href="services.html">Fabrication programs</a><a href="engineering.html">Engineering</a><a href="procurement.html">Procurement</a><a href="digital.html">Project controls</a></div></div><div class="nd"><a href="capability.html">Capability</a><div class="dd"><a href="capability.html">Fabrication scope</a><a href="capability.html#qa">Quality and inspection</a><a href="capability.html#sectors">Sectors</a></div></div><div class="nd"><a href="network.html">Global network</a><div class="dd"><a href="network.html">Overview</a><a href="hub-china.html">China hub</a><a href="hub-vietnam.html">Vietnam hub</a><a href="hub-mexico.html">Mexico hub</a><a href="network.html#houston">Houston</a></div></div><div class="nd"><a href="industrial-ai.html">Industrial AI</a></div><div class="nd"><a href="about.html">About</a><div class="dd"><a href="about.html">Company</a><a href="faq.html">FAQ</a></div></div><div class="nd"><a href="insights.html">Insights</a></div><div class="nd"><a href="contact.html">Contact</a></div></nav></div></header>
+<header><div class="wrap"><a class="logo" href="index.html"><img src="hylex-logo.png" alt="Hylex Energy Consulting" width="300" height="88"></a><nav id="nav"><div class="nd"><a href="services.html">What we do</a><div class="dd"><a href="services.html">Fabrication programs</a><a href="engineering.html">Engineering</a><a href="procurement.html">Procurement</a><a href="digital.html">Project controls</a></div></div><div class="nd"><a href="capability.html">Capability</a><div class="dd"><a href="capability.html">Fabrication scope</a><a href="capability.html#qa">Quality and inspection</a><a href="capability.html#sectors">Sectors</a></div></div><div class="nd"><a href="network.html">Global network</a><div class="dd"><a href="network.html">Overview</a><a href="hub-china.html">China hub</a><a href="hub-vietnam.html">Vietnam hub</a><a href="hub-mexico.html">Mexico hub</a><a href="network.html#houston">Houston</a></div></div><div class="nd"><a href="industrial-ai.html">Industrial AI</a></div><div class="nd"><a href="about.html">About</a><div class="dd"><a href="about.html">Company</a><a href="faq.html">FAQ</a></div></div><div class="nd"><a href="insights.html">Insights</a></div><div class="nd"><a href="contact.html">Contact</a></div></nav><div class="hr"><a class="btn p" href="contact.html">Send an enquiry</a><button type="button" class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button></div></div></header>
 <main id="main">
 <section class="pb"><div class="wrap"><div class="crumb"><a href="index.html">Home</a> · Not found</div><div class="eb" style="margin-top:14px">404</div><h1>That page is not here</h1><p>The link may be from an older version of this site. The sections below cover everything on it.</p></div></section><section class="s"><div class="wrap"><div class="doors">
 <div class="door"><div class="eb">What we do</div><h3>Fabrication managed end to end</h3><p>Engineering, procurement, fabrication delivery and project controls for EPCs and owners.</p><div class="lk"><a href="services.html">What we do ›</a><a href="capability.html">Capability ›</a></div></div>
@@ -611,9 +614,8 @@ function start(){if(poll)return;poll=setInterval(check,4000);setTimeout(function
 b.onclick=function(){p.hidden=!p.hidden;b.setAttribute('aria-expanded',p.hidden?'false':'true');if(!p.hidden){f.text.focus();if(st.log.length)start()}};var tc=document.getElementById('tabchat');if(tc)tc.onclick=function(e){e.preventDefault();b.onclick()};document.getElementById('chatx').onclick=function(){p.hidden=true;b.setAttribute('aria-expanded','false');b.focus()};
 document.addEventListener('keydown',function(e){if(e.key!=='Escape')return;
 if(!p.hidden){p.hidden=true;b.setAttribute('aria-expanded','false');b.focus();return}
-var hd=document.querySelector('header');if(hd&&hd.classList.contains('open')){hd.classList.remove('open');
-var mn=document.getElementById('main');if(mn)mn.removeAttribute('inert');document.body.style.overflow='';
-var bg=hd.querySelector('.burger');if(bg){bg.setAttribute('aria-expanded','false');bg.focus()}}});
+var hd=document.querySelector('header');if(hd&&hd.classList.contains('open')&&window.__hxDrawer){window.__hxDrawer(false);
+var bg=hd.querySelector('.burger');if(bg)bg.focus()}});
 f.onsubmit=function(e){e.preventDefault();var t=f.text.value.trim();if(!t)return;add('v',t);f.text.value='';start();send(t).then(function(ok){if(ok&&!st.acked){st.acked=1;save();add('m',tx('ct-ack'));if(!st.email)em.hidden=false}if(ok)autoAns(t)});
 if(!st.replied&&!st.email&&!waitT){waitT=setTimeout(function(){if(!st.replied)em.hidden=false},120000)}};
 f.text.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();f.requestSubmit()}});
@@ -632,11 +634,13 @@ var f=document.getElementById('inq');if(f){[['s',s],['r',rv||'']].forEach(functi
 f.addEventListener('focusin',function(){ev('form_start',1)});f.addEventListener('submit',function(){ev('form_sent',1)})}}catch(e){}})();</script><script>
 (function(){var h=document.querySelector('header'),b=h&&h.querySelector('.burger');if(!b)return;
 var mainEl=document.getElementById('main');
-b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');
-if(mainEl){if(o){mainEl.setAttribute('inert','')}else{mainEl.removeAttribute('inert')}}
-document.body.style.overflow=o?'hidden':'';});
-h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');b.setAttribute('aria-expanded','false');
-if(mainEl)mainEl.removeAttribute('inert');document.body.style.overflow='';});});
+var footEl=document.querySelector('footer'),fabEl=document.getElementById('chatb');
+function drawer(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');
+[mainEl,footEl,fabEl].forEach(function(el){if(!el)return;if(o){el.setAttribute('inert','')}else{el.removeAttribute('inert')}});
+document.body.style.overflow=o?'hidden':'';
+if(o){var first=h.querySelector('nav a');if(first)first.focus()}}
+b.addEventListener('click',function(){drawer(!h.classList.contains('open'))});window.__hxDrawer=drawer;
+h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){drawer(false)});});
 })();
 </script>
 

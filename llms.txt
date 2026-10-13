@@ -5,12 +5,13 @@
 ## Key facts
 - Four services: engineering and design, global procurement, fabrication delivery, project controls and lifecycle reporting
 - Houston holds the client interface, engineering coordination, procurement and QA; the hubs hold the capacity, the yards and the load out
+- Capacity attribution: every tonnage, dia-inch and square metre figure below is nameplate capacity declared by the partner workshops and checked on audit. It is capacity available to a Hylex managed program, not Hylex output, and Hylex does not own the yards
 - Pipe spooling over 250,000 dia-inches a month across the workshops
 - Structural steel and platework over 50,000 tons a year
 - Pressure vessels and columns to 8 m diameter and 150 mm wall, single units over 300 tons
-- Pre assembled modules over 1,000 tons and up to 32 m long
+- Pre assembled modules 1,000 to 3,000 tons and up to 32 m long
 - Over 16,000 m2 of surface preparation and coating, including TSA, FBE, epoxy and galvanizing
-- Over 500 prequalified manufacturers and OEMs; strategic sourcing saves 20 to 40 percent against local procurement
+- Over 500 prequalified manufacturers and OEMs; strategic sourcing gives an indicative 20 to 40 percent saving against local procurement, priced per scope rather than guaranteed
 - Fabricated and tested to ASME, API, PED, EN, ISO, NORSOK M-501 and ISO 12944
 - China hub: over 200,000 dia-inches a month, over 40,000 tons a year structural, modules to 3,000 tons
 - Vietnam hub: 195,000 m2 yard, 31,000 m2 covered workshops, 260 t gantry cranes, 312 m private jetty with 10,000 DWT load out
@@ -27,7 +28,7 @@
 - [Procurement | Hylex Energy Consulting](https://www.hylexenergy.com/procurement): Global sourcing with vendor qualification, audits, expediting and logistics. Over 500 prequalified manufacturers across China, Vietnam and Mexico, compliant to ASME, API, PED and IEC.
 - [Fabrication capability | Hylex Energy Consulting](https://www.hylexenergy.com/capability): Pipe spooling over 250,000 dia-inches a month, 50,000 tons a year of structural steel, pressure vessels to 8 m diameter, modules over 1,000 tons, with integrated QA, NDE and digital reporting.
 - [Global network | Hylex Energy Consulting](https://www.hylexenergy.com/network): Houston headquarters with fabrication and engineering hubs in China, Vietnam and Mexico. Capacity, yards, load out and trade position for EPC and owner projects.
-- [China fabrication and engineering hub | Hylex Energy Consulting](https://www.hylexenergy.com/hub-china): China fabrication and engineering hub: over 200,000 dia-inches of pipe spooling a month, 40,000 tons a year of structural steel, vessels to 8 m diameter and modules over 3,000 tons.
+- [China fabrication and engineering hub | Hylex Energy Consulting](https://www.hylexenergy.com/hub-china): China fabrication and engineering hub: over 200,000 dia-inches of pipe spooling a month, 40,000 tons a year of structural steel, vessels to 8 m diameter and modules to 3,000 tons.
 - [Vietnam fabrication and engineering hub | Hylex Energy Consulting](https://www.hylexenergy.com/hub-vietnam): Vietnam fabrication hub: 195,000 m² yard, 312 m private jetty, 260 t gantry cranes, over 20,000 tons a year of structural steel and 180,000 dia-inches of pipe spooling.
 - [Mexico fabrication and engineering hub | Hylex Energy Consulting](https://www.hylexenergy.com/hub-mexico): Mexico fabrication hub at Monterrey: 4,000 to 5,000 spools a month, 34,000 factored dia-inches a week, an 11 hectare yard and a 100,000 sq ft coating facility, inside USMCA.
 - [Project controls | Hylex Energy Consulting](https://www.hylexenergy.com/digital): Weld inch tracking, progress by piece and by weight from the shop's own records, NDE and inspection against the ITP, material traceability and a digital manufacturing record book.
