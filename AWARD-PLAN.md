@@ -57,3 +57,12 @@ Benchmark against current SOTD winners. Loop until three clean rounds, no gate f
   restored to colour with a common grade. RULE: Hylex must never share USP's visual
   architecture, not just its palette. USP leads on product photography, Hylex leads on the
   program. Still staged, not deployed.
+- 2026-10-13 Alex on the photo question: "we don't really need real shop photo right? We are not
+  locked in in shops....." He is right and it is a positioning rule, not a preference. Hylex does
+  not own yards, so a yard photo in the hero claims one, which is USP's claim. That was the real
+  root of the resemblance. RULE: Hylex leads on the program (network, lifecycle, record book,
+  weld inch tracking, dashboards), never on shop photography. Photos are evidence on the network
+  and capability pages, never the identity. This also voids the earlier request for 2400px photos.
+- 2026-10-13 Alex rejected Bricolage Grotesque ("hell no"), left the replacement to me. Commit
+  d59ab9f: Barlow Semi Condensed display + Barlow text, chosen from six candidates rendered at
+  headline scale. Geist and Familjen Grotesk ruled out as too close to Inter (USP's face).

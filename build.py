@@ -28,7 +28,7 @@ EXTRA_CSS = r"""
   background:radial-gradient(58% 70% at 88% 0%,rgba(0,196,106,.07),transparent 72%)}
 .xh2 .wrap{padding-top:clamp(44px,5.6vw,80px);padding-bottom:clamp(34px,4vw,56px)}
 .xh2 .g{display:grid;gap:clamp(34px,4vw,64px);align-items:start}
-@media(min-width:1000px){.xh2 .g{grid-template-columns:1.22fr .88fr}}
+@media(min-width:1000px){.xh2 .g{grid-template-columns:1.18fr .82fr;align-items:stretch}}
 .xh2 .top{font-size:14.5px;color:var(--faint);display:flex;gap:8px 22px;flex-wrap:wrap;align-items:center}
 .xh2 .top b{color:var(--green-t);font-weight:500;display:inline-flex;align-items:center;gap:8px}
 .xh2 .top b::before{content:"";width:7px;height:7px;background:var(--green);
@@ -41,23 +41,34 @@ EXTRA_CSS = r"""
   line-height:1.6;color:var(--body)}
 .xh2 .cta{margin:clamp(26px,2.6vw,34px) 0 0}
 /* the program sheet: four stations on one line, drawn like a title block */
+.hshot{position:relative;overflow:hidden;background:var(--paper-3);min-height:340px}
+.hshot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.92) contrast(1.06);transform:scale(1.02);transition:transform 2.4s var(--e)}
+.xh2.in .hshot img{transform:scale(1)}
+.hshot figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;color:#fff;
+  font-size:14px;background:linear-gradient(0deg,rgba(11,15,16,.82),transparent)}
+@media(max-width:999px){.hshot{min-height:260px;aspect-ratio:16/10}}
 .sheet{border:1px solid var(--line);background:#fff}
 .sheet .hd{display:flex;justify-content:space-between;align-items:center;gap:12px;
   padding:14px 18px;border-bottom:1px solid var(--line);font-size:14px;color:var(--faint)}
 .sheet .hd b{color:var(--ink);font-weight:500}
-.sheet ol{list-style:none;margin:0;padding:6px 18px 18px;position:relative;counter-reset:st}
+.sheet ol{list-style:none;margin:0;padding:6px 20px 18px;position:relative;counter-reset:st}
+@media(min-width:900px){.sheet ol{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;padding-bottom:22px}
+.sheet ol::before,.sheet ol::after{display:none}
+.sheet li+li{border-top:0}
+.sheet li:nth-child(n+3){border-top:1px solid var(--line)}}
 .sheet ol::before{content:"";position:absolute;left:25px;top:25px;bottom:30px;width:1px;background:var(--line-2)}
 .sheet ol::after{content:"";position:absolute;left:25px;top:24px;width:1px;background:var(--green);
   height:0;transition:height 1.5s var(--e) .3s}
-.xh2.in .sheet ol::after{height:calc(100% - 54px)}
+section.s.in .sheet ol::after{height:calc(100% - 54px)}
 .sheet li{position:relative;padding:15px 0 15px 46px}
 .sheet li+li{border-top:1px solid var(--line)}
 .sheet li::before{content:"";position:absolute;left:21px;top:21px;width:9px;height:9px;background:var(--green);
   opacity:0;transform:scale(.3);transition:opacity .5s var(--e),transform .5s var(--e)}
-.xh2.in .sheet li:nth-child(1)::before{opacity:1;transform:scale(1);transition-delay:.45s}
-.xh2.in .sheet li:nth-child(2)::before{opacity:1;transform:scale(1);transition-delay:.75s}
-.xh2.in .sheet li:nth-child(3)::before{opacity:1;transform:scale(1);transition-delay:1.05s}
-.xh2.in .sheet li:nth-child(4)::before{opacity:1;transform:scale(1);transition-delay:1.35s}
+section.s.in .sheet li:nth-child(1)::before{opacity:1;transform:scale(1);transition-delay:.45s}
+section.s.in .sheet li:nth-child(2)::before{opacity:1;transform:scale(1);transition-delay:.75s}
+section.s.in .sheet li:nth-child(3)::before{opacity:1;transform:scale(1);transition-delay:1.05s}
+section.s.in .sheet li:nth-child(4)::before{opacity:1;transform:scale(1);transition-delay:1.35s}
 .sheet i{display:block;font-style:normal;font-size:13.5px;color:var(--faint);margin-bottom:5px}
 .sheet b{display:block;font-size:17.5px;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin-bottom:4px}
 .sheet span{display:block;font-size:14.5px;line-height:1.45;color:var(--mute)}
@@ -281,13 +292,7 @@ def home():
 <p class="sub">Hylex takes complete ownership of fabrication execution for EPC companies and asset owners. Engineering, global procurement, fabrication and project controls, under one owner from concept to commissioning.</p>
 <div class="cta"><a class="btn p" href="contact.html"><span>Send us the scope</span></a><a class="btn" href="services.html"><span>What we do</span></a></div>
 </div>
-<div class="sheet"><div class="hd"><b>The network</b><span>Houston decides, the hubs build</span></div>
-<ol>
-<li><i>01 · Houston, Texas</i><b>The interface</b><span>Client contact, engineering coordination, procurement and QA.</span></li>
-<li><i>02 · China</i><b>Heavy fabrication</b><span>Full capability, mega module assembly, engineering support.</span></li>
-<li><i>03 · Vietnam</i><b>Yard and jetty</b><span>Heavy structural, modular assembly, deep sea load out.</span></li>
-<li><i>04 · Mexico</i><b>Nearshore</b><span>Monterrey spooling and coating, inside USMCA.</span></li>
-</ol></div>
+<figure class="hshot"><img src="img-piperacks.jpg" alt="Galvanised pipe racks and spools laid out in the fabrication shop" fetchpriority="high" width="784" height="1125"><figcaption>Pipe racks and spools, shop assembled before load out</figcaption></figure>
 </div>
 <div class="life">
 <div><i>01</i><b>FEED and design</b></div>
@@ -326,6 +331,13 @@ def home():
 
 <section class="s"><div class="wrap"><div class="eb">Global network</div><h2>Houston decides. The hubs build.</h2>
 <p class="lead">Houston holds the client interface, the engineering coordination and the procurement. The fabrication hubs carry the capacity, the yards and the load out.</p>
+<div class="sheet" style="margin-bottom:clamp(30px,3.4vw,46px)"><div class="hd"><b>The network</b><span>Who does what, and where</span></div>
+<ol>
+<li><i>01 · Houston, Texas</i><b>The interface</b><span>Client contact, engineering coordination, procurement and QA.</span></li>
+<li><i>02 · China</i><b>Heavy fabrication</b><span>Full capability, mega module assembly, engineering support.</span></li>
+<li><i>03 · Vietnam</i><b>Yard and jetty</b><span>Heavy structural, modular assembly, deep sea load out.</span></li>
+<li><i>04 · Mexico</i><b>Nearshore</b><span>Monterrey spooling and coating, inside USMCA.</span></li>
+</ol></div>
 <div class="pcards p3">
 <figure><div class="im"><img src="img-hub-china.jpg" alt="China fabrication and engineering hub" loading="lazy" width="800" height="600"></div><figcaption><b>China</b><p>Full fabrication capability, heavy yard and mega module assembly, procurement and engineering support.</p></figcaption></figure>
 <figure><div class="im"><img src="img-hub-vietnam.jpg" alt="Vietnam fabrication hub yard and jetty" loading="lazy" width="800" height="600"></div><figcaption><b>Vietnam</b><p>Heavy structural fabrication, modular assembly and a private jetty with deep sea load out. Tariff resilient.</p></figcaption></figure>
