@@ -75,3 +75,33 @@ Benchmark against current SOTD winners. Loop until three clean rounds, no gate f
   Also fixed: the 01-07 rail orphaned its dots when it wrapped on phone.
   OPEN: the hero has no signature moment. Proposal is to let the seven step program line drive
   the hero rather than sit under it. Put to Alex, awaiting his call.
+
+## 2026-10-13, round 2: the traveller
+
+Alex asked for 8.5 plain average. Round 1 of the rebuilt hero scored **7.33 and 7.80** from two
+independent blind jurors (up from 6.4). Both named the same three faults and both were right.
+
+**The device.** Every fabricated piece carries a traveller: a sheet that follows the steel station
+to station and is stamped at each one. Hylex does not own the steel in the photograph, it owns the
+sheet. So the sheet runs the hero: seven stations down the left, each stamping its real deliverable
+(ITP, IFC, MTR, WPS, NDE, DFT, MDR) on load. Claim in the middle, work as evidence on the right.
+A juror's words: "the rare B2B page where the idea and the business model are the same object."
+
+**Faults found and fixed**
+- Two hub photos were deck thumbnails rendered at ~5x. Root cause was general: the HTML `height`
+  attribute was overriding `aspect-ratio` on every `.pcards img` site wide, forcing 372x600 boxes.
+  Fixed with `height:auto`. No sharper hub source exists in the deck, so the home page now runs one
+  sharp photograph (img-structural.jpg, 16.565 T stencilled on the web) beside three hard facts.
+- The traveller was spent by section 02. Stations are links now, each code spells itself out in the
+  row (`title=` does not exist on touch), and the page closes on the record book: the MDR contents
+  at handover, stamped station by station.
+- Three competing 01-0n sequences (stations, section counters, network rows). Now one: a number
+  means a station. The fixed `.prog` scroll bar was removed, it was a progress bar wearing the
+  idea's name and every template has it.
+
+**Still open, needs Alex**
+- Zero named proof: no client, no project, no reference. Biggest content gap, cannot be invented.
+- `+1 (609) 917-0633` is a New Jersey area code on a page arguing "Houston decides".
+
+**Lesson, again.** Self-scores run about a point high. Two independent blind jurors disagreed with
+each other by 0.5, so run two, average them, and never quote your own number.
