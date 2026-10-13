@@ -1,0 +1,40 @@
+# hylexenergy.com, award standard rebuild
+
+Alex, 2026-10-13: "品質標準以 awwwards、webby awards、FWA 獲得獎項的程度為目標，透過自我檢查，反覆自行提升品質，直到達到該品質標準為止。"
+
+## Baseline measured 2026-10-13
+- Jury rubric (Awwwards): Design 40, Usability 30, Creativity 20, Content 10. SOTD ~8.0.
+- Self score today: ~5.5. Usability and content pass, design and creativity fail.
+- Named failures: raster logo with swoosh clipping "Energy"; Inter only, no display face;
+  every section the same centred container and rhythm; zero motion; unedited photos in rounded
+  cards, mixed colour temperature; default energy green.
+- Strength to protect: 321 KB, 10 requests, TTFB 77 ms, FCP 308 ms. Award winners ship 4 to 8 MB.
+
+## The idea
+The program line. One continuous hairline route through the site, FEED to commissioning and
+Houston to Tianjin to Vietnam to Monterrey. Scroll advances along it. Art direction is engineering
+drawing: hairline grid, mono annotations over duotone industrial photography, program data as
+decoration. True to what Hylex sells (weld inch tracking, program visibility).
+
+## Phases
+1. Design system: vector logo redraw, display face + Inter, colour, 8pt grid, motion tokens
+2. Home rebuilt on the idea
+3. Global network page as the interactive route map (the FWA piece)
+4. Remaining 15 pages onto the system
+5. Motion pass: scroll choreography, page transitions, prefers-reduced-motion fallback
+6. Gates: Lighthouse 95+, CLS < 0.05, AA contrast, 390 phone, Safari + Firefox, SEO parity
+
+## Self check loop
+Playwright captures every page at 1440/1024/390, full page + 6 scroll stops + scroll video.
+Score each page against the jury rubric into `award-ledger/`. Rework anything under 8.0.
+A fresh reviewer agent that did not build it scores the same screenshots blind.
+Benchmark against current SOTD winners. Loop until three clean rounds, no gate failing.
+
+## Constraints
+- Motion layers on top of static HTML. Enquiry path never behind an animation. 800 KB budget.
+- Stays on build.py + plain HTML/CSS, no framework.
+- Hylex content only. Never mixes with USP.
+
+## Open with Alex
+- Logo: original vector, or I redraw the mark.
+- Quality bar only, or actual paid submission with a jury page. Assuming quality bar.
