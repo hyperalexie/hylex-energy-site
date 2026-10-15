@@ -8,7 +8,7 @@ run from Houston through the China, Vietnam and Mexico hubs.
 Run: python3 build.py   (writes the html, sitemap and the vercel redirect whitelist)
 Shared css, chat widget, tracking and the enquiry form live in parts/. Posts in posts.json.
 """
-import json, html, datetime
+import json, html, datetime, re
 
 SITE = "https://www.hylexenergy.com"
 EMAIL = "amac@hylexenergy.com"
@@ -365,6 +365,7 @@ def page(fn, title, desc, body, active, ld=None):
 {TAIL}
 <script defer src="/_vercel/speed-insights/script.js"></script>
 </body></html>"""
+    doc = re.sub(r'href="([a-z0-9-]+)\.html(#[^"]*)?"', lambda m: 'href="/' + ('' if m.group(1) == 'index' else m.group(1)) + (m.group(2) or '') + '"', doc)
     open(fn, "w").write(doc)
     return url
 
@@ -990,11 +991,11 @@ def main():
     names = sorted({u.rsplit("/", 1)[-1] for u in urls if u.rsplit("/", 1)[-1]})
     keep = names + ["index", "404", "hylex-logo", "favicon", "img-", "og-card", "robots", "sitemap",
                     "llms", "_vercel", "api/", r"[0-9a-f]{32}\.txt"]
-    csp = ("default-src 'self'; img-src 'self' data:; "
+    csp = ("default-src 'self'; img-src 'self' data:" + (" https://*.google-analytics.com https://*.googletagmanager.com" if GA_ID else "") + "; "
            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
            "font-src 'self' https://fonts.gstatic.com; "
-           "script-src 'self' 'unsafe-inline'; "
-           "connect-src 'self' https://*.vercel-insights.com; "
+           "script-src 'self' 'unsafe-inline'" + (" https://www.googletagmanager.com" if GA_ID else "") + "; "
+           "connect-src 'self' https://*.vercel-insights.com" + (" https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com" if GA_ID else "") + "; "
            "frame-ancestors 'self'; base-uri 'self'; form-action 'self'")
     cfg = {
         "cleanUrls": True,
