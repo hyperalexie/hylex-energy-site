@@ -17,6 +17,24 @@ TEL_CN = "+86 183 2278 0729"
 e = html.escape
 TODAY = datetime.date.today().isoformat()
 
+# Google Analytics 4. Empty string means no tag is emitted at all, which is how the site shipped
+# until 2026-10-15. Consent defaults deny advertising storage and keep analytics only, the same shape
+# as usp-china.com. Our own QA tooling blocks these endpoints, so a gate run is never counted as a
+# visitor: that mistake put 133 of 148 USP "visits" on 12 Oct down to this server.
+GA_ID = "G-TX77X57GTH"
+
+def ga_tag():
+    if not GA_ID:
+        return ""
+    return ('<script async src="https://www.googletagmanager.com/gtag/js?id=' + GA_ID + '"></script>'
+            '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}'
+            "gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});"
+            "gtag('js',new Date());gtag('config','" + GA_ID + "');"
+            "document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href')||'';"
+            "if(h.indexOf('mailto:')===0)gtag('event','email_click');else if(h.indexOf('tel:')===0)gtag('event','phone_click');"
+            "else if(h.indexOf('wa.me')>-1)gtag('event','whatsapp_click')},true);</script>")
+
+
 BASE_CSS = open("parts/base.css").read()
 TAIL = open("parts/tail.html").read()
 FORM = open("parts/form.html").read()
@@ -335,7 +353,7 @@ def page(fn, title, desc, body, active, ld=None):
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{OG}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
-<style>{BASE_CSS}{EXTRA_CSS}</style></head>
+<style>{BASE_CSS}{EXTRA_CSS}</style>{ga_tag()}</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 {ldj}
