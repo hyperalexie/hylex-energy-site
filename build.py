@@ -332,7 +332,51 @@ def service_ld(name, desc, path):
 PAGE_INDEX = []
 
 
+# Titles under 60 characters so Google shows them whole, descriptions 140 to 160 so none is
+# padded or cut, one keyword per page and no two pages sharing a title. Written 2026-10-20 after
+# the usp-china.com traffic review: both sites were ranking on nothing.
+SEO = {
+ "index.html": ("Global Fabrication and Procurement for EPCs | Hylex Energy",
+  "End to end fabrication program management for EPC companies and asset owners: engineering, procurement, fabrication and project controls in Asia and Mexico."),
+ "services.html": ("Fabrication Sourcing and Project Delivery | Hylex Energy",
+  "Fabrication program management, procurement and vendor ownership, technical and QA oversight, and project controls for EPC companies and asset owners."),
+ "engineering.html": ("Engineering for Fabricated Equipment | Hylex Energy",
+  "FEED, 3D modelling, detailed design and shop drawings, with pressure vessel and structural engineering to ASME, EN and PED, plus separation and water packages."),
+ "procurement.html": ("Procurement from Asia and Mexico for EPCs | Hylex Energy",
+  "Global sourcing with vendor qualification, audits, expediting and logistics across China, Vietnam and Mexico, compliant to ASME, API, PED and IEC standards."),
+ "capability.html": ("Fabrication Capability: Spools, Vessels, Modules | Hylex",
+  "Pipe spooling, structural steel, pressure vessels to 8 m diameter and modules over 1,000 tons, with integrated QA, NDE and digital progress reporting."),
+ "hub-china.html": ("China Fabrication and Engineering Hub | Hylex Energy",
+  "The China hub: over 200,000 dia-inches of pipe spooling a month, 40,000 tons a year of structural steel, vessels to 8 m diameter and modules to 3,000 tons."),
+ "hub-vietnam.html": ("Vietnam Fabrication and Engineering Hub | Hylex Energy",
+  "The Vietnam hub: a 195,000 m² yard with a 312 m private jetty, 260 t gantry cranes, 20,000 tons a year of structural steel and 180,000 dia-inches of spooling."),
+ "hub-mexico.html": ("Mexico Fabrication Hub at Monterrey | Hylex Energy",
+  "The Monterrey hub: 4,000 to 5,000 spools a month, 34,000 factored dia-inches a week, an 11 hectare yard and a 100,000 sq ft coating facility, inside USMCA."),
+ "network.html": ("Global Fabrication Network, Houston to Asia | Hylex",
+  "Houston headquarters with fabrication and engineering hubs in China, Vietnam and Mexico: capacity, yards, load out and trade position for EPC and owner work."),
+ "digital.html": ("Project Controls and Expediting for Fabrication | Hylex",
+  "Weld inch tracking, progress by piece and by weight from the shop records, NDE against the ITP, material traceability and a digital manufacturing record book."),
+ "industrial-ai.html": ("Industrial AI for Fabrication and Procurement | Hylex",
+  "Estimating and take off, sales pipeline, shop floor tracking and a private AI agent on your own server, set up for fabricators, suppliers and distributors."),
+ "about.html": ("About Hylex Energy Consulting | Houston, Texas",
+  "Hylex Energy Consulting, Energy Corridor, Houston TX: end to end fabrication program management for EPC companies and asset owners through a global network."),
+ "contact.html": ("Contact Hylex Energy | Request a Fabrication Quote",
+  "Houston TX and Tianjin, China. Send drawings, specifications or a material list for fabrication and procurement pricing, and we reply within one working day."),
+ "faq.html": ("FAQ for EPCs and Owners | Hylex Energy Consulting",
+  "Codes and standards, quality control and ITP, fabrication capacity, shipping and load out, tariff and trade risk, and what Hylex needs in order to quote."),
+ "insights.html": ("Insights on Fabrication Sourcing | Hylex Energy",
+  "Notes on sourcing fabricated equipment from Asia and Mexico: landed pricing, reading bid packages, vendor qualification and project control systems."),
+ "insight-landed-price-from-asia.html": ("What a Landed Price from Asia Should Include | Hylex",
+  "Seven cost lines that separate a real delivered price from a shop quote, and how to compare offers from Asia fairly before you award the fabrication."),
+ "insight-reading-a-bid-package.html": ("Reading a 300 Page Bid Package in a Day | Hylex Energy",
+  "AI reads every page and cites it, a person checks the result, and what comes out is a scope sheet a fabricator can actually price without a second pass."),
+ "404.html": ("Page not found | Hylex Energy Consulting",
+  "That page is not on this site. Find global fabrication, procurement and project delivery for EPC companies and asset owners from Hylex Energy Consulting."),
+}
+
+
 def page(fn, title, desc, body, active, ld=None):
+    title, desc = SEO.get(fn, (title, desc))
     url = f"{SITE}/" + ("" if fn == "index.html" else fn.replace(".html", ""))
     if fn != "404.html":
         PAGE_INDEX.append((title, desc, url))
